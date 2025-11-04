@@ -28,11 +28,9 @@ export default function Onboarding({ onFinish }: { onFinish: () => void }) {
       }, 1800);
       return () => clearTimeout(timer);
     } else {
-      // Fade out before finishing
-      setTimeout(() => {
-        setVisible(false);
-        setTimeout(onFinish, 400);
-      }, 600);
+      // Immediately finish
+      setVisible(false);
+      onFinish();
     }
   }, [step, onFinish]);
 

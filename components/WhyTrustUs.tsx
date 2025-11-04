@@ -48,7 +48,7 @@ const WhyTrustUs = () => {
     <div className="grid grid-cols-3 gap-5">
       {reasons.map((reason, index) => (
         <div
-          className="flex items-center flex-col justify-center py-14 gradient-border cursor-pointer h-[200px]"
+          className="flex items-center flex-col justify-center py-24 gradient-border cursor-pointer h-[200px]"
           key={index}
           onMouseEnter={() => setHoveredIndex(index)}
           onMouseLeave={() => setHoveredIndex(null)}
@@ -79,7 +79,7 @@ const WhyTrustUs = () => {
                 />
                 <Text
                   type="body"
-                  className="mt-4 text-center font-semibold text-xl text-[#A7C8FF]"
+                  className="mt-4 text-center font-semibold text-xl text-[#A7C8FF] px-12"
                 >
                   {reason.text}
                 </Text>

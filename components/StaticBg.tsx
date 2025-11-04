@@ -1,12 +1,12 @@
 import React, { PropsWithChildren } from "react";
-import Image from "next/image";
 
 const StaticBg = ({ children }: PropsWithChildren) => {
   return (
     <div
-      className="relative w-full h-screen bg-[#0b0b15] overflow-hidden overflow-y-scroll"
+      className="relative w-full h-screen bg-[#060610] overflow-hidden flex flex-col"
       style={{ scrollbarWidth: "none" }}
     >
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-[#060610] z-10" />
       <svg
         className="absolute inset-0 w-full h-full object-cover opacity-75"
         viewBox="0 0 1280 832"
