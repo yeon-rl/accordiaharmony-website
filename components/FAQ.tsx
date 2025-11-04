@@ -37,7 +37,7 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center bg-[#0A0B0E] px-4 py-20 text-white">
+    <section className="flex flex-col items-center justify-center text-white my-10 w-full">
       <div className="w-full space-y-3">
         {faqs.map((faq, index) => {
           const isActive = activeIndex === index;
@@ -45,14 +45,14 @@ const FAQSection = () => {
             <div
               key={index}
               onClick={() => toggleFAQ(index)}
-              className={`bg-[#1C1C1C] rounded-2xl px-6 py-5 cursor-pointer transition-all duration-300 border border-transparent hover:border-[#1C1C1C]/80 relative`}
+              className={`bg-[#FFFFFF1A] rounded-2xl px-6 py-5 cursor-pointer transition-all duration-300 border border-transparent hover:border-[#1C1C1C]/80 relative`}
             >
               <div className="flex justify-between items-center ">
                 {isActive ? (
                   <div className="h-6 w-1 bg-[#646FC6] absolute left-0"></div>
                 ) : null}
                 <h3
-                  className={`text-base md:text-lg font-medium transition-colors ${
+                  className={`text-base font-medium transition-colors ${
                     isActive ? "text-[#4285F4]" : "text-white"
                   }`}
                 >

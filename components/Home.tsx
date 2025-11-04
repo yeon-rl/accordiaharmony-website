@@ -79,6 +79,7 @@ const Home = () => {
       {/* <Navbar /> */}
 
       <section className="w-[90%] max-w-360 mx-auto relative z-100">
+        {/* why trust us */}
         <div className="flex flex-col items-center justify-center -mt-40">
           <Header number={3} title="Why Trust Us?" />
 
@@ -99,13 +100,79 @@ const Home = () => {
           </div>
         </div>
 
-        <Services />
-
-        <div className="flex flex-col items-center bg-[url('/images/grid.png')] py-10">
-          <Testimonial />
+        {/* Products */}
+        <div className="flex items-center gap-10 max-w-5xl mx-auto my-48">
+          <div className="w-1/2 flex items-center justify-center">
+            <div className="relative w-full">
+              <Image
+                src="/images/phone.png"
+                alt="Product 1"
+                width={1000}
+                height={1000}
+                className="w-[400px] h-auto object-contain ml-auto"
+              />
+            </div>
+          </div>
+          <div className="w-1/2">
+            <Header number={2} title="Our Products" />
+            <Text type="subheading" className="font-normal! text-4xl!">
+              Empowering Futures Through Purpose-Driven Products
+            </Text>
+            <Text>
+              From digital platforms like LifeSkills Connect to community-led
+              initiatives, Accordia builds tools that equip young people to
+              learn, grow, and thrive.
+            </Text>
+          </div>
         </div>
 
-        <FAQSection />
+        {/* Services */}
+        <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justuify-center">
+            <Header number={2} title="Our Services" />
+            <Text
+              type="subheading"
+              className="font-normal! text-4xl! text-center"
+            >
+              Empowering Young People Through Proven Support, Real Partnerships,
+              and Lifelong Guidance
+            </Text>
+          </div>
+
+          <div className="max-w-5xl mx-auto">
+            <Services />
+          </div>
+        </div>
+
+        <div className="flex flex-col items-center bg-[url('/images/grid.png')] py-20 my-32">
+          {/* Testimonial */}
+          <div>
+            <div className="flex flex-col items-center justuify-center">
+              <Header number={5} title="Testimonials" />
+              <Text
+                type="subheading"
+                className="font-normal! text-4xl! text-center mb-8"
+              >
+                Real feedback from Connect Users
+              </Text>
+            </div>
+            <Testimonial />
+          </div>
+        </div>
+        {/* FAQ */}
+        <div className="my-40 w-[90%] max-w-5xl mx-auto">
+          <div className="flex flex-col items-center justify-center">
+            <Header number={6} title="FAQ" />
+            <Text
+              type="subheading"
+              className="font-normal! max-w-3xl text-center mb-3"
+            >
+              Got questions ? We’ve got answers
+            </Text>
+            <Text>Bringing Clarity to the Conversation</Text>
+          </div>
+          <FAQSection />
+        </div>
       </section>
     </div>
   );

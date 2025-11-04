@@ -14,7 +14,7 @@ const Header: React.FC<{ number: number; title: string }> = ({
       }}
     >
       <span
-        className="flex px-4 py-2 items-center justify-center rounded-full bg-[#4285F4] text-sm font-semibold text-white"
+        className="flex px-3 py-1 items-center justify-center rounded-full bg-[#4285F4] text-sm font-semibold text-white"
         style={{
           border: "0.5px solid #4285F4",
           boxShadow:

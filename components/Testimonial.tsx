@@ -1,5 +1,6 @@
 import React from "react";
 import Text from "./Text";
+import test from "node:test";
 
 const Testimonial = () => {
   const testimonials = [
@@ -35,7 +36,7 @@ const Testimonial = () => {
             }}
           >
             <Text type="body" className="text-xl! font-bold!">
-              Youth Centered
+              {testimonial.title}
             </Text>
           </div>
           <div
@@ -45,15 +46,11 @@ const Testimonial = () => {
               backdropFilter: "blur(5.162500381469727px)",
             }}
           >
-            <Text>
-              “Before joining Accordia Harmony, I struggled with budgeting and
-              staying organised. Now I can manage my bills, cook for myself, and
-              I actually feel confident about my future.”
-            </Text>
+            <Text>{testimonial.quote}</Text>
 
             <div className="flex items-center gap-2">
-              <Text className="font-bold!">Lina M</Text>
-              <Text>Age 21</Text>
+              <Text className="font-bold!">{testimonial.name}</Text>
+              <Text>Age {testimonial.age}</Text>
             </div>
           </div>
         </div>
