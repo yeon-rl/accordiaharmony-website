@@ -46,9 +46,11 @@ const Testimonial = () => {
               backdropFilter: "blur(5.162500381469727px)",
             }}
           >
-            <Text>{testimonial.quote}</Text>
+            <Text className="text-center md:text-left">
+              {testimonial.quote}
+            </Text>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center justify-center md:justify-start gap-2">
               <Text className="font-bold!">{testimonial.name}</Text>
               <Text>Age {testimonial.age}</Text>
             </div>

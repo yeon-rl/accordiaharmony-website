@@ -6,7 +6,8 @@ const Button: React.FC<{
   isTransparent?: boolean;
   hasIcon?: boolean;
   nav?: boolean;
-}> = ({ title, isTransparent, hasIcon, nav }) => {
+  className?: string;
+}> = ({ title, isTransparent, hasIcon, nav, className }) => {
   const showGradientBorder = !nav && !isTransparent && !hasIcon;
   return (
     <div style={{ position: "relative", display: "inline-block" }}>
@@ -38,9 +39,9 @@ const Button: React.FC<{
           showGradientBorder ? "gradient-border-btn" : ""
         } ${
           hasIcon
-            ? "flex items-center gap-2 bg-[#4285F4]! rounded-full! text-white px-2! pl-5! py-2!"
+            ? "flex items-center gap-2 bg-[#4285F4]! rounded-full! text-white px-1! md:px-5! md:pr-2! pl-5! py-1! md:py-2!"
             : ""
-        }`}
+        } ${className ? className : ""}`}
         style={{
           position: "relative",
           zIndex: 1,

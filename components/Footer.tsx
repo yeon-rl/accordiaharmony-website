@@ -6,10 +6,10 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="relative bg-black text-gray-400 pt-24 pb-10 overflow-hidden">
+    <footer className="relative bg-black text-gray-400 md:pt-24 pb-10 overflow-hidden">
       {/* Upper Section */}
-      <div className="w-[90%] mx-auto">
-        <div className="py-8 flex justify-between items-start">
+      <div className="w-[90%] md:w-[80%] mx-auto">
+        <div className="py-8 flex flex-col md:flex-row justify-between items-start">
           {/* Left Section - Logo and Address */}
           <div className="flex-1">
             {/* Logo */}
@@ -90,7 +90,7 @@ const Footer = () => {
           </div>
 
           {/* Right Section - Navigation Links */}
-          <div className="flex-1 flex gap-32 justify-end">
+          <div className="flex-1 flex gap-32 justify-end mt-8 md:mt-0">
             {/* Company Column */}
             <div>
               <h3 className="text-base font-semibold mb-6 text-white">
@@ -98,28 +98,40 @@ const Footer = () => {
               </h3>
               <nav className="space-y-4">
                 <Link
-                  href="#"
+                  href="/"
                   className="block text-sm text-gray-400 hover:text-white transition"
                 >
                   Home
                 </Link>
                 <Link
-                  href="#"
+                  href="/about"
                   className="block text-sm text-gray-400 hover:text-white transition"
                 >
-                  Work
+                  About US
                 </Link>
                 <Link
-                  href="#"
+                  href="/products"
                   className="block text-sm text-gray-400 hover:text-white transition"
                 >
-                  About
+                  Products
                 </Link>
                 <Link
-                  href="#"
+                  href="/careers"
                   className="block text-sm text-gray-400 hover:text-white transition"
                 >
                   Careers
+                </Link>
+                <Link
+                  href="/contact"
+                  className="block text-sm text-gray-400 hover:text-white transition"
+                >
+                  Contact Us
+                </Link>
+                <Link
+                  href="/partnership"
+                  className="block text-sm text-gray-400 hover:text-white transition"
+                >
+                  Partnership
                 </Link>
               </nav>
             </div>
@@ -178,7 +190,7 @@ const Footer = () => {
         </div>
 
         <div className="flex items-center justify-center ">
-          <h1 className="text-[9vw] font-bold text-transparent bg-clip-text bg-linear-to-b from-[#4E4F50]/50 to-[#10121380]/10 tracking-tight">
+          <h1 className="text-[8.5vw] md:text-[8vw] font-bold text-transparent bg-clip-text bg-linear-to-b from-[#4E4F50]/50 to-[#10121380]/10 tracking-tight">
             ACCORDIA HARMONY
           </h1>
         </div>

@@ -242,7 +242,7 @@ const services = [
 const Services = () => {
   return (
     <div className="flex flex-col items-center">
-      <div className="relative h-[40vh] flex flex-col justify-center items-center overflow-hidden">
+      <div className="relative h-[40vh] flex flex-col justify-center items-center ">
         {/* Vertical lines with gradients */}
         <div className="h-full w-px absolute left-[43.5%] translate-x-[40%] bg-linear-to-b from-transparent via-white/10 to-transparent"></div>
         <div className="h-full w-px absolute left-[42.5%] translate-x-[40%] bg-linear-to-b from-transparent via-white/10 to-transparent"></div>
@@ -254,17 +254,29 @@ const Services = () => {
         <div className="h-px w-screen absolute bottom-[32%] translate-y-[10%] bg-linear-to-r from-transparent via-white/10 to-transparent"></div>
         <div className="h-px w-screen absolute bottom-[5%] translate-y-[10%] bg-linear-to-r from-transparent via-white/5 to-transparent"></div>
 
-        <div className="flex items-center justify-center w-full max-w-[1200px] mx-auto px-4">
-          <div className="flex gap-8 items-center justify-center w-full">
-            {services.slice(0, 5).map((service, index) => (
+        <div className="flex items-center justify-center mx-auto px-4 max-w-full">
+          <div
+            className="flex gap-8 items-center md:justify-center justify-start w-full overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory relative"
+            style={{
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+              WebkitOverflowScrolling: "touch",
+            }}
+          >
+            {services.map((service, index) => (
               <motion.div
-                className="flex flex-col items-center shrink-0 w-[200px]"
+                className="flex flex-col items-center shrink-0 w-[280px] md:w-[200px] snap-center md:first:ml-0 md:last:mr-0 first:ml-[calc(50%-140px)] last:mr-[calc(50%-140px)]"
                 key={index}
                 initial={{ opacity: 0.3 }}
-                animate={{
-                  opacity: index === 2 ? 1 : 0.3,
+                whileInView={{
+                  opacity: 1,
+                  scale: 1,
+                  transition: { duration: 0.3 },
                 }}
-                transition={{ duration: 0.3 }}
+                viewport={{
+                  amount: 0.8,
+                  once: false,
+                }}
               >
                 <div
                   className="rounded-full flex p-10 w-[120px] h-[120px] items-center justify-center relative my-5"

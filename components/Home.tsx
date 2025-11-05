@@ -14,12 +14,12 @@ import Button from "./Button";
 const Home = () => {
   return (
     <div className="text-white ">
-      <div className="w-[90%] max-w-360 mx-auto pt-10">
+      <div className="w-[90%] max-w-360 mx-auto pt-8 md:pt-10">
         <Navbar />
       </div>
       <StaticBg>
         <div className="w-[90%] max-w-360 mx-auto">
-          <div className="flex flex-col items-center justify-center max-w-180 mx-auto space-y-5 mt-32">
+          <div className="flex flex-col items-center justify-center max-w-180 mx-auto space-y-5 mt-20 md:mt-32">
             <div className="bg-white px-5 py-2 rounded-full w-fit mx-auto flex items-center gap-3 mb-6">
               <Image
                 src="/images/users.png"
@@ -78,9 +78,9 @@ const Home = () => {
       </StaticBg>
       {/* <Navbar /> */}
 
-      <section className="w-[90%] max-w-360 mx-auto relative z-100">
+      <section className="w-[90%] max-w-360 mx-auto relative z-50">
         {/* why trust us */}
-        <div className="flex flex-col items-center justify-center -mt-40">
+        <div className="flex flex-col items-center justify-center -mt-70 md:-mt-40">
           <Header number={3} title="Why Trust Us?" />
 
           <div>
@@ -94,15 +94,15 @@ const Home = () => {
               We keep things lean, clear, and collaborative — from idea to
               launch.
             </Text>
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-6xl mx-auto">
               <WhyTrustUs />
             </div>
           </div>
         </div>
 
         {/* Products */}
-        <div className="flex items-center gap-10 max-w-5xl mx-auto my-48">
-          <div className="w-1/2 flex items-center justify-center">
+        <div className="flex flex-col md:flex-row items-center gap-10 max-w-6xl mx-auto my-32 md:my-48">
+          <div className="md:w-[40%] flex items-center justify-center order-1 md:order-0">
             <div className="relative w-full">
               <Image
                 src="/images/phone.png"
@@ -113,12 +113,17 @@ const Home = () => {
               />
             </div>
           </div>
-          <div className="w-1/2">
-            <Header number={2} title="Our Products" />
-            <Text type="subheading" className="font-normal! text-4xl!">
+          <div className="md:w-[60%] order-0 md:order-1">
+            <div className="flex items-center justify-center md:justify-start">
+              <Header number={2} title="Our Products" />
+            </div>
+            <Text
+              type="subheading"
+              className="font-normal! text-2xl! md:text-[48px]! text-center md:text-left"
+            >
               Empowering Futures Through Purpose-Driven Products
             </Text>
-            <Text>
+            <Text className="text-center md:text-left mt-2 md:mt-0">
               From digital platforms like LifeSkills Connect to community-led
               initiatives, Accordia builds tools that equip young people to
               learn, grow, and thrive.
@@ -132,19 +137,19 @@ const Home = () => {
             <Header number={2} title="Our Services" />
             <Text
               type="subheading"
-              className="font-normal! text-4xl! text-center"
+              className="font-normal! text-2xl md:text-4xl! text-center"
             >
               Empowering Young People Through Proven Support, Real Partnerships,
               and Lifelong Guidance
             </Text>
           </div>
 
-          <div className="max-w-5xl mx-auto">
+          <div className="w-full overflow-hidden mx-auto">
             <Services />
           </div>
         </div>
 
-        <div className="flex flex-col items-center bg-[url('/images/grid.png')] py-20 my-32">
+        <div className="flex flex-col items-center bg-[url('/images/grid.png')] md:py-20 my-32">
           {/* Testimonial */}
           <div>
             <div className="flex flex-col items-center justuify-center">
@@ -160,7 +165,7 @@ const Home = () => {
           </div>
         </div>
         {/* FAQ */}
-        <div className="my-40 w-[90%] max-w-5xl mx-auto">
+        <div className="md:my-40 max-w-7xl mx-auto">
           <div className="flex flex-col items-center justify-center">
             <Header number={6} title="FAQ" />
             <Text
@@ -174,6 +179,8 @@ const Home = () => {
           <FAQSection />
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };

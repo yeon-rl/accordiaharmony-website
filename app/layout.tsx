@@ -33,10 +33,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#060610] text-white ${poppins.variable}`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#060610] text-white ${poppins.variable} overflow-x-hidden`}
       >
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );

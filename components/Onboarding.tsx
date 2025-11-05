@@ -5,8 +5,8 @@ const waveKeyframes = `
 @keyframes fadeInUpSmooth {
   0% {
     opacity: 0;
-    transform: translateY(40px);
-    filter: blur(8px);
+    transform: translateY(30px); // Reduced distance
+    filter: blur(6px); // Less blur for faster visual clarity
   }
   100% {
     opacity: 1;
@@ -25,7 +25,7 @@ export default function Onboarding({ onFinish }: { onFinish: () => void }) {
     if (step < sentences.length) {
       const timer = setTimeout(() => {
         setStep((s) => s + 1);
-      }, 1800);
+      }, 1200); // Reduced from 1800ms to 1200ms
       return () => clearTimeout(timer);
     } else {
       // Immediately finish
@@ -51,7 +51,7 @@ export default function Onboarding({ onFinish }: { onFinish: () => void }) {
           alignItems: "center",
           justifyContent: "center",
           zIndex: 1000,
-          transition: "opacity 0.4s",
+          transition: "opacity 0.3s", // Faster fade-out
           opacity: step > sentences.length - 1 ? 0 : 1,
         }}
       >
@@ -62,10 +62,10 @@ export default function Onboarding({ onFinish }: { onFinish: () => void }) {
               fontWeight: 600,
               marginBottom: 24,
               opacity: 1,
-              transition: "opacity 0.6s",
+              transition: "opacity 0.4s", // Faster text transition
               display: "inline-block",
               textShadow: "0 2px 8px rgba(0,0,0,0.12)",
-              animation: "fadeInUpSmooth 0.8s cubic-bezier(.4,0,0.2,1)",
+              animation: "fadeInUpSmooth 0.5s cubic-bezier(.4,0,0.2,1)", // Faster animation
             }}
             className="text-white"
             key={step}

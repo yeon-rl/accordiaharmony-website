@@ -45,7 +45,7 @@ const WhyTrustUs = () => {
   ];
 
   return (
-    <div className="grid grid-cols-3 gap-5">
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
       {reasons.map((reason, index) => (
         <div
           className="flex items-center flex-col justify-center py-24 gradient-border cursor-pointer h-[200px]"

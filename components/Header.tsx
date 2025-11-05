@@ -14,7 +14,7 @@ const Header: React.FC<{ number: number; title: string }> = ({
       }}
     >
       <span
-        className="flex px-3 py-1 items-center justify-center rounded-full bg-[#4285F4] text-sm font-semibold text-white"
+        className="flex px-2 md:px-3 md:py-1 items-center justify-center rounded-full bg-[#4285F4] text-sm font-semibold text-white"
         style={{
           border: "0.5px solid #4285F4",
           boxShadow:
@@ -25,7 +25,7 @@ const Header: React.FC<{ number: number; title: string }> = ({
       </span>
       <div className="w-0.5 h-4 bg-[#DDDCE3]"></div>
       <span
-        className="flex items-center gap-1 text-base font-medium leading-none tracking-tight text-[#4285F4]"
+        className="flex items-center gap-1 text-sm md:text-base font-medium leading-none tracking-tight text-[#4285F4]"
         style={{ fontFamily: "Poppins" }}
       >
         {title}
