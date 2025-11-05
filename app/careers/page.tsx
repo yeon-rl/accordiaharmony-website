@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
@@ -6,8 +8,11 @@ import StaticBg from "@/components/StaticBg";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import Button from "@/components/Button";
+import { useRouter } from "next/navigation";
 
 const Careers = () => {
+  const router = useRouter();
+
   const teamMembers = [
     {
       name: "Anna Miller",
@@ -142,7 +147,15 @@ const Careers = () => {
 
             <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5 gap-y-10 mt-14">
               {teamMembers.map((member, index) => (
-                <div className="w-fit group cursor-pointer" key={index}>
+                <div
+                  className="w-fit group cursor-pointer"
+                  key={index}
+                  onClick={() =>
+                    router.push(
+                      `/team/${member.name.replace(" ", "-").toLowerCase()}`
+                    )
+                  }
+                >
                   <div className="bg-[#E1EBED] rounded-xl w-full md:h-[400px] flex flex-col justify-end">
                     <Image
                       src={member.imageSrc}
@@ -233,8 +246,8 @@ const Careers = () => {
           </div>
         </div>
 
-        <div className="bg-[#101213] rounded-[14px] flex items-center flex-col justify-center p-20 space-y-5">
-          <Text className="font-bold! text-[36px]!">
+        <div className="bg-[#101213] rounded-[14px] flex items-center flex-col justify-center p-10 md:p-20 space-y-5">
+          <Text className="font-bold! text-[36px]! text-center leading-tight! tracking-tight!">
             We’re not hiring right now!
           </Text>
           <div className="max-w-3xl">
@@ -248,29 +261,29 @@ const Careers = () => {
           <Button title="View positions" className="mt-5" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 my-28">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 my-28">
           <div>
-            <Text className="text-[36px]! font-semibold!">
+            <Text className="text-[36px]! font-semibold! leading-tight! tracking-tight!">
               New opportunities often arise in areas such as:
             </Text>
 
             <ul className="mt-5">
               {opportunities.map((opportunity, index) => (
                 <li
-                  className="flex items-center gap-4 my-3 py-5"
+                  className="flex items-center gap-4 md:my-3 py-3 md:py-5"
                   key={index}
                   style={{ borderTop: "1px solid #272736" }}
                 >
                   <Image
-                    src="/icons/icon-1.png"
+                    src={opportunity.icon}
                     alt=""
                     width={1000}
                     height={1000}
-                    className="w-[60px] h-[60px]"
+                    className="w-10 md:w-[60px] h-10 md:h-[60px]"
                   />
-                  <Text className="text-xl!">
+                  <Text className="text-base! md:text-xl!">
                     {" "}
-                    Software and product development
+                    {opportunity.description}
                   </Text>
                 </li>
               ))}
