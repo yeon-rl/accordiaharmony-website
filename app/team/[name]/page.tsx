@@ -180,7 +180,7 @@ const Page = () => {
                 <Text className="text-[#545A65]">Head of Product</Text>
               </div>
 
-              <div className="bg-[url('/images/teamPersonBg.png')] bg-no-repeat bg-cover relative rounded-lg overflow-hidden flex grayscale md:h-[350px] transition-all duration-300 group-hover:grayscale-0">
+              <div className="bg-[url('/images/teamPersonBg.png')] bg-no-repeat bg-cover relative rounded-lg overflow-hidden flex md:grayscale md:h-[350px] transition-all duration-300 group-hover:grayscale-0">
                 <Image
                   src="/images/teamImage1.png"
                   alt="Team Member"

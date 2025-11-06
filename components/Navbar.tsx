@@ -17,7 +17,7 @@ const navLinks = [
     href: "#",
     dropdownItems: [
       { label: "Partnership", href: "/partnership" },
-      { label: "Inquiries", href: "/inquiries" },
+      { label: "Inquiries", href: "/contact" },
     ],
   },
   { label: "Newsletter", href: "/news-letter" },
