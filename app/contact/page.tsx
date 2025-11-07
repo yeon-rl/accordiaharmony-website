@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Navbar from "@/components/Navbar";
 import StaticBg from "@/components/StaticBg";
@@ -5,100 +7,261 @@ import Text from "@/components/Text";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import { motion } from "framer-motion";
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 60 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6 },
+};
+
+const fadeIn = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  transition: { duration: 0.6 },
+};
+
+const staggerChildren = {
+  animate: {
+    transition: {
+      delayChildren: 0.4,
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+interface FormInputs {
+  firstName: string;
+  lastName: string;
+  phone: string;
+  email: string;
+  message: string;
+}
 
 const Contact = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<FormInputs>();
+
+  const onSubmit = async (data: FormInputs) => {
+    try {
+      console.log("Submitting form data:", data);
+      const response = await fetch("https://formspree.io/f/xqagrvdq", {
+        method: "POST",
+        body: JSON.stringify({
+          ...data,
+          _subject: "New Contact Inquiry Request from Website",
+          type: "Contact Form",
+        }),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
+
+      const responseData = await response.json();
+      console.log("Formspree response:", responseData);
+
+      if (response.ok) {
+        toast.success("Message sent successfully!");
+        reset(); // Reset form after successful submission
+      } else {
+        console.error("Formspree error:", responseData);
+        throw new Error(responseData.error || "Failed to send message");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      toast.error("Failed to send message. Please try again.");
+    }
+  };
+
   return (
     <div className="text-white ">
-      <div className="w-[90%] md:w-[80%] mx-auto pt-8 md:pt-10">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="w-[90%] max-w-360 mx-auto pt-8 md:pt-10"
+      >
         <Navbar />
-      </div>
+      </motion.div>
 
       {/* Who we are */}
       <StaticBg scroll={true}>
-        <div className="w-[90%] md:w-[80%] max-w-360 mx-auto relative z-50">
-          <div className="mt-14 md:mt-28">
-            <Text
-              type="heading"
-              className=" text-center text-3xl! md:text-[48px]! font-semibold!"
-            >
-              Contact Us
-            </Text>
-            <Text className="text-center">
-              Have a question, idea, or partnership proposal? <br /> We would
-              love to hear from you.
-            </Text>
+        <div className="w-[90%] max-w-360 mx-auto relative z-50">
+          <motion.div
+            className="mt-14 md:mt-28"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={staggerChildren}
+          >
+            <motion.div variants={fadeInUp}>
+              <Text
+                type="heading"
+                className=" text-center text-3xl! md:text-[48px]! font-semibold!"
+              >
+                Contact Us
+              </Text>
+            </motion.div>
+            <motion.div variants={fadeInUp}>
+              <Text className="text-center">
+                Have a question, idea, or partnership proposal? <br /> We would
+                love to hear from you.
+              </Text>
+            </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-7 gap-5 mt-10">
-              <div className="bg-[#FFFFFF0D] rounded-xl p-8 shadow-lg xl:col-span-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div>
-                    <label className="block text-sm mb-2">Fast name</label>
-                    <input
-                      type="text"
-                      placeholder="Ex. Jone"
-                      className="w-full bg-[#F4F4F41A] rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-white/20"
-                    />
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-7 gap-5 mt-10">
+                <motion.div
+                  variants={fadeInUp}
+                  className="bg-[#FFFFFF0D] rounded-xl p-8 shadow-lg xl:col-span-4"
+                >
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-sm mb-2">First name</label>
+                      <input
+                        type="text"
+                        placeholder="Ex. John"
+                        {...register("firstName", {
+                          required: "First name is required",
+                        })}
+                        className={`w-full bg-[#F4F4F41A] rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-white/20 ${
+                          errors.firstName ? "border-red-500 border" : ""
+                        }`}
+                      />
+                      {errors.firstName && (
+                        <p className="text-red-500 text-xs mt-1">
+                          {errors.firstName.message}
+                        </p>
+                      )}
+                    </div>
+                    <div>
+                      <label className="block text-sm mb-2">Last name</label>
+                      <input
+                        type="text"
+                        placeholder="Ex. Alex"
+                        {...register("lastName", {
+                          required: "Last name is required",
+                        })}
+                        className={`w-full bg-[#F4F4F41A] rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-white/20 ${
+                          errors.lastName ? "border-red-500 border" : ""
+                        }`}
+                      />
+                      {errors.lastName && (
+                        <p className="text-red-500 text-xs mt-1">
+                          {errors.lastName.message}
+                        </p>
+                      )}
+                    </div>
                   </div>
-                  <div>
-                    <label className="block text-sm mb-2">Last name</label>
+
+                  <div className="mt-5">
+                    <label className="block text-sm mb-2">Phone number</label>
                     <input
-                      type="text"
-                      placeholder="Ex. Alex"
-                      className="w-full bg-[#F4F4F41A] rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-white/20"
+                      type="tel"
+                      placeholder="Ex.(225) 444-2586"
+                      {...register("phone", {
+                        required: "Phone number is required",
+                        pattern: {
+                          value: /^[\d\s()-]+$/,
+                          message: "Please enter a valid phone number",
+                        },
+                      })}
+                      className={`w-full bg-[#F4F4F41A] rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-white/20 ${
+                        errors.phone ? "border-red-500 border" : ""
+                      }`}
                     />
+                    {errors.phone && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.phone.message}
+                      </p>
+                    )}
                   </div>
-                </div>
 
-                <div className="mt-5">
-                  <label className="block text-sm mb-2">Phone number</label>
-                  <input
-                    type="text"
-                    placeholder="Ex.(225) 444-2586"
-                    className="w-full bg-[#F4F4F41A] rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-white/20"
+                  <div className="mt-5">
+                    <label className="block text-sm mb-2">Email address</label>
+                    <input
+                      type="email"
+                      placeholder="Ex. john@example.com"
+                      {...register("email", {
+                        required: "Email is required",
+                        pattern: {
+                          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                          message: "Please enter a valid email address",
+                        },
+                      })}
+                      className={`w-full bg-[#F4F4F41A] rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-white/20 ${
+                        errors.email ? "border-red-500 border" : ""
+                      }`}
+                    />
+                    {errors.email && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.email.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="mt-5">
+                    <label className="block text-sm mb-2">
+                      Leave us a message
+                    </label>
+                    <textarea
+                      placeholder="Write Your Message here..."
+                      rows={4}
+                      {...register("message", {
+                        required: "Message is required",
+                      })}
+                      className={`w-full bg-[#F4F4F41A] rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-white/20 ${
+                        errors.message ? "border-red-500 border" : ""
+                      }`}
+                    />
+                    {errors.message && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.message.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full mt-6 bg-white text-black cursor-pointer font-medium py-3 rounded-lg transition hover:bg-gray-100"
+                  >
+                    Submit
+                  </button>
+                </motion.div>
+                <motion.div variants={fadeInUp} className="xl:col-span-3">
+                  <Image
+                    src="/images/contactImage.png"
+                    alt="Contact Illustration"
+                    width={1000}
+                    height={1000}
+                    className="w-full h-auto "
                   />
-                </div>
-
-                <div className="mt-5">
-                  <label className="block text-sm mb-2">Email address</label>
-                  <input
-                    type="email"
-                    placeholder="Ex. jone@example.com"
-                    className="w-full bg-[#F4F4F41A] rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-white/20"
-                  />
-                </div>
-
-                <div className="mt-5">
-                  <label className="block text-sm mb-2">
-                    Leave us a message
-                  </label>
-                  <textarea
-                    placeholder="Write Your Message here..."
-                    rows={4}
-                    className="w-full bg-[#F4F4F41A] rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-white/20"
-                  />
-                </div>
-
-                <button className="w-full mt-6 bg-white text-black cursor-pointer font-medium py-3 rounded-lg transition">
-                  Submit
-                </button>
+                </motion.div>
               </div>
-              <div className="xl:col-span-3">
-                <Image
-                  src="/images/contactImage.png"
-                  alt="Contact Illustration"
-                  width={1000}
-                  height={1000}
-                  className="w-full h-auto "
-                />
-              </div>
-            </div>
-          </div>
+            </form>
+          </motion.div>
         </div>
       </StaticBg>
 
-      <section className="w-[90%] md:w-[80%] max-w-360 mx-auto relative z-50">
+      <motion.div
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true }}
+        variants={staggerChildren}
+        className="w-[90%] max-w-360 mx-auto relative z-50"
+      >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 my-10 md:my-20">
-          <div className="flex justify-between bg-[#FDFDFD1A] rounded-xl p-5">
+          <motion.div
+            variants={fadeInUp}
+            className="flex justify-between bg-[#FDFDFD1A] rounded-xl p-5"
+          >
             <div className="flex gap-3">
               <div className="bg-white rounded-full shrink-0 p-3 w-fit h-fit flex items-center justify-center">
                 <svg
@@ -188,9 +351,12 @@ const Contact = () => {
                 />
               </svg>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="flex justify-between bg-[#FDFDFD1A] rounded-xl p-5">
+          <motion.div
+            variants={fadeInUp}
+            className="flex justify-between bg-[#FDFDFD1A] rounded-xl p-5"
+          >
             <div className="flex gap-3">
               <div className="bg-white rounded-full shrink-0 p-3 w-fit h-fit flex items-center justify-center">
                 <svg
@@ -239,9 +405,12 @@ const Contact = () => {
                 />
               </svg>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="flex justify-between bg-[#FDFDFD1A] rounded-xl p-5">
+          <motion.div
+            variants={fadeInUp}
+            className="flex justify-between bg-[#FDFDFD1A] rounded-xl p-5"
+          >
             <div className="flex gap-3">
               <div className="bg-white rounded-full shrink-0 p-3 w-fit h-fit flex items-center justify-center">
                 <svg
@@ -292,9 +461,9 @@ const Contact = () => {
                 />
               </svg>
             </div>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.div>
 
       <Footer />
     </div>

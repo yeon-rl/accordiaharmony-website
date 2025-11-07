@@ -3,17 +3,45 @@
 // import { FaXTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 60 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6 },
+};
+
+const fadeIn = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  transition: { duration: 0.6 },
+};
+
+const staggerChildren = {
+  animate: {
+    transition: {
+      delayChildren: 0.4,
+      staggerChildren: 0.1,
+    },
+  },
+};
 
 const Footer = () => {
   return (
     <footer className="relative bg-black text-gray-400 md:pt-24 pb-10 overflow-hidden">
       {/* Upper Section */}
-      <div className="w-[90%] md:w-[80%] mx-auto">
+      <motion.div
+        className="w-[90%] max-w-360 mx-auto"
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true }}
+        variants={staggerChildren}
+      >
         <div className="py-8 flex flex-col md:flex-row justify-between items-start">
           {/* Left Section - Logo and Address */}
           <div className="flex-1">
             {/* Logo */}
-            <div className="mb-12">
+            <motion.div className="mb-12" variants={fadeInUp}>
               <Image
                 src="/images/logowhite.png"
                 alt="Footer Logo"
@@ -21,20 +49,20 @@ const Footer = () => {
                 height={1000}
                 className="w-[98px] h-[35px]"
               />
-            </div>
+            </motion.div>
 
             {/* Address */}
-            <div className="mb-8">
+            <motion.div className="mb-8" variants={fadeInUp}>
               <h3 className="text-base font-semibold text-white mb-3">
                 Address
               </h3>
               <p className="text-sm text-[#82888C]">
                 124 City Road, London, EC1V
               </p>
-            </div>
+            </motion.div>
 
             {/* Social Icons */}
-            <div className="flex gap-4">
+            <motion.div className="flex gap-4" variants={fadeInUp}>
               <Link
                 href="#"
                 className="w-8 h-8 flex items-center justify-center transition"
@@ -86,13 +114,13 @@ const Footer = () => {
                   />
                 </svg>
               </Link>
-            </div>
+            </motion.div>
           </div>
 
           {/* Right Section - Navigation Links */}
           <div className="flex-1 flex gap-32 justify-end mt-8 md:mt-0">
             {/* Company Column */}
-            <div>
+            <motion.div variants={fadeInUp}>
               <h3 className="text-base font-semibold mb-6 text-white">
                 Company
               </h3>
@@ -134,10 +162,10 @@ const Footer = () => {
                   Partnership
                 </Link>
               </nav>
-            </div>
+            </motion.div>
 
             {/* Resources Column */}
-            <div>
+            <motion.div variants={fadeInUp}>
               <h3 className="text-base font-semibold mb-6 text-white">
                 Resources
               </h3>
@@ -185,18 +213,24 @@ const Footer = () => {
                   Partnership and collaborations
                 </Link>
               </nav>
-            </div>
+            </motion.div>
           </div>
         </div>
 
-        <div className="flex items-center justify-center ">
+        <motion.div
+          className="flex items-center justify-center "
+          variants={fadeInUp}
+        >
           <h1 className="text-[8.5vw] md:text-[8vw] font-bold text-transparent bg-clip-text bg-linear-to-b from-[#4E4F50]/50 to-[#10121380]/10 tracking-tight">
             ACCORDIA HARMONY
           </h1>
-        </div>
+        </motion.div>
 
         {/* Bottom Section */}
-        <div className="relative mt-8 border-t border-gray-800/50 pt-6 flex flex-col md:flex-row items-center justify-between mx-auto text-xs text-[#82888C]">
+        <motion.div
+          variants={fadeInUp}
+          className="relative mt-8 border-t border-gray-800/50 pt-6 flex flex-col md:flex-row items-center justify-between mx-auto text-xs text-[#82888C]"
+        >
           <p>© 2025 Accordia Harmony. All rights reserved.</p>
           <div className="flex items-center space-x-8 mt-4 md:mt-0">
             <Link
@@ -212,8 +246,8 @@ const Footer = () => {
               Cookies Settings
             </Link>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </footer>
   );
 };

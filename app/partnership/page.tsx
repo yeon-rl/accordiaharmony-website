@@ -3,12 +3,54 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import jsPDF from "jspdf";
 import Image from "next/image";
 import Text from "@/components/Text";
 import Link from "next/link";
 
+interface FormInputs {
+  firstName: string;
+  lastName: string;
+  phone: string;
+  email: string;
+  message: string;
+}
+
 export default function PartnershipsPage() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<FormInputs>();
+
+  const onSubmit = async (data: FormInputs) => {
+    try {
+      const response = await fetch("https://formspree.io/f/xqagrvdq", {
+        method: "POST",
+        body: JSON.stringify({
+          ...data,
+          _subject: "New Partnership Request from Website",
+          type: "Partnership Form",
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        toast.success("Partnership request submitted successfully!");
+        reset(); // Reset form after successful submission
+      } else {
+        throw new Error("Failed to send message");
+      }
+    } catch (error) {
+      toast.error("Failed to submit request. Please try again.");
+    }
+  };
+
   const downloadPDF = () => {
     const pdf = new jsPDF();
     const content =
@@ -25,11 +67,11 @@ export default function PartnershipsPage() {
   };
   return (
     <div className="text-white!">
-      <div className="w-[90%] md:w-[80%] mx-auto pt-8 md:pt-10">
+      <div className="w-[90%] max-w-360 mx-auto pt-8 md:pt-10">
         <Navbar />
       </div>
 
-      <div className="w-[90%] md:w-[80%] mx-auto ">
+      <div className="w-[90%] max-w-360 mx-auto ">
         <div className="min-h-screen w-full  text-white py-10 md:py-20 flex justify-center">
           <div className="w-full">
             <Card className="bg-[#FFFFFF0D] border-none shadow-xl rounded-2xl p-3 py-5 md:p-8">
@@ -205,42 +247,93 @@ export default function PartnershipsPage() {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-7 gap-5 my-10 mb-20">
-          <div className="bg-[#FFFFFF0D] rounded-xl p-8 shadow-lg xl:col-span-4">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="bg-[#FFFFFF0D] rounded-xl p-8 shadow-lg xl:col-span-4"
+          >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
-                <label className="block text-sm mb-2">Fast name</label>
+                <label className="block text-sm mb-2">First name</label>
                 <input
                   type="text"
-                  placeholder="Ex. Jone"
-                  className="w-full bg-[#F4F4F41A] rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-white/20"
+                  placeholder="Ex. John"
+                  {...register("firstName", {
+                    required: "First name is required",
+                  })}
+                  className={`w-full bg-[#F4F4F41A] rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-white/20 ${
+                    errors.firstName ? "border-red-500 border" : ""
+                  }`}
                 />
+                {errors.firstName && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {errors.firstName.message}
+                  </p>
+                )}
               </div>
               <div>
                 <label className="block text-sm mb-2">Last name</label>
                 <input
                   type="text"
                   placeholder="Ex. Alex"
-                  className="w-full bg-[#F4F4F41A] rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-white/20"
+                  {...register("lastName", {
+                    required: "Last name is required",
+                  })}
+                  className={`w-full bg-[#F4F4F41A] rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-white/20 ${
+                    errors.lastName ? "border-red-500 border" : ""
+                  }`}
                 />
+                {errors.lastName && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {errors.lastName.message}
+                  </p>
+                )}
               </div>
             </div>
 
             <div className="mt-5">
               <label className="block text-sm mb-2">Phone number</label>
               <input
-                type="text"
+                type="tel"
                 placeholder="Ex.(225) 444-2586"
-                className="w-full bg-[#F4F4F41A] rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-white/20"
+                {...register("phone", {
+                  required: "Phone number is required",
+                  pattern: {
+                    value: /^[\d\s()-]+$/,
+                    message: "Please enter a valid phone number",
+                  },
+                })}
+                className={`w-full bg-[#F4F4F41A] rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-white/20 ${
+                  errors.phone ? "border-red-500 border" : ""
+                }`}
               />
+              {errors.phone && (
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.phone.message}
+                </p>
+              )}
             </div>
 
             <div className="mt-5">
               <label className="block text-sm mb-2">Email address</label>
               <input
                 type="email"
-                placeholder="Ex. jone@example.com"
-                className="w-full bg-[#F4F4F41A] rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-white/20"
+                placeholder="Ex. john@example.com"
+                {...register("email", {
+                  required: "Email is required",
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: "Please enter a valid email address",
+                  },
+                })}
+                className={`w-full bg-[#F4F4F41A] rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-white/20 ${
+                  errors.email ? "border-red-500 border" : ""
+                }`}
               />
+              {errors.email && (
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.email.message}
+                </p>
+              )}
             </div>
 
             <div className="mt-5">
@@ -248,14 +341,25 @@ export default function PartnershipsPage() {
               <textarea
                 placeholder="Write Your Message here..."
                 rows={4}
-                className="w-full bg-[#F4F4F41A] rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-white/20"
+                {...register("message", { required: "Message is required" })}
+                className={`w-full bg-[#F4F4F41A] rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-white/20 ${
+                  errors.message ? "border-red-500 border" : ""
+                }`}
               />
+              {errors.message && (
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.message.message}
+                </p>
+              )}
             </div>
 
-            <button className="w-full mt-6 bg-white text-black cursor-pointer font-medium py-3 rounded-lg transition">
+            <button
+              type="submit"
+              className="w-full mt-6 bg-white text-black cursor-pointer font-medium py-3 rounded-lg transition hover:bg-gray-100"
+            >
               Submit
             </button>
-          </div>
+          </form>
           <div className="xl:col-span-3">
             <Image
               src="/images/contactImage.png"

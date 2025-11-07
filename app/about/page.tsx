@@ -127,15 +127,32 @@ const coreValues = [
 const About = () => {
   return (
     <div className="text-white ">
-      <div className="w-[90%] md:w-[85%]  mx-auto pt-8 md:pt-10">
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="w-[90%] max-w-360 mx-auto pt-8 md:pt-10"
+      >
         <Navbar />
-      </div>
+      </motion.div>
 
       {/* Who we are */}
       <StaticBg>
-        <div className="w-[90%] md:w-[85%] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 mt-16 md:my-32 relative z-50">
-            <div className="">
+        <div className="w-[90%] max-w-360 mx-auto">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 mt-16 md:my-32 relative z-50"
+          >
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className=""
+            >
               <Header number={1} title="Who We Are" />
               <div>
                 <Text type="subheading">Who We Are</Text>
@@ -159,8 +176,13 @@ const About = () => {
                   the needs of young people today.
                 </Text>
               </div>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
               <Image
                 src="/images/whoWeAreImage.png"
                 alt="About Hero"
@@ -168,15 +190,27 @@ const About = () => {
                 height={1000}
                 className="w-full h-auto"
               />
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </StaticBg>
 
-      <section className="w-[90%] md:w-[85%] mx-auto relative z-50">
+      <section className="w-[90%] max-w-360 mx-auto relative z-50">
         {/* Our Purpose */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 relative z-50 mt-20 md:-mt-28">
-          <div className="order-1 md:order-0">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 relative z-50 mt-20 md:-mt-28"
+        >
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="order-1 md:order-0"
+          >
             <Image
               src="/images/purposeImage.png"
               alt="About Hero"
@@ -184,38 +218,61 @@ const About = () => {
               height={1000}
               className="w-full h-auto"
             />
-          </div>
-          <div className="order-0 md:order-1">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="order-0 md:order-1"
+          >
             <Header number={2} title="Our Purpose" />
             <div>
               <Text type="subheading" className="text-3xl! md:text-[41px]!">
                 We exist to make opportunity accessible.
               </Text>
               <Text className="my-3 text-base">
-                We exist to make opportunity accessible. <br /> Accordia Harmony
-                C.I.C. was founded to address a simple truth: many young people
-                Lack practical skills or confidence to navigate adulthood
-                successfully. Through our platforms, we create spaces where
-                young people can learn about finance, wellbeing, careers,
-                relationships, and digital safety in a way that feels relatable
-                and empowering. <br /> Our goal is not just to teach skills, but
-                to help young people discover who they are, what they can
-                achieve, and how they can contribute positively to the world
-                around them
+                Accordia Harmony C.I.C. was founded to address a simple truth:
+                many young people Lack practical skills or confidence to
+                navigate adulthood successfully. Through our platforms, we
+                create spaces where young people can learn about finance,
+                wellbeing, careers, relationships, and digital safety in a way
+                that feels relatable and empowering. <br /> Our goal is not just
+                to teach skills, but to help young people discover who they are,
+                what they can achieve, and how they can contribute positively to
+                the world around them
               </Text>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Our Mission */}
-        <div className="my-18 md:my-32">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8 }}
+          className="my-18 md:my-32"
+        >
           <div className="flex flex-col md:flex-row items-start justify-between">
-            <div className="md:w-[30%]">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="md:w-[30%]"
+            >
               <Text type="subheading" className="text-[28px]! font-bold! mt-1">
                 Our mission
               </Text>
-            </div>
-            <div className="md:w-[70%]">
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="md:w-[70%]"
+            >
               <Text className="my-3 text-base! md:text-[25px]!">
                 Our mission is to prepare young people for independent living
                 and lifelong success by equipping them with the tools,
@@ -224,25 +281,45 @@ const About = () => {
                 accessible through innovative digital platforms that encourage
                 growth, self-belief, and community connection.
               </Text>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Get In Touch */}
-        <div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8 }}
+        >
           <div className="bg-[url('/images/ctabanner.png')] bg-cover bg-no-repeat bg-center rounded-2xl p-8 md:p-20 ">
-            <Text type="heading" className="font-bold max-w-lg">
-              Get Latest Update from our news letter
-            </Text>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <Text type="heading" className="font-bold max-w-lg">
+                Get Latest Update from our news letter
+              </Text>
+            </motion.div>
 
-            <button className=" mt-3 flex items-center justify-center gap-2 px-5 py-2 md:px-8 md:py-3 rounded-full bg-gradient-to-b from-[#1b1b1b] to-[#0d0d0d] shadow-[inset_2px_2px_6px_rgba(255,255,255,0.08),inset_-2px_-2px_6px_rgba(0,0,0,0.6)] text-white font-semibold text-lg transition-all duration-300 active:scale-95">
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="mt-3 flex items-center justify-center gap-2 px-5 py-2 md:px-8 md:py-3 rounded-full bg-gradient-to-b from-[#1b1b1b] to-[#0d0d0d] shadow-[inset_2px_2px_6px_rgba(255,255,255,0.08),inset_-2px_-2px_6px_rgba(0,0,0,0.6)] text-white font-semibold text-lg"
+            >
               <span className="text-2xl leading-none">•</span>
               <span className="tracking-wide text-sm md:text-base">
                 Learn&nbsp;More
               </span>
-            </button>
+            </motion.button>
           </div>
-        </div>
+        </motion.div>
 
         {/* Core Values */}
         <div>
@@ -319,8 +396,19 @@ const About = () => {
         </div>
 
         {/* Our Story */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 relative z-50 ">
-          <div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8 }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 relative z-50 "
+        >
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             <Image
               src="/images/storyImage.png"
               alt="About Hero"
@@ -328,8 +416,14 @@ const About = () => {
               height={1000}
               className="w-full h-auto"
             />
-          </div>
-          <div className="">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className=""
+          >
             {/* <Header number={2} title="Our Purpose" /> */}
             <div>
               <Text type="subheading" className=" text-3xl! md:text-[41px]!">
@@ -344,12 +438,12 @@ const About = () => {
                 confidence to live independently and make informed choices.
               </Text>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       <section className="bg-[url('/images/grid.png')] my-20 md:my-40">
-        <div className="w-[90%] md:w-[85%] mx-auto ">
+        <div className="w-[90%] max-w-360 mx-auto">
           <Text
             type="heading"
             className="font-bold! text-left text-2xl! md:text-[38px]! md:text-center"
@@ -394,7 +488,7 @@ const About = () => {
       </section>
 
       {/* our commitment */}
-      <section className="w-[90%] md:w-[85%] mx-auto my-20 md:my-40">
+      <section className="w-[90%] max-w-360 mx-auto my-20 md:my-40">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 mt-20 md:mt-32 relative z-50 md:px-8">
           <div className="">
             <div>
@@ -405,7 +499,7 @@ const About = () => {
                 As a registered Community Interest Company (C.I.C.), Accordia
                 Harmony reinvests its profits back into the community and the
                 development of youth-focused initiatives. Our commitment is not
-                only to innovation but also to measurable social impact. Every
+                only to innovate but also to measure social impact. Every
                 project we deliver is designed to improve the lives of young
                 people, strengthen communities, and build pathways to long-term
                 opportunity.

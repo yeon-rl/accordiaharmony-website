@@ -79,7 +79,7 @@ export default function PrivacyPolicyPage() {
   };
   return (
     <div className="text-white">
-      <div className="w-[90%] md:w-[80%] mx-auto py-10">
+      <div className="w-[90%] max-w-360 mx-auto py-10">
         <Navbar />
       </div>
       <div className="min-h-screen w-full text-white flex justify-center md:py-20 px-4 mb-10">

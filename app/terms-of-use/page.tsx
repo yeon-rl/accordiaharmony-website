@@ -77,7 +77,7 @@ export default function TermsOfUse() {
   };
   return (
     <div className="text-white!">
-      <div className="w-[90%] md:w-[80%] mx-auto py-8 md:py-10">
+      <div className="w-[90%] max-w-360 mx-auto py-8 md:py-10">
         <Navbar />
         <div className="min-h-screen w-full text-white py-10 md:py-16 flex justify-center">
           <Card className="w-full  bg-[#FFFFFF0D] border-none border-white/10 rounded-2xl  py-5 md:p-12 shadow-xl">

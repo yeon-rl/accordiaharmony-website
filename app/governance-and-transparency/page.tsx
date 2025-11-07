@@ -21,11 +21,11 @@ export default function GovernanceTransparency() {
   };
   return (
     <div className="text-white!">
-      <div className="w-[90%] md:w-[80%] mx-auto pt-8 md:pt-10">
+      <div className="w-[90%] max-w-360 mx-auto pt-8 md:pt-10">
         <Navbar />
       </div>
 
-      <div className="w-[90%] md:w-[80%] mx-auto py-10 md:py-10">
+      <div className="w-[90%] max-w-360 mx-auto py-10 md:py-10">
         <div className="min-h-screen w-full  text-white flex justify-center">
           <div className="w-full bg-white/5 backdrop-blur-sm p-3 py-5 md:p-10 rounded-2xl shadow-xl border-none border-white/10 governance-content">
             <div className="flex flex-col md:flex-row justify-between items-start mb-6">

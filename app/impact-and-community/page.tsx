@@ -23,7 +23,7 @@ export default function ImpactAndCommunity() {
   };
   return (
     <div className="text-white!">
-      <div className="w-[90%] md:w-[80%] mx-auto pt-8 md:pt-10">
+      <div className="w-[90%] max-w-360 mx-auto pt-8 md:pt-10">
         <Navbar />
         <div className="min-h-screen w-full  text-white my-10 md:py-16  flex justify-center">
           <motion.div

@@ -19,7 +19,7 @@ const faqs = [
   {
     question: "What programmes do you offer?",
     answer:
-      "We offer tailored programmes including mentoring, employability training, digital literacy, and personal development workshops to prepare young people for life and work.",
+      "We offer tailored programmes including mentorship, employability training, digital literacy, and personal development workshops to prepare young people for life and work.",
   },
   {
     question: "Do you partner with organisations and employers?",

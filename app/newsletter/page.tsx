@@ -1,21 +1,50 @@
+"use client";
+
 import React from "react";
 import Navbar from "@/components/Navbar";
 import StaticBg from "@/components/StaticBg";
 import Text from "@/components/Text";
 import Image from "next/image";
 import Footer from "@/components/Footer";
+import { motion } from "framer-motion";
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 60 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6 },
+};
+
+const fadeIn = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  transition: { duration: 0.6 },
+};
+
+const staggerChildren = {
+  animate: {
+    transition: {
+      delayChildren: 0.4,
+      staggerChildren: 0.1,
+    },
+  },
+};
 
 const Newsletter = () => {
   return (
     <div className="text-white ">
-      <div className="w-[90%] md:w-[80%] mx-auto pt-8 md:pt-10">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="w-[90%] max-w-360 mx-auto pt-8 md:pt-10"
+      >
         <Navbar />
-      </div>
+      </motion.div>
 
       {/* Who we are */}
       <StaticBg scroll={true}>
-        <div className="w-[90%] md:w-[80%] max-w-360 mx-auto relative z-50">
-          <div className="mt-14 md:mt-28 mb-10">
+        <div className="w-[90%] max-w-360 mx-auto relative z-50">
+          <motion.div className="mt-14 md:mt-28 mb-10" variants={fadeInUp}>
             <Text
               type="heading"
               className=" text-center text-3xl! md:text-[48px] font-semibold!"
@@ -29,7 +58,7 @@ const Newsletter = () => {
 
             <hr className="w-10 border border-slate-400 mx-auto" />
 
-            <div>
+            <motion.div variants={fadeInUp}>
               <Image
                 src="/images/newsletterImage.png"
                 alt="Newsletter "
@@ -38,7 +67,10 @@ const Newsletter = () => {
                 className="w-full h-auto mt-10 rounded-xl shadow-lg"
               />
 
-              <div className="px-5 md:px-10 flex flex-col gap-5 md:gap-10 mt-5 md:mt-10">
+              <motion.div
+                variants={fadeInUp}
+                className="px-5 md:px-10 flex flex-col gap-5 md:gap-10 mt-5 md:mt-10"
+              >
                 <div>
                   <div>
                     <Text className="text-[23px]! font-semibold! mb-3">
@@ -152,9 +184,9 @@ const Newsletter = () => {
                     engagement with their wellness journey.
                   </Text>
                 </div>
-              </div>
-            </div>
-          </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
       </StaticBg>
 

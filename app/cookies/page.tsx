@@ -77,7 +77,7 @@ export default function CookiePolicy() {
   };
   return (
     <div className="text-white!">
-      <div className="w-[90%] md:w-[80%] mx-auto pt-8 md:pt-10">
+      <div className="w-[90%] max-w-360 mx-auto pt-8 md:pt-10">
         <Navbar />
         <div className="min-h-screen w-full text-white py-10 md:py-20 flex justify-center">
           <div className="max-w-5xl w-full bg-[#FFFFFF0D] p-3 py-5 md:p-10 rounded-2xl shadow-xl relative overflow-hidden">
