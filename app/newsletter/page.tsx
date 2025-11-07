@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import StaticBg from "@/components/StaticBg";
 import Text from "@/components/Text";
 import Image from "next/image";
+import Footer from "@/components/Footer";
 
 const Newsletter = () => {
   return (
@@ -14,114 +15,150 @@ const Newsletter = () => {
       {/* Who we are */}
       <StaticBg scroll={true}>
         <div className="w-[90%] md:w-[80%] max-w-360 mx-auto relative z-50">
-          <div className="mt-14 md:mt-28">
+          <div className="mt-14 md:mt-28 mb-10">
             <Text
               type="heading"
               className=" text-center text-3xl! md:text-[48px] font-semibold!"
             >
-              LifeSkills Connect
+              News & Insights
             </Text>
             <Text className="text-center md:text-xl! my-3 max-w-7xl mx-auto">
-              Our flagship platform is designed to equip young people aged 17–21
-              with the skills they need for life and work. Courses cover
-              financial literacy, career preparation, online safety, and
-              personal development, all delivered through interactive, engaging
-              experiences.
+              Welcome to the Accordia Harmony C.I.C. News and Insights Hub, a
+              space where ideas meet impact.
             </Text>
 
-            <div className="flex flex-col gap-8 mt-8 md:mt-16">
-              <div className="grid md:grid-cols-7 gap-4 md:gap-8">
-                <div className="md:col-span-3 bg-white rounded-xl text-[#545A65] flex flex-col justify-between overflow-hidden">
-                  <div className="p-5 md:p-10">
-                    <Text className="text-[#545A65] font-bold! text-xl! mb-2">
-                      Learning life skills module
-                    </Text>
-                    <Text className="text-[#545A65]">
-                      Receive soft, supportive words each day to uplift your
-                      mind and spirit.
-                    </Text>
-                  </div>
+            <hr className="w-10 border border-slate-400 mx-auto" />
 
+            <div>
+              <Image
+                src="/images/newsletterImage.png"
+                alt="Newsletter "
+                width={1000}
+                height={1000}
+                className="w-full h-auto mt-10 rounded-xl shadow-lg"
+              />
+
+              <div className="px-5 md:px-10 flex flex-col gap-5 md:gap-10 mt-5 md:mt-10">
+                <div>
                   <div>
-                    <Image
-                      src="/images/lifeskill-module.png"
-                      alt="LifeSkills Connect App"
-                      width={1000}
-                      height={1000}
-                      className="mx-auto w-full h-auto"
-                    />
+                    <Text className="text-[23px]! font-semibold! mb-3">
+                      Sharing Ideas, Stories and Progress
+                    </Text>
+                    <Text>
+                      Here, we share the latest updates, thought pieces and
+                      inspiring stories from our journey to empower young people
+                      aged 17 to 21. This section reflects our growth, our
+                      values and the partnerships that continue to shape our
+                      work. It is where we celebrate progress, explore
+                      innovation and highlight the people and projects driving
+                      real change.
+                    </Text>
                   </div>
                 </div>
-                <div className="md:col-span-4 bg-white rounded-xl text-[#545A65] flex flex-col justify-between overflow-hidden">
-                  <div className="p-5 md:p-10">
-                    <Text className="text-[#545A65] font-bold! text-xl! mb-2">
-                      Integrated Ai
-                    </Text>
-                    <Text className="text-[#545A65]">
-                      Stay productive with light, no-pressure to-dos that feel
-                      good to complete.
-                    </Text>
-                  </div>
+                <div>
+                  <Text className="text-[23px]! font-semibold! mb-3">
+                    Our Purpose
+                  </Text>
+                  <Text>
+                    The News and Insights section exists to keep our community
+                    informed, engaged and inspired. It captures the latest
+                    developments across our platforms including LifeSkills
+                    Connect, Skill Forge and Playground, while also exploring
+                    wider conversations around youth development, education,
+                    technology and social impact. <br /> We believe that sharing
+                    knowledge helps create stronger communities. Every article,
+                    announcement and interview is written to encourage learning,
+                    spark curiosity and invite collaboration from those who
+                    believe in a better future for young people.
+                  </Text>
+                </div>
 
+                <div>
+                  <Image
+                    src="/images/newsletterImage.png"
+                    alt="Newsletter "
+                    width={1000}
+                    height={1000}
+                    className="w-full h-auto mt-10 rounded-xl shadow-lg"
+                  />
+                </div>
+
+                <div>
                   <div>
-                    <Image
-                      src="/images/integrated-ai.png"
-                      alt="LifeSkills Connect App"
-                      width={1000}
-                      height={1000}
-                      className="mx-auto w-full h-auto"
-                    />
+                    <Text className="text-[23px]! font-semibold! mb-3">
+                      Project Updates
+                    </Text>
+                    <Text>
+                      Follow the progress of our flagship initiatives, upcoming
+                      platform launches and new feature releases. Learn how we
+                      continue to improve LifeSkills Connect, prepare for the
+                      introduction of Skill Forge and shape Playground into a
+                      thriving digital community.
+                    </Text>
                   </div>
                 </div>
-              </div>
-              <div className="grid md:grid-cols-7 gap-4 md:gap-8">
-                <div className="md:col-span-4 bg-white rounded-xl text-[#545A65] flex flex-col justify-between overflow-hidden">
-                  <div className="p-5 md:p-10">
-                    <Text className="text-[#545A65] font-bold! text-xl! mb-2">
-                      Safety tools
-                    </Text>
-                    <Text className="text-[#545A65]">
-                      Check in with your feelings and journal your thoughts in a
-                      calming, private space.
-                    </Text>
-                  </div>
 
+                <div>
+                  <Image
+                    src="/images/newsletterImage.png"
+                    alt="Newsletter "
+                    width={1000}
+                    height={1000}
+                    className="w-full h-auto mt-10 rounded-xl shadow-lg"
+                  />
+                </div>
+
+                <div>
                   <div>
-                    <Image
-                      src="/images/safety-tools.png"
-                      alt="LifeSkills Connect App"
-                      width={1000}
-                      height={1000}
-                      className="mx-auto w-full h-auto"
-                    />
+                    <Text className="text-[23px]! font-semibold! mb-3">
+                      How to Start a Digital Detox
+                    </Text>
+                    <ul className="list-disc pl-8 flex flex-col gap-3">
+                      <li>
+                        Schedule device-free time daily, especially in the
+                        morning and before bed
+                      </li>
+                      <li>Turn off non-essential notifications</li>
+                      <li>
+                        Replace scrolling with mindful activities like
+                        journaling, walking, or stretching
+                      </li>
+                      <li>
+                        Use “Do Not Disturb” mode or app blockers when focusing
+                      </li>
+                      <li>Try a screen-free day once a week</li>
+                    </ul>
+
+                    <Text className="mt-3">
+                      You don’t need to go off the grid. Even small breaks can
+                      lead to big benefits.
+                    </Text>
                   </div>
                 </div>
-                <div className="md:col-span-3 bg-white rounded-xl text-[#545A65] flex flex-col justify-between overflow-hidden">
-                  <div className="p-5 md:p-10">
-                    <Text className="text-[#545A65] font-bold! text-xl! mb-2">
-                      Gammified learning
-                    </Text>
-                    <Text className="text-[#545A65]">
-                      Log your water, sleep, and wellness in one peaceful
-                      overwhelm.
-                    </Text>
-                  </div>
 
-                  <div>
-                    <Image
-                      src="/images/gammified.png"
-                      alt="LifeSkills Connect App"
-                      width={1000}
-                      height={1000}
-                      className="mx-auto w-full h-auto"
-                    />
-                  </div>
+                <div className="bg-white h-20 w-full rounded-xl"></div>
+
+                <div>
+                  <Text className="text-[23px]! font-semibold! mb-3">
+                    Impact on user experience
+                  </Text>
+                  <Text>
+                    A digital detox positively impacts user experience by
+                    reducing mental fatigue, improving focus, and enhancing
+                    emotional well-being. By encouraging screen-free moments,
+                    the app promotes healthier habits, better sleep, and deeper
+                    mindfulness. Users feel more present, energized, and
+                    productive—leading to greater satisfaction and long-term
+                    engagement with their wellness journey.
+                  </Text>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </StaticBg>
+
+      <Footer />
     </div>
   );
 };
