@@ -20,7 +20,7 @@ const navLinks = [
       { label: "Inquiries", href: "/contact" },
     ],
   },
-  { label: "Newsletter", href: "/news-letter" },
+  { label: "Newsletter", href: "/newsletter" },
 ];
 
 const Navbar = () => {

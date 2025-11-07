@@ -143,43 +143,43 @@ const Footer = () => {
               </h3>
               <nav className="space-y-4">
                 <Link
-                  href="#"
+                  href="/terms-of-use"
                   className="block text-sm text-gray-400 hover:text-white transition"
                 >
                   Terms of use
                 </Link>
                 <Link
-                  href="#"
+                  href="/privacy-policy"
                   className="block text-sm text-gray-400 hover:text-white transition"
                 >
                   Private policy
                 </Link>
                 <Link
-                  href="#"
+                  href="/cookies"
                   className="block text-sm text-gray-400 hover:text-white transition"
                 >
                   Cookie policy
                 </Link>
                 <Link
-                  href="#"
+                  href="/accessibility-statement"
                   className="block text-sm text-gray-400 hover:text-white transition"
                 >
                   Accessibility Statement
                 </Link>
                 <Link
-                  href="#"
+                  href="/governance-and-transparency"
                   className="block text-sm text-gray-400 hover:text-white transition"
                 >
                   Governance and transparency
                 </Link>
                 <Link
-                  href="#"
+                  href="/impact-and-community"
                   className="block text-sm text-gray-400 hover:text-white transition"
                 >
                   Impact and community
                 </Link>
                 <Link
-                  href="#"
+                  href="/partnership"
                   className="block text-sm text-gray-400 hover:text-white transition"
                 >
                   Partnership and collaborations
@@ -199,15 +199,18 @@ const Footer = () => {
         <div className="relative mt-8 border-t border-gray-800/50 pt-6 flex flex-col md:flex-row items-center justify-between mx-auto text-xs text-[#82888C]">
           <p>© 2025 Accordia Harmony. All rights reserved.</p>
           <div className="flex items-center space-x-8 mt-4 md:mt-0">
-            <a href="#" className="hover:text-white transition">
+            <Link
+              href="/privacy-policy"
+              className="hover:text-white transition"
+            >
               Privacy Policy
-            </a>
-            <a href="#" className="hover:text-white transition">
+            </Link>
+            <Link href="/terms-of-use" className="hover:text-white transition">
               Terms of Use
-            </a>
-            <a href="#" className="hover:text-white transition">
+            </Link>
+            <Link href="/cookies" className="hover:text-white transition">
               Cookies Settings
-            </a>
+            </Link>
           </div>
         </div>
       </div>
