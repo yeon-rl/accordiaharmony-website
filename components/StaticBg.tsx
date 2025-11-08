@@ -1,14 +1,13 @@
 import React, { PropsWithChildren } from "react";
 
-const StaticBg: React.FC<PropsWithChildren<{ scroll?: boolean }>> = ({
-  children,
-  scroll,
-}) => {
+const StaticBg: React.FC<
+  PropsWithChildren<{ scroll?: boolean; height?: string }>
+> = ({ children, scroll, height }) => {
   return (
     <div
       className={`relative w-full  bg-[#060610] flex flex-col ${
         scroll ? " h-full" : "overflow-hidden h-screen"
-      }`}
+      } ${height ? height : ""}`}
       style={{ scrollbarWidth: "none" }}
     >
       <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-[#060610] z-10" />

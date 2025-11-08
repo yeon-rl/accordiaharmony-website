@@ -137,7 +137,7 @@ const About = () => {
       </motion.div>
 
       {/* Who we are */}
-      <StaticBg>
+      <StaticBg height="h-fit!">
         <div className="w-[90%] max-w-360 mx-auto">
           <motion.div
             initial={{ opacity: 0 }}
@@ -202,7 +202,7 @@ const About = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 relative z-50 mt-20 md:-mt-28"
+          className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 relative z-50 "
         >
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -277,9 +277,9 @@ const About = () => {
                 Our mission is to prepare young people for independent living
                 and lifelong success by equipping them with the tools,
                 confidence, and mindset they need to lead purposeful lives.{" "}
-                <br /> We aim to make learning meaningful, inclusive, and
+                {/* <br /> We aim to make learning meaningful, inclusive, and
                 accessible through innovative digital platforms that encourage
-                growth, self-belief, and community connection.
+                growth, self-belief, and community connection. */}
               </Text>
             </motion.div>
           </div>
@@ -432,10 +432,11 @@ const About = () => {
               <Text className="my-3 text-base! md:text-xl!">
                 Our founders brought together their experience in technology,
                 education, and social development to create something different:
-                a company that uses innovation for good. <br /> This vision led
+                a company that uses innovation for good.
+                {/* <br /> This vision led
                 to the creation of LifeSkills Connect, our flagship digital
                 platform, which equips young people with the skills and
-                confidence to live independently and make informed choices.
+                confidence to live independently and make informed choices. */}
               </Text>
             </div>
           </motion.div>
@@ -455,7 +456,7 @@ const About = () => {
           <div className="grid grid-cols-2 gap-5 md:gap-10 my-5 md:my-20">
             <div>
               <Text className="border p-2 rounded-full w-fit px-3">
-                Skill Forge:
+                Skills Forge:
               </Text>
               <Text className=" my-5 md:my-10">
                 a modern learning environment where young people gain hands-on

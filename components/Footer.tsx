@@ -57,7 +57,7 @@ const Footer = () => {
                 Address
               </h3>
               <p className="text-sm text-[#82888C]">
-                124 City Road, London, EC1V
+                124 City Road, London, EC1V 2NX
               </p>
             </motion.div>
 

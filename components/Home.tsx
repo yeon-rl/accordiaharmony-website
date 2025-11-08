@@ -44,8 +44,8 @@ const Home = () => {
       >
         <Navbar />
       </motion.div>
-      <StaticBg>
-        <div className="w-[90%] max-w-360 mx-auto">
+      <StaticBg height="h-fit!">
+        <div className="w-[90%] max-w-360 mx-auto mb-20">
           <motion.div
             initial="initial"
             whileInView="animate"
@@ -128,7 +128,7 @@ const Home = () => {
           whileInView="animate"
           viewport={{ once: true }}
           variants={staggerChildren}
-          className="flex flex-col items-center justify-center -mt-70 md:-mt-40"
+          className="flex flex-col items-center justify-center "
         >
           <motion.div variants={fadeInUp}>
             <Header number={3} title="Why Trust Us?" />
