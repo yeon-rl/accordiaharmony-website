@@ -362,7 +362,8 @@ const Careers = () => {
                 who care about impact. <br /> We bring together creative
                 thinkers, developers, educators, and strategists who are
                 passionate about empowering young people through innovation and
-                collaboration. <br />
+                collaboration.
+                <br /> <br />
                 Joining Accordia Harmony means being part of a purpose-driven
                 culture where ideas are valued, voices are heard, and
                 contributions make a real difference. Whether your expertise
@@ -374,7 +375,11 @@ const Careers = () => {
               </Text>
 
               <div className="flex justify-center md:justify-start">
-                <Button title="Partner with us" className="mt-5" />
+                <Button
+                  title="Partner with us"
+                  className="mt-5"
+                  onClick={() => router.push("/partnership")}
+                />
               </div>
             </motion.div>
           </div>
@@ -395,7 +400,7 @@ const Careers = () => {
             </Text>
           </div>
 
-          <Button title="View positions" className="mt-5" />
+          <Button title="View positions" className="mt-5" onClick={() => {}} />
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 my-28">

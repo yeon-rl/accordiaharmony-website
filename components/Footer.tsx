@@ -138,10 +138,10 @@ const Footer = () => {
                   About US
                 </Link>
                 <Link
-                  href="/products"
+                  href="/services"
                   className="block text-sm text-gray-400 hover:text-white transition"
                 >
-                  Products
+                  Services
                 </Link>
                 <Link
                   href="/careers"

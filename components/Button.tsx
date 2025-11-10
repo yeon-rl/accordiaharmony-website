@@ -7,7 +7,8 @@ const Button: React.FC<{
   hasIcon?: boolean;
   nav?: boolean;
   className?: string;
-}> = ({ title, isTransparent, hasIcon, nav, className }) => {
+  onClick?: () => void;
+}> = ({ title, isTransparent, hasIcon, nav, className, onClick }) => {
   const showGradientBorder = !nav && !isTransparent && !hasIcon;
   return (
     <div style={{ position: "relative", display: "inline-block" }}>
@@ -54,6 +55,7 @@ const Button: React.FC<{
           border: showGradientBorder ? "none" : undefined,
           borderRadius: "13.01px",
         }}
+        onClick={onClick}
       >
         {title}
 

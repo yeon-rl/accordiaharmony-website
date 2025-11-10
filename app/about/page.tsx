@@ -11,6 +11,7 @@ import Header from "../../components/Header";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import FAQSection from "@/components/FAQ";
+import { useRouter } from "next/navigation";
 
 const coreValues = [
   {
@@ -125,6 +126,8 @@ const coreValues = [
 ];
 
 const About = () => {
+  const router = useRouter();
+
   return (
     <div className="text-white ">
       <motion.div
@@ -158,22 +161,21 @@ const About = () => {
                 <Text type="subheading">Who We Are</Text>
                 <Text className="my-3 text-base">
                   Accordia Harmony C.I.C. is a United Kingdom–based Community
-                  Interest Company dedicated to empowering young people aged
-                  with the confidence, life skills, and knowledge they need to
-                  thrive.
+                  Interest Company dedicated to empowering young people with
+                  confidence, life skills, and knowledge they need to thrive.{" "}
+                  <br /> We create solutions that make learning practical,
+                  engaging, and relevant. Our focus is on bridging the gap
+                  between classroom education and the realities of everyday
+                  life, preparing young people for independence, employment, and
+                  personal growth.
                 </Text>
                 <Text className="my-5 text-base">
-                  We create solutions that make learning practical, engaging,
-                  and relevant. Our focus is on bridging the gap between
-                  classroom education and the realities of everyday life,
-                  preparing young people for independence, employment, and
-                  personal growth.
-                  <br />
                   Our approach combines innovation, technology, and social
                   purpose to build tools that make a lasting impact. We work
                   collaboratively with educators, youth organisations, and
                   community partners to ensure that our programmes truly reflect
                   the needs of young people today.
+                  <br />
                 </Text>
               </div>
             </motion.div>
@@ -234,8 +236,8 @@ const About = () => {
               <Text className="my-3 text-base">
                 Accordia Harmony C.I.C. was founded to address a simple truth:
                 many young people Lack practical skills or confidence to
-                navigate adulthood successfully. Through our platforms, we
-                create spaces where young people can learn about finance,
+                navigate adulthood successfully. <br /> Through our platforms,
+                we create spaces where young people can learn about finance,
                 wellbeing, careers, relationships, and digital safety in a way
                 that feels relatable and empowering. <br /> Our goal is not just
                 to teach skills, but to help young people discover who they are,
@@ -292,7 +294,7 @@ const About = () => {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="bg-[url('/images/ctabanner.png')] bg-cover bg-no-repeat bg-center rounded-2xl p-8 md:p-20 ">
+          <div className="bg-[url('/images/ctabanner.png')] bg-cover bg-no-repeat bg-center rounded-2xl p-8 md:p-20 relative">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -311,13 +313,24 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="mt-3 flex items-center justify-center gap-2 px-5 py-2 md:px-8 md:py-3 rounded-full bg-gradient-to-b from-[#1b1b1b] to-[#0d0d0d] shadow-[inset_2px_2px_6px_rgba(255,255,255,0.08),inset_-2px_-2px_6px_rgba(0,0,0,0.6)] text-white font-semibold text-lg"
+              className="mt-3 flex items-center cursor-pointer justify-center gap-2 px-5 py-2 md:px-8 md:py-3 rounded-full bg-gradient-to-b from-[#1b1b1b] to-[#0d0d0d] shadow-[inset_2px_2px_6px_rgba(255,255,255,0.08),inset_-2px_-2px_6px_rgba(0,0,0,0.6)] text-white font-semibold text-lg"
+              onClick={() => router.push("/newsletter")}
             >
               <span className="text-2xl leading-none">•</span>
               <span className="tracking-wide text-sm md:text-base">
                 Learn&nbsp;More
               </span>
             </motion.button>
+
+            <div className="absolute bottom-0 right-[13%]">
+              <Image
+                src="/images/megaphone.png"
+                alt="About Hero"
+                width={1000}
+                height={1000}
+                className="w-[297px] h-auto"
+              />
+            </div>
           </div>
         </motion.div>
 
@@ -549,7 +562,7 @@ const About = () => {
             <Header number={6} title="FAQ" />
             <Text
               type="subheading"
-              className="font-normal! max-w-3xl text-center mb-3"
+              className="font-bold! max-w-3xl text-center mb-3"
             >
               Got questions ? We’ve got answers
             </Text>

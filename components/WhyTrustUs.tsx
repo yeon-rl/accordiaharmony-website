@@ -20,7 +20,7 @@ const WhyTrustUs = () => {
     },
     {
       icon: "/icons/money-bag-02.png",
-      text: "Financial Literacy Education",
+      text: " “Vocational Training”",
       longText:
         "Gain control of your finances through practical lessons on banking, saving, debt management, and benefits awareness.",
     },
