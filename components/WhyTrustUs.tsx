@@ -19,8 +19,8 @@ const WhyTrustUs = () => {
         "Prepare for the workplace with expert guidance in CV writing, interview skills, professional behaviour, and career planning.",
     },
     {
-      icon: "/icons/money-bag-02.png",
-      text: " “Vocational Training”",
+      icon: "/icons/Vector.png",
+      text: "Vocational Training",
       longText:
         "Gain control of your finances through practical lessons on banking, saving, debt management, and benefits awareness.",
     },

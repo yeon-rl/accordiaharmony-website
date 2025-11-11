@@ -17,12 +17,6 @@ const fadeInUp = {
   transition: { duration: 0.6 },
 };
 
-const fadeIn = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  transition: { duration: 0.6 },
-};
-
 const staggerChildren = {
   animate: {
     transition: {
@@ -327,7 +321,10 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="bg-white rounded-full p-2 w-fit flex items-center h-fit shrink-0 justify-center">
+            {/* <button
+              
+              className="bg-white rounded-full p-2 w-fit flex items-center h-fit shrink-0 justify-center"
+            >
               <svg
                 width="15"
                 height="15"
@@ -350,7 +347,7 @@ const Contact = () => {
                   strokeLinejoin="round"
                 />
               </svg>
-            </div>
+            </button> */}
           </motion.div>
 
           <motion.div
@@ -381,7 +378,11 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="bg-white rounded-full p-2 w-fit flex items-center h-fit shrink-0 justify-center">
+            <a
+              href="mailto:info@accordiaharmony.org"
+              aria-label="Send email to info@accordiaharmony.org"
+              className="bg-white rounded-full p-2 w-fit flex items-center h-fit shrink-0 justify-center"
+            >
               <svg
                 width="15"
                 height="15"
@@ -404,7 +405,7 @@ const Contact = () => {
                   strokeLinejoin="round"
                 />
               </svg>
-            </div>
+            </a>
           </motion.div>
 
           <motion.div
@@ -433,11 +434,39 @@ const Contact = () => {
 
               <div className="flex flex-col space-y-2">
                 <Text>Location</Text>
-                <Text>124 City Road, London, EC1V</Text>
+                <Text>124 City Road, London, EC1V 2NX</Text>
               </div>
             </div>
 
-            <div className="bg-white rounded-full p-2 w-fit flex items-center h-fit shrink-0 justify-center">
+            <button
+              type="button"
+              onClick={() => {
+                try {
+                  const address = encodeURIComponent(
+                    "124 City Road, London, EC1V 2NX"
+                  );
+                  const ua =
+                    typeof navigator !== "undefined" ? navigator.userAgent : "";
+                  // Prefer Apple Maps on Apple platforms, Google Maps elsewhere
+                  const useApple =
+                    /iPhone|iPad|iPod|Macintosh/i.test(ua) &&
+                    !/Android/i.test(ua);
+                  const appleUrl = `https://maps.apple.com/?q=${address}`;
+                  const googleUrl = `https://www.google.com/maps/search/?api=1&query=${address}`;
+                  const url = useApple ? appleUrl : googleUrl;
+                  window.open(url, "_blank", "noopener,noreferrer");
+                } catch {
+                  // fallback to google maps
+                  window.open(
+                    "https://www.google.com/maps/search/?api=1&query=124+City+Road+London+EC1V+2NX",
+                    "_blank",
+                    "noopener,noreferrer"
+                  );
+                }
+              }}
+              aria-label="Open location in maps"
+              className="bg-white rounded-full p-2 w-fit cursor-pointer flex items-center h-fit shrink-0 justify-center"
+            >
               <svg
                 width="15"
                 height="15"
@@ -460,7 +489,7 @@ const Contact = () => {
                   strokeLinejoin="round"
                 />
               </svg>
-            </div>
+            </button>
           </motion.div>
         </div>
       </motion.div>

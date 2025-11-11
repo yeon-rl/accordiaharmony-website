@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Navbar from "./Navbar";
 import Header from "./Header";
@@ -11,6 +13,7 @@ import Image from "next/image";
 import Text from "./Text";
 import Button from "./Button";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -34,6 +37,8 @@ const staggerChildren = {
 };
 
 const Home = () => {
+  const router = useRouter();
+
   return (
     <div className="text-white">
       <motion.div
@@ -51,9 +56,9 @@ const Home = () => {
             whileInView="animate"
             viewport={{ once: true }}
             variants={staggerChildren}
-            className="flex flex-col items-center justify-center max-w-180 mx-auto space-y-5 mt-20 md:mt-32"
+            className="flex flex-col items-center justify-center max-w-5xl mx-auto space-y-5 mt-20 md:mt-32"
           >
-            <motion.div
+            {/* <motion.div
               variants={fadeInUp}
               className="bg-white px-5 py-2 rounded-full w-fit mx-auto flex items-center gap-3 mb-6"
             >
@@ -65,15 +70,19 @@ const Home = () => {
                 className="w-[43px] h-[19px]"
               />
               <p className="text-[#262626]">5200+ Users in the United Kindom</p>
-            </motion.div>
+            </motion.div> */}
 
             <motion.div variants={fadeInUp}>
-              <Text type="heading" className="text-center">
-                Welcome to Accordia Harmony C.I.C.
+              <Text
+                type="heading"
+                className="text-center mt-10 md:mt-20 font-semibold!"
+              >
+                Welcome to{" "}
+                <span className="text-[#FBBF24]">Accordia Harmony C.I.C.</span>
               </Text>
             </motion.div>
             <motion.div variants={fadeInUp}>
-              <Text className="text-center">
+              <Text className="text-center md:text-xl">
                 Empowering young people to live with confidence, purpose, and
                 independence. We are a United Kingdom–based Community Interest
                 Company dedicated to helping young people aged 17 to 21 develop
@@ -83,8 +92,15 @@ const Home = () => {
             </motion.div>
 
             <motion.div variants={fadeInUp} className="flex space-x-5">
-              <Button title="Join our mission" />
-              <Button title="Learn more" isTransparent />
+              <Button
+                title="Join our mission"
+                onClick={() => router.push("/partnership")}
+              />
+              <Button
+                title="Learn more"
+                isTransparent
+                onClick={() => router.push("/about")}
+              />
             </motion.div>
 
             <motion.div
@@ -131,7 +147,7 @@ const Home = () => {
           className="flex flex-col items-center justify-center mt-10 md:mt-20 lg:mt-40 h-[800px]:mt-10 h-[900px]:-mt-20 h-[1000px]:-mt-40"
         >
           <motion.div variants={fadeInUp}>
-            <Header number={3} title="Why Trust Us?" />
+            <Header number={1} title="Why Trust Us?" />
           </motion.div>
 
           <motion.div
@@ -194,7 +210,7 @@ const Home = () => {
               learn, grow, and thrive.
             </Text>
 
-            <div className="flex items-center gap-3 mt-5">
+            {/* <div className="flex items-center justify-center md:justify-start gap-3 mt-5">
               <button className="cursor-pointer">
                 <svg
                   width="118"
@@ -392,7 +408,7 @@ const Home = () => {
                   />
                 </svg>
               </button>
-            </div>
+            </div> */}
           </motion.div>
         </motion.div>
 
@@ -411,7 +427,7 @@ const Home = () => {
             viewport={{ once: true }}
             className="flex flex-col items-center justuify-center"
           >
-            <Header number={2} title="Our Services" />
+            <Header number={3} title="Our Services" />
             <Text
               type="subheading"
               className="font-normal! text-2xl md:text-4xl! text-center"
@@ -453,7 +469,7 @@ const Home = () => {
               viewport={{ once: true }}
               className="flex flex-col items-center justuify-center"
             >
-              <Header number={5} title="Testimonials" />
+              <Header number={4} title="Testimonials" />
               <Text
                 type="subheading"
                 className="font-normal! text-4xl! text-center mb-8"
@@ -487,7 +503,7 @@ const Home = () => {
             viewport={{ once: true }}
             className="flex flex-col items-center justify-center"
           >
-            <Header number={6} title="FAQ" />
+            <Header number={5} title="FAQ" />
             <Text
               type="subheading"
               className="font-bold! max-w-3xl text-center mb-3"

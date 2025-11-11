@@ -159,7 +159,7 @@ const Footer = () => {
                   href="/partnership"
                   className="block text-sm text-gray-400 hover:text-white transition"
                 >
-                  Partnership
+                  Partnerships
                 </Link>
               </nav>
             </motion.div>
@@ -186,7 +186,7 @@ const Footer = () => {
                   href="/cookies"
                   className="block text-sm text-gray-400 hover:text-white transition"
                 >
-                  Cookie policy
+                  Cookies policy
                 </Link>
                 <Link
                   href="/accessibility-statement"
@@ -210,7 +210,7 @@ const Footer = () => {
                   href="/partnership"
                   className="block text-sm text-gray-400 hover:text-white transition"
                 >
-                  Partnership and collaborations
+                  Partnerships and collaborations
                 </Link>
               </nav>
             </motion.div>

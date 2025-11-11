@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "./Button";
+import { useRouter } from "next/navigation";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -16,7 +17,7 @@ const navLinks = [
     label: "Contact Us",
     href: "#",
     dropdownItems: [
-      { label: "Partnership", href: "/partnership" },
+      { label: "Partnerships", href: "/partnership" },
       { label: "Inquiries", href: "/contact" },
     ],
   },
@@ -27,6 +28,7 @@ const Navbar = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const router = useRouter();
 
   return (
     <>
@@ -311,7 +313,11 @@ const Navbar = () => {
                       }}
                       className="pt-4"
                     >
-                      <Button title="Get in touch" nav />
+                      <Button
+                        title="Get in touch"
+                        nav
+                        onClick={() => router.push("/contact")}
+                      />
                     </motion.li>
                   </motion.ul>
                 </div>

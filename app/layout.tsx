@@ -3,6 +3,8 @@ import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import GoToTop from "@/components/GoToTop";
+import Chatbox from "@/components/Chatbox";
 import { Toaster } from "sonner";
 
 const geistSans = Geist({
@@ -38,6 +40,8 @@ export default function RootLayout({
       >
         <Toaster position="top-center" theme="dark" />
         {children}
+        <GoToTop />
+        <Chatbox />
         {/* <Footer /> */}
       </body>
     </html>

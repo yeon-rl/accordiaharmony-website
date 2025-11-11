@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Minus, ArrowRight } from "lucide-react";
 import { Add } from "iconsax-reactjs";
 import Button from "./Button";
+import { useRouter } from "next/navigation";
 
 const faqs = [
   {
@@ -31,6 +32,7 @@ const faqs = [
 const FAQSection = () => {
   // Initialize with the first FAQ (index 0) open by default
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
+  const router = useRouter();
 
   const toggleFAQ = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -93,7 +95,11 @@ const FAQSection = () => {
 
       {/* Ask Question Button */}
       <div className="mt-10">
-        <Button title="Ask Question" hasIcon />
+        <Button
+          title="Ask Question"
+          hasIcon
+          onClick={() => router.push("/contact")}
+        />
       </div>
     </section>
   );

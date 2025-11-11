@@ -1,12 +1,13 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import StaticBg from "@/components/StaticBg";
 import Text from "@/components/Text";
 import Image from "next/image";
 import Button from "@/components/Button";
 import Footer from "@/components/Footer";
+import RegisterDialog from "@/components/RegisterDialog";
 import { motion } from "framer-motion";
 
 const fadeInUp = {
@@ -31,6 +32,10 @@ const staggerChildren = {
 };
 
 const Products = () => {
+  const [showRegister, setShowRegister] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<string | undefined>(
+    undefined
+  );
   return (
     <div className="text-white ">
       <motion.div
@@ -78,7 +83,8 @@ const Products = () => {
                       Learning life skills module
                     </Text>
                     <Text className="text-[#545A65]">
-                      Learning modules the help you prepare for the future
+                      Explore interactive modules designed to build confidence,
+                      skills, and real world readiness.
                     </Text>
                   </motion.div>
 
@@ -98,8 +104,8 @@ const Products = () => {
                       Integrated Ai
                     </Text>
                     <Text className="text-[#545A65]">
-                      Stay productive with light, no-pressure to-dos that feel
-                      good to complete.
+                      Empowering youth through AI guided life skills,
+                      interactive learning, personalized coaching, real results.
                     </Text>
                   </motion.div>
 
@@ -121,8 +127,8 @@ const Products = () => {
                       Safety tools
                     </Text>
                     <Text className="text-[#545A65]">
-                      Check in with your feelings and journal your thoughts in a
-                      calming, private space.
+                      Smart safety tools designed to keep you protected and
+                      aware.
                     </Text>
                   </motion.div>
 
@@ -132,7 +138,7 @@ const Products = () => {
                       alt="LifeSkills Connect App"
                       width={1000}
                       height={1000}
-                      className="mx-auto w-full h-auto"
+                      className="mx-auto w-full md:w-[500px] h-auto"
                     />
                   </motion.div>
                 </div>
@@ -142,8 +148,8 @@ const Products = () => {
                       Gammified learning
                     </Text>
                     <Text className="text-[#545A65]">
-                      Log your water, sleep, and wellness in one peaceful
-                      overwhelm.
+                      Learn, grow and earn usable points and rewards that can be
+                      used int the real world.
                     </Text>
                   </motion.div>
 
@@ -183,7 +189,7 @@ const Products = () => {
             </motion.div>
             <motion.div className="md:w-[70%]" variants={fadeInUp}>
               <Text className="my-3 text-base! md:text-xl! text-center md:text-left">
-                &quot;LifeSkills Connect <br /> is our flagship digital platform
+                LifeSkills Connect <br /> is our flagship digital platform
                 created to equip young people aged 17 to 21 with the essential
                 skills, confidence, and knowledge they need for life and work.
                 It bridges the gap between school and adulthood by offering
@@ -200,7 +206,14 @@ const Products = () => {
               </Text>
 
               <div className="flex justify-center md:justify-start">
-                <Button title="Join waiting list" className="mt-5" />
+                <Button
+                  title="Join waiting list"
+                  className="mt-5"
+                  onClick={() => {
+                    setSelectedProduct("LifeSkills Connect");
+                    setShowRegister(true);
+                  }}
+                />
               </div>
             </motion.div>
           </div>
@@ -231,13 +244,16 @@ const Products = () => {
                 Skill Forge represents a new approach to learning, one that
                 values creativity, problem-solving, and purpose. It empowers
                 people to develop skills that shape their future, enhance their
-                confidence, and support lifelong growth.”Under it instead of
-                “join the waiting list” it should “register” once you click on
-                the register it should have a form box to collect your data such
-                as your first and last name and your email.
+                confidence, and support lifelong growth.{" "}
               </Text>
 
-              <button className="bg-[#4285F4] py-3 px-10 cursor-pointer rounded-md mt-5">
+              <button
+                onClick={() => {
+                  setSelectedProduct("Skill Forge");
+                  setShowRegister(true);
+                }}
+                className="bg-[#4285F4] py-3 px-10 cursor-pointer rounded-md mt-5"
+              >
                 Register
               </button>
             </motion.div>
@@ -293,7 +309,13 @@ const Products = () => {
                 value of collaboration through play.
               </Text>
 
-              <button className="bg-[#4285F4] py-3 px-10 cursor-pointer rounded-md mt-5">
+              <button
+                onClick={() => {
+                  setSelectedProduct("Playtogether");
+                  setShowRegister(true);
+                }}
+                className="bg-[#4285F4] py-3 px-10 cursor-pointer rounded-md mt-5"
+              >
                 Register
               </button>
             </motion.div>
@@ -301,6 +323,11 @@ const Products = () => {
         </div>
       </motion.div>
 
+      <RegisterDialog
+        open={showRegister}
+        onClose={() => setShowRegister(false)}
+        product={selectedProduct}
+      />
       <Footer />
     </div>
   );

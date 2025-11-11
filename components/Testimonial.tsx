@@ -6,19 +6,19 @@ const Testimonial = () => {
   const testimonials = [
     {
       title: "Youth Centered",
-      quote: `“Before joining Accordia Harmony, I struggled with budgeting and staying organised. Now I can manage my bills, cook for myself, and I actually feel confident about my future.”`,
-      name: "Lina M",
-      age: 21,
+      quote: `Accordia Harmony helped me find confidence and purpose, they truly support young people to grow and make an impact.`,
+      name: "Pricilla Jane ",
+      age: 19,
     },
     {
       title: "Partners Review",
-      quote: `“Before joining Accordia Harmony, I struggled with budgeting and staying organised. Now I can manage my bills, cook for myself, and I actually feel confident about my future.”`,
-      name: "Lina M",
+      quote: `Partnering with Accordia Harmony has been inspiring. Their commitment to empowering young people and creating real community impact is genuine, focused and deeply effective.`,
+      name: "John F",
       age: 21,
     },
     {
       title: "Product Oriented",
-      quote: `“Before joining Accordia Harmony, I struggled with budgeting and staying organised. Now I can manage my bills, cook for myself, and I actually feel confident about my future.”`,
+      quote: `Before joining Accordia Harmony, I struggled with budgeting and staying organised. Now I can manage my bills, cook for myself, and I actually feel confident about my future.`,
       name: "Lina M",
       age: 21,
     },
