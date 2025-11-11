@@ -221,7 +221,7 @@ const Footer = () => {
           className="flex items-center justify-center "
           variants={fadeInUp}
         >
-          <h1 className="text-[8.5vw] md:text-[8vw] font-bold text-transparent bg-clip-text bg-linear-to-b from-[#4E4F50]/50 to-[#10121380]/10 tracking-tight">
+          <h1 className="text-[8.5vw] md:text-[7.5vw] font-bold text-transparent bg-clip-text bg-linear-to-b from-[#4E4F50]/50 to-[#10121380]/10 tracking-tight">
             ACCORDIA HARMONY
           </h1>
         </motion.div>

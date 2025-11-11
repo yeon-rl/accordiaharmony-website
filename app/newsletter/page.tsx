@@ -44,7 +44,7 @@ const Newsletter = () => {
       {/* Who we are */}
       <StaticBg scroll={true}>
         <div className="w-[90%] max-w-360 mx-auto relative z-50">
-          <motion.div className="mt-14 md:mt-28 mb-10" variants={fadeInUp}>
+          <motion.div className="mt-14 mb-6" variants={fadeInUp}>
             <Text
               type="heading"
               className=" text-center text-3xl! md:text-[48px] font-semibold!"

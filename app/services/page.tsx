@@ -55,7 +55,7 @@ const Products = () => {
             whileInView="animate"
             viewport={{ once: true }}
             variants={staggerChildren}
-            className="mt-14 md:mt-28"
+            className="mt-14"
           >
             <motion.div variants={fadeInUp}>
               <Text
@@ -67,11 +67,11 @@ const Products = () => {
             </motion.div>
             <motion.div variants={fadeIn}>
               <Text className="text-center md:text-xl! my-3 max-w-7xl mx-auto">
-                Our flagship platform is designed to equip young people aged
-                17–21 with the skills they need for life and work. Courses cover
-                financial literacy, career preparation, online safety, and
-                personal development, all delivered through interactive,
-                engaging experiences.
+                Our flagship platform is designed to equip young people with the
+                skills they need for life and work. Courses cover financial
+                literacy, career preparation, online safety, and personal
+                development, all delivered through interactive, engaging
+                experiences.
               </Text>
             </motion.div>
 
@@ -177,7 +177,7 @@ const Products = () => {
         viewport={{ once: true }}
         variants={staggerChildren}
       >
-        <div className="my-18 md:my-32">
+        <div className="my-18">
           <div className="flex flex-col md:flex-row items-start justify-between">
             <motion.div className="md:w-[30%] w-full" variants={fadeInUp}>
               <Text
@@ -189,12 +189,12 @@ const Products = () => {
             </motion.div>
             <motion.div className="md:w-[70%]" variants={fadeInUp}>
               <Text className="my-3 text-base! md:text-xl! text-center md:text-left">
-                LifeSkills Connect <br /> is our flagship digital platform
-                created to equip young people aged 17 to 21 with the essential
-                skills, confidence, and knowledge they need for life and work.
-                It bridges the gap between school and adulthood by offering
-                engaging, interactive, and practical learning experiences that
-                prepare users for real-world challenges.
+                LifeSkills Connect is our flagship digital platform created to
+                equip young people with the essential skills, confidence, and
+                knowledge they need for life and work. It bridges the gap
+                between school and adulthood by offering engaging, interactive,
+                and practical learning experiences that prepare users for
+                real-world challenges.
                 <br /> <br />
                 The platform combines guided lessons, an AI-powered mentor, and
                 a supportive online community where learners can explore vital
@@ -205,7 +205,7 @@ const Products = () => {
                 badges, and track progress through personalised dashboards.
               </Text>
 
-              <div className="flex justify-center md:justify-start">
+              {/* <div className="flex justify-center md:justify-start">
                 <Button
                   title="Join waiting list"
                   className="mt-5"
@@ -214,7 +214,7 @@ const Products = () => {
                     setShowRegister(true);
                   }}
                 />
-              </div>
+              </div> */}
             </motion.div>
           </div>
         </div>
@@ -223,12 +223,12 @@ const Products = () => {
           <Text className="font-bold! text-center" type="heading">
             Our Upcoming Services
           </Text>
-          <div className="bg-white p-8 rounded-xl flex flex-col md:flex-row items-center justify-between gap-5 md:gap-14">
+          <div className="bg-white p-5 md:p-8 rounded-xl flex flex-col md:flex-row justify-between gap-5 md:gap-14">
             <motion.div className="md:w-[60%]" variants={fadeInUp}>
               <Text className="text-[#171719] font-semibold! text-[34px]!">
                 Skill Forge
               </Text>
-              <Text className="text-[#545A65]">
+              <Text className="text-[#545A65] md:text-[1.4rem]!">
                 Is a practical learning and innovation hub created to inspire
                 growth, creativity, and hands-on learning. It provides a space
                 where learners can explore technical, digital, and vocational
@@ -252,7 +252,7 @@ const Products = () => {
                   setSelectedProduct("Skill Forge");
                   setShowRegister(true);
                 }}
-                className="bg-[#4285F4] py-3 px-10 cursor-pointer rounded-md mt-5"
+                className="bg-[#1b365d] py-3 px-10 cursor-pointer rounded-md mt-5 md:text-2xl"
               >
                 Register
               </button>
@@ -267,7 +267,7 @@ const Products = () => {
               />
             </motion.div>
           </div>
-          <div className="bg-white p-8 rounded-xl flex flex-col md:flex-row  items-center justify-between gap-5 md:gap-14">
+          <div className="bg-white p-5 md:p-8 rounded-xl flex flex-col md:flex-row justify-between gap-5 md:gap-14">
             <motion.div
               className="md:w-[40%] order-1 md:order-0"
               variants={fadeInUp}
@@ -285,9 +285,9 @@ const Products = () => {
               variants={fadeInUp}
             >
               <Text className="text-[#171719] font-semibold! text-[34px]!">
-                Playtogether
+                PlayTogether
               </Text>
-              <Text className="text-[#545A65]">
+              <Text className="text-[#545A65] md:text-[1.4rem]!">
                 Is a community-focused initiative that promotes learning,
                 connection, and personal growth through the power of play. It
                 provides a vibrant and inclusive environment where individuals
@@ -314,7 +314,7 @@ const Products = () => {
                   setSelectedProduct("Playtogether");
                   setShowRegister(true);
                 }}
-                className="bg-[#4285F4] py-3 px-10 cursor-pointer rounded-md mt-5"
+                className="bg-[#1b365d] py-3 px-10 cursor-pointer rounded-md mt-5 md:text-2xl"
               >
                 Register
               </button>

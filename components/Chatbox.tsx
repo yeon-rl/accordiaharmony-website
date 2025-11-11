@@ -119,7 +119,7 @@ const Chatbox: React.FC = () => {
       <button
         aria-label={open ? "Close chat" : "Open chat"}
         onClick={() => setOpen((s) => !s)}
-        className="fixed z-50 bottom-24 right-5 cursor-pointer md:bottom-32 md:right-8 w-14 h-14 rounded-full shadow-lg bg-blue-600 flex items-center justify-center text-white"
+        className="fixed z-50 bottom-24 right-5 cursor-pointer md:bottom-32 md:right-8 w-14 h-14 rounded-full shadow-lg bg-[#BA9A32] flex items-center justify-center text-white"
       >
         {!open ? (
           // simple chat icon (kept small and accessible)
@@ -158,8 +158,8 @@ const Chatbox: React.FC = () => {
 
       {/* Chat panel */}
       {open && (
-        <div className="fixed z-50 bottom-36 right-5 md:bottom-44 md:right-8 w-80 max-h-[70vh] bg-white shadow-2xl rounded-lg flex flex-col overflow-hidden">
-          <div className="px-4 py-3 border-b flex items-center justify-between">
+        <div className="fixed z-50 bottom-36 right-5 md:bottom-44 md:right-8 w-80 max-h-[70vh] border border-slate-500 bg-[#060610] shadow-2xl rounded-lg flex flex-col overflow-hidden">
+          <div className="px-4 py-3 border-b border-slate-700 flex items-center justify-between">
             <div className="text-sm font-semibold">Accordia Assistant</div>
             <button
               onClick={() => setOpen(false)}
@@ -184,8 +184,8 @@ const Chatbox: React.FC = () => {
                 <div
                   className={`max-w-[78%] px-3 py-2 rounded-lg text-sm ${
                     m.from === "user"
-                      ? "bg-blue-600 text-white"
-                      : "bg-gray-100 text-gray-900"
+                      ? "bg-[#FBBF24] text-black"
+                      : "bg-slate-700 text-white"
                   }`}
                 >
                   {m.text}
@@ -194,13 +194,13 @@ const Chatbox: React.FC = () => {
             ))}
           </div>
 
-          <div className="px-3 pb-3 pt-1 border-t">
+          <div className="px-3 pb-3 pt-1 border-t border-slate-600">
             <div className="flex gap-2 mb-2 flex-wrap">
               {PRE_ANSWERED.map((opt) => (
                 <button
                   key={opt.id}
                   onClick={() => handleOptionClick(opt.label)}
-                  className="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-800 hover:bg-gray-200"
+                  className="text-xs px-2 py-1 rounded-full bg-slate-700 text-white hover:bg-gray-200"
                 >
                   {opt.label}
                 </button>
@@ -216,12 +216,12 @@ const Chatbox: React.FC = () => {
                   if (e.key === "Enter") handleSend();
                 }}
                 placeholder="Type a message..."
-                className="flex-1 px-3 py-2 rounded-lg border border-gray-200 text-sm focus:outline-none"
+                className="flex-1 px-3 py-2 rounded-lg border border-slate-600 text-sm focus:outline-none"
                 aria-label="Message input"
               />
               <button
                 onClick={() => handleSend()}
-                className="px-3 py-2 bg-blue-600 text-white rounded-lg text-sm"
+                className="px-3 py-2 bg-[#FBBF24] text-black rounded-lg text-sm"
               >
                 Send
               </button>

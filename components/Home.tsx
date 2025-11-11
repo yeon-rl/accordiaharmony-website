@@ -49,14 +49,14 @@ const Home = () => {
       >
         <Navbar />
       </motion.div>
-      <StaticBg height="h-fit!">
+      <StaticBg height="h-[45vh]!">
         <div className="w-[90%] max-w-360 mx-auto relative z-50">
           <motion.div
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
             variants={staggerChildren}
-            className="flex flex-col items-center justify-center max-w-5xl mx-auto space-y-5 mt-20 md:mt-32"
+            className="flex flex-col items-center justify-center max-w-5xl mx-auto space-y-5 mt-5"
           >
             {/* <motion.div
               variants={fadeInUp}
@@ -85,9 +85,9 @@ const Home = () => {
               <Text className="text-center md:text-xl">
                 Empowering young people to live with confidence, purpose, and
                 independence. We are a United Kingdom–based Community Interest
-                Company dedicated to helping young people aged 17 to 21 develop
-                the essential life skills and confidence they need to thrive in
-                today&apos;s world.
+                Company dedicated to helping young people develop the essential
+                life skills and confidence they need to thrive in today&apos;s
+                world.
               </Text>
             </motion.div>
 
@@ -103,7 +103,7 @@ const Home = () => {
               />
             </motion.div>
 
-            <motion.div
+            {/* <motion.div
               variants={fadeInUp}
               className="flex items-center space-x-3"
             >
@@ -131,7 +131,7 @@ const Home = () => {
                   className="w-[136px] h-auto"
                 />
               </div>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </div>
       </StaticBg>
@@ -144,7 +144,7 @@ const Home = () => {
           whileInView="animate"
           viewport={{ once: true }}
           variants={staggerChildren}
-          className="flex flex-col items-center justify-center mt-10 md:mt-20 lg:mt-40 h-[800px]:mt-10 h-[900px]:-mt-20 h-[1000px]:-mt-40"
+          className="flex flex-col items-center justify-center mt-10 h-[800px]:mt-10 h-[900px]:-mt-20 h-[1000px]:-mt-40"
         >
           <motion.div variants={fadeInUp}>
             <Header number={1} title="Why Trust Us?" />
@@ -175,11 +175,11 @@ const Home = () => {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
-          className="flex flex-col md:flex-row items-center gap-10 max-w-6xl mx-auto my-32 md:my-48"
+          className="grid grid-cols-1 md:grid-cols-5 items-start gap-10 max-w-6xl mx-auto my-20 md:my-32"
         >
           <motion.div
             variants={fadeInUp}
-            className="md:w-[40%] flex items-center justify-center order-1 md:order-0"
+            className=" flex md:col-span-2 items-center md:items-start justify-center order-1 md:order-0"
           >
             <div className="relative w-full">
               <Image
@@ -187,13 +187,13 @@ const Home = () => {
                 alt="Product 1"
                 width={1000}
                 height={1000}
-                className="w-[400px] h-auto object-contain ml-auto"
+                className="w-[400px] h-auto object-contain mx-auto md:mx-0"
               />
             </div>
           </motion.div>
           <motion.div
             variants={fadeInUp}
-            className="md:w-[60%] order-0 md:order-1"
+            className=" order-0 md:order-1 md:col-span-3"
           >
             <div className="flex items-center justify-center md:justify-start">
               <Header number={2} title="Our Products" />
@@ -453,7 +453,7 @@ const Home = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="flex flex-col items-center bg-[url('/images/grid.png')] md:py-20 my-32"
+          className="flex flex-col items-center bg-[url('/images/grid.png')] md:py-10 my-20"
         >
           {/* Testimonial */}
           <motion.div
@@ -470,12 +470,12 @@ const Home = () => {
               className="flex flex-col items-center justuify-center"
             >
               <Header number={4} title="Testimonials" />
-              <Text
+              {/* <Text
                 type="subheading"
                 className="font-normal! text-4xl! text-center mb-8"
               >
                 Real feedback from Connect Users
-              </Text>
+              </Text> */}
             </motion.div>
             <motion.div
               initial={{ opacity: 0 }}
@@ -494,7 +494,7 @@ const Home = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="md:my-40 max-w-7xl mx-auto"
+          className="md:my-20 max-w-7xl mx-auto"
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}

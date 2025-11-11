@@ -112,7 +112,11 @@ const Navbar = () => {
         </ul>
 
         <div>
-          <Button title="Get in touch" nav />
+          <Button
+            title="Join our mission"
+            nav
+            onClick={() => router.push("/partnership")}
+          />
         </div>
       </nav>
 
@@ -314,9 +318,9 @@ const Navbar = () => {
                       className="pt-4"
                     >
                       <Button
-                        title="Get in touch"
+                        title="Join our mission"
                         nav
-                        onClick={() => router.push("/contact")}
+                        onClick={() => router.push("/partnership")}
                       />
                     </motion.li>
                   </motion.ul>

@@ -41,7 +41,7 @@ export default function GoToTop() {
       onKeyDown={onKeyDown}
       className={
         "fixed z-50 bottom-6 right-6 md:bottom-8 md:right-8 cursor-pointer " +
-        "flex items-center justify-center w-12 h-12 rounded-full bg-white/90 shadow-lg hover:bg-white transition-opacity duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500 " +
+        "flex items-center justify-center w-12 h-12 rounded-full bg-[#BA9A32] shadow-lg hover:bg-white transition-opacity duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500 " +
         (visible
           ? "opacity-100 pointer-events-auto"
           : "opacity-0 pointer-events-none")

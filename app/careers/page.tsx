@@ -251,11 +251,10 @@ const Careers = () => {
         <Navbar />
       </motion.div>
 
-      {/* Who we are */}
       <StaticBg scroll={true}>
         <div className="w-[90%] md:w-[80%] max-w-360 mx-auto relative z-50">
           <motion.div
-            className="mt-14 md:mt-28"
+            className="mt-14 "
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
@@ -344,9 +343,9 @@ const Careers = () => {
         whileInView="animate"
         viewport={{ once: true }}
         variants={staggerChildren}
-        className="w-[90%] max-w-360 mx-auto pt-8 md:pt-10 mb-20"
+        className="w-[90%] max-w-360 mx-auto pt-8 mb-20"
       >
-        <div className="my-18 md:my-32">
+        <div className="my-14">
           <div className="flex flex-col md:flex-row items-start justify-between">
             <motion.div className="md:w-[30%] w-full" variants={fadeInUp}>
               <Text
@@ -376,7 +375,7 @@ const Careers = () => {
 
               <div className="flex justify-center md:justify-start">
                 <Button
-                  title="Partner with us"
+                  title="Join our mission"
                   className="mt-5"
                   onClick={() => router.push("/partnership")}
                 />

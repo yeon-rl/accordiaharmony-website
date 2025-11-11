@@ -14,14 +14,14 @@ const Header: React.FC<{ number: number; title: string }> = ({
       }}
     >
       <span
-        className="flex px-2 md:px-3 md:py-1 items-center justify-center rounded-full bg-[#4285F4] text-sm font-semibold text-white"
+        className="flex w-5 h-4 items-center justify-center rounded-full bg-[#BA9A32] text-sm font-semibold text-white"
         style={{
           border: "0.5px solid #4285F4",
           boxShadow:
             "0px 4px 6px 2px #9AC0FF inset, 0px -2px 6px 2px #0060FF inset",
         }}
       >
-        0{number}
+        {/* 0{number} */}
       </span>
       <div className="w-0.5 h-4 bg-[#DDDCE3]"></div>
       <span

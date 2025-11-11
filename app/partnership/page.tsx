@@ -232,9 +232,9 @@ export default function PartnershipsPage() {
             </div>
             <div className="md:w-[70%]">
               <Text className="my-3 text-base! md:text-xl!">
-                We are always open to new collaborations that empower young
-                people and strengthen communities. <br /> To discuss partnership
-                opportunities, please contact our team: <br /> Email:
+                We are open to new collaborations that empower young people and
+                strengthen communities. <br /> To discuss partnership
+                opportunities, please contact our team: <br /> Email:{" "}
                 <Link href="mailto:partnerships@accordiaharmony.org">
                   partnerships@accordiaharmony.org
                 </Link>{" "}
@@ -371,7 +371,7 @@ export default function PartnershipsPage() {
           </div>
         </div>
 
-        <div className="flex items-center justify-center ">
+        {/* <div className="flex items-center justify-center ">
           <div className="flex items-center space-x-3">
             <p className="text-sm mt-2">Partners</p>
             <div className="flex items-center space-x-2">
@@ -398,7 +398,7 @@ export default function PartnershipsPage() {
               />
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="max-w-3xl mx-auto mb-20">
           <Text className="text-center">
             If your organisation would like to partner with us or be featured

@@ -15,7 +15,7 @@ const faqs = [
   {
     question: "Who are the services designed for?",
     answer:
-      "Our programmes are designed for young individuals aged 16–25 who want to develop personal and professional skills to achieve greater independence and confidence.",
+      "Our programmes are designed for young individuals who want to develop personal and professional skills to achieve greater independence and confidence.",
   },
   {
     question: "What programmes do you offer?",

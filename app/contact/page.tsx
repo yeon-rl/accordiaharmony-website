@@ -89,7 +89,7 @@ const Contact = () => {
       <StaticBg scroll={true}>
         <div className="w-[90%] max-w-360 mx-auto relative z-50">
           <motion.div
-            className="mt-14 md:mt-28"
+            className="mt-14"
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
@@ -355,57 +355,38 @@ const Contact = () => {
             className="flex justify-between bg-[#FDFDFD1A] rounded-xl p-5"
           >
             <div className="flex gap-3">
-              <div className="bg-white rounded-full shrink-0 p-3 w-fit h-fit flex items-center justify-center">
-                <svg
-                  width="20"
-                  height="14"
-                  viewBox="0 0 20 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M2.48387 0C1.82511 0 1.19333 0.261693 0.727509 0.727509C0.261693 1.19332 0 1.82511 0 2.48387V11.5161C0 12.1749 0.261693 12.8067 0.727509 13.2725C1.19333 13.7383 1.82511 14 2.48387 14H16.9355C17.5942 14 18.226 13.7383 18.6918 13.2725C19.1577 12.8067 19.4194 12.1749 19.4194 11.5161V2.48387C19.4194 1.82511 19.1577 1.19332 18.6918 0.727509C18.226 0.261693 17.5942 0 16.9355 0H2.48387ZM5.58194 3.73574C5.43469 3.63966 5.25586 3.60458 5.08324 3.63793C4.91061 3.67129 4.75771 3.77045 4.65685 3.91446C4.556 4.05848 4.51508 4.23606 4.54276 4.40969C4.57043 4.58331 4.66453 4.73938 4.80516 4.8449L9.32129 8.00619C9.43514 8.08586 9.57073 8.12859 9.70968 8.12859C9.84863 8.12859 9.98422 8.08586 10.0981 8.00619L14.6142 4.8449C14.6903 4.79527 14.7556 4.73084 14.8062 4.65545C14.8569 4.58007 14.8919 4.49526 14.9091 4.40608C14.9263 4.31691 14.9255 4.22517 14.9065 4.13634C14.8876 4.04751 14.851 3.96339 14.7989 3.88899C14.7468 3.81459 14.6802 3.75143 14.6032 3.70327C14.5262 3.6551 14.4403 3.62291 14.3506 3.60861C14.2609 3.59432 14.1693 3.5982 14.0811 3.62004C13.9929 3.64188 13.9101 3.68123 13.8374 3.73574L9.70968 6.62516L5.58194 3.73574Z"
-                    fill="#4285F4"
-                  />
-                </svg>
-              </div>
+              <a
+                href="mailto:info@accordiaharmony.org"
+                aria-label="Send email to info@accordiaharmony.org"
+              >
+                <div className="bg-white rounded-full shrink-0 p-3 w-fit h-fit flex items-center justify-center">
+                  <svg
+                    width="20"
+                    height="14"
+                    viewBox="0 0 20 14"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M2.48387 0C1.82511 0 1.19333 0.261693 0.727509 0.727509C0.261693 1.19332 0 1.82511 0 2.48387V11.5161C0 12.1749 0.261693 12.8067 0.727509 13.2725C1.19333 13.7383 1.82511 14 2.48387 14H16.9355C17.5942 14 18.226 13.7383 18.6918 13.2725C19.1577 12.8067 19.4194 12.1749 19.4194 11.5161V2.48387C19.4194 1.82511 19.1577 1.19332 18.6918 0.727509C18.226 0.261693 17.5942 0 16.9355 0H2.48387ZM5.58194 3.73574C5.43469 3.63966 5.25586 3.60458 5.08324 3.63793C4.91061 3.67129 4.75771 3.77045 4.65685 3.91446C4.556 4.05848 4.51508 4.23606 4.54276 4.40969C4.57043 4.58331 4.66453 4.73938 4.80516 4.8449L9.32129 8.00619C9.43514 8.08586 9.57073 8.12859 9.70968 8.12859C9.84863 8.12859 9.98422 8.08586 10.0981 8.00619L14.6142 4.8449C14.6903 4.79527 14.7556 4.73084 14.8062 4.65545C14.8569 4.58007 14.8919 4.49526 14.9091 4.40608C14.9263 4.31691 14.9255 4.22517 14.9065 4.13634C14.8876 4.04751 14.851 3.96339 14.7989 3.88899C14.7468 3.81459 14.6802 3.75143 14.6032 3.70327C14.5262 3.6551 14.4403 3.62291 14.3506 3.60861C14.2609 3.59432 14.1693 3.5982 14.0811 3.62004C13.9929 3.64188 13.9101 3.68123 13.8374 3.73574L9.70968 6.62516L5.58194 3.73574Z"
+                      fill="#4285F4"
+                    />
+                  </svg>
+                </div>
+              </a>
 
               <div className="flex flex-col space-y-2">
                 <Text>Send us email</Text>
-                <Text>info@accordiaharmony.org</Text>
+                <a
+                  href="mailto:info@accordiaharmony.org"
+                  aria-label="Send email to info@accordiaharmony.org"
+                >
+                  <Text>info@accordiaharmony.org</Text>
+                </a>
               </div>
             </div>
-
-            <a
-              href="mailto:info@accordiaharmony.org"
-              aria-label="Send email to info@accordiaharmony.org"
-              className="bg-white rounded-full p-2 w-fit flex items-center h-fit shrink-0 justify-center"
-            >
-              <svg
-                width="15"
-                height="15"
-                viewBox="0 0 15 15"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M7.5 3.125V11.875"
-                  stroke="black"
-                  strokeWidth="1.2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M3.125 7.5H11.875"
-                  stroke="black"
-                  strokeWidth="1.2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </a>
           </motion.div>
 
           <motion.div
@@ -413,7 +394,35 @@ const Contact = () => {
             className="flex justify-between bg-[#FDFDFD1A] rounded-xl p-5"
           >
             <div className="flex gap-3">
-              <div className="bg-white rounded-full shrink-0 p-3 w-fit h-fit flex items-center justify-center">
+              <div
+                className="bg-white cursor-pointer rounded-full shrink-0 p-3 w-fit h-fit flex items-center justify-center"
+                onClick={() => {
+                  try {
+                    const address = encodeURIComponent(
+                      "124 City Road, London, EC1V 2NX"
+                    );
+                    const ua =
+                      typeof navigator !== "undefined"
+                        ? navigator.userAgent
+                        : "";
+                    // Prefer Apple Maps on Apple platforms, Google Maps elsewhere
+                    const useApple =
+                      /iPhone|iPad|iPod|Macintosh/i.test(ua) &&
+                      !/Android/i.test(ua);
+                    const appleUrl = `https://maps.apple.com/?q=${address}`;
+                    const googleUrl = `https://www.google.com/maps/search/?api=1&query=${address}`;
+                    const url = useApple ? appleUrl : googleUrl;
+                    window.open(url, "_blank", "noopener,noreferrer");
+                  } catch {
+                    // fallback to google maps
+                    window.open(
+                      "https://www.google.com/maps/search/?api=1&query=124+City+Road+London+EC1V+2NX",
+                      "_blank",
+                      "noopener,noreferrer"
+                    );
+                  }
+                }}
+              >
                 <svg
                   width="17"
                   height="21"
@@ -434,11 +443,41 @@ const Contact = () => {
 
               <div className="flex flex-col space-y-2">
                 <Text>Location</Text>
-                <Text>124 City Road, London, EC1V 2NX</Text>
+                <div
+                  className="cursor-pointer"
+                  onClick={() => {
+                    try {
+                      const address = encodeURIComponent(
+                        "124 City Road, London, EC1V 2NX"
+                      );
+                      const ua =
+                        typeof navigator !== "undefined"
+                          ? navigator.userAgent
+                          : "";
+                      // Prefer Apple Maps on Apple platforms, Google Maps elsewhere
+                      const useApple =
+                        /iPhone|iPad|iPod|Macintosh/i.test(ua) &&
+                        !/Android/i.test(ua);
+                      const appleUrl = `https://maps.apple.com/?q=${address}`;
+                      const googleUrl = `https://www.google.com/maps/search/?api=1&query=${address}`;
+                      const url = useApple ? appleUrl : googleUrl;
+                      window.open(url, "_blank", "noopener,noreferrer");
+                    } catch {
+                      // fallback to google maps
+                      window.open(
+                        "https://www.google.com/maps/search/?api=1&query=124+City+Road+London+EC1V+2NX",
+                        "_blank",
+                        "noopener,noreferrer"
+                      );
+                    }
+                  }}
+                >
+                  <Text>124 City Road, London, EC1V 2NX</Text>
+                </div>
               </div>
             </div>
 
-            <button
+            {/* <button
               type="button"
               onClick={() => {
                 try {
@@ -489,7 +528,7 @@ const Contact = () => {
                   strokeLinejoin="round"
                 />
               </svg>
-            </button>
+            </button> */}
           </motion.div>
         </div>
       </motion.div>
