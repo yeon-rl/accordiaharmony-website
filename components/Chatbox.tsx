@@ -119,7 +119,7 @@ const Chatbox: React.FC = () => {
       <button
         aria-label={open ? "Close chat" : "Open chat"}
         onClick={() => setOpen((s) => !s)}
-        className="fixed z-50 bottom-24 right-5 md:bottom-32 md:right-8 w-14 h-14 rounded-full shadow-lg bg-blue-600 flex items-center justify-center text-white"
+        className="fixed z-50 bottom-24 right-5 cursor-pointer md:bottom-32 md:right-8 w-14 h-14 rounded-full shadow-lg bg-blue-600 flex items-center justify-center text-white"
       >
         {!open ? (
           // simple chat icon (kept small and accessible)
