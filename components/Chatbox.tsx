@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 /*
   Chatbox component
@@ -27,16 +28,26 @@ const PRE_ANSWERED = [
 const Chatbox: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
-  const [messages, setMessages] = useState<Message[]>(() => [
+  const initialMessages: Message[] = [
     {
       id: "m-1",
       from: "bot",
       text: "Hi — I'm Accordia Assistant. Ask me about our services, partnerships, careers, or privacy.",
     },
-  ]);
+  ];
+
+  const [messages, setMessages] = useState<Message[]>(() => initialMessages);
 
   const containerRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const panelRef = useRef<HTMLDivElement | null>(null);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+
+  function closeChat() {
+    setOpen(false);
+    // reset messages to initial state
+    setMessages(initialMessages);
+  }
 
   useEffect(() => {
     if (open) inputRef.current?.focus();
@@ -117,8 +128,12 @@ const Chatbox: React.FC = () => {
     <div>
       {/* Floating button */}
       <button
+        ref={buttonRef}
         aria-label={open ? "Close chat" : "Open chat"}
-        onClick={() => setOpen((s) => !s)}
+        onClick={() => {
+          if (open) closeChat();
+          else setOpen(true);
+        }}
         className="fixed z-50 bottom-24 right-5 cursor-pointer md:bottom-32 md:right-8 w-14 h-14 rounded-full shadow-lg bg-[#BA9A32] flex items-center justify-center text-white"
       >
         {!open ? (
@@ -156,81 +171,123 @@ const Chatbox: React.FC = () => {
         )}
       </button>
 
-      {/* Chat panel */}
-      {open && (
-        <div className="fixed z-50 bottom-36 right-5 md:bottom-44 md:right-8 w-80 max-h-[70vh] border border-slate-500 bg-[#060610] shadow-2xl rounded-lg flex flex-col overflow-hidden">
-          <div className="px-4 py-3 border-b border-slate-700 flex items-center justify-between">
-            <div className="text-sm font-semibold">Accordia Assistant</div>
-            <button
-              onClick={() => setOpen(false)}
-              aria-label="Close chat panel"
-              className="text-gray-500 hover:text-gray-700"
-            >
-              ✕
-            </button>
-          </div>
-
-          <div
-            ref={containerRef}
-            className="px-3 py-2 overflow-auto flex-1 space-y-3"
+      {/* Chat panel (animated) */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            ref={panelRef}
+            key="chat-panel"
+            initial={{ opacity: 0, y: 20, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.98 }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="fixed z-50 bottom-36 right-5 md:bottom-44 md:right-8 w-80 max-h-[70vh] border border-slate-500 bg-[#060610] shadow-2xl rounded-lg flex flex-col overflow-hidden"
           >
-            {messages.map((m) => (
-              <div
-                key={m.id}
-                className={`flex ${
-                  m.from === "user" ? "justify-end" : "justify-start"
-                }`}
+            <div className="px-4 py-3 border-b border-slate-700 flex items-center justify-between">
+              <div className="text-sm font-semibold">Accordia Assistant</div>
+              <button
+                onClick={() => closeChat()}
+                aria-label="Close chat panel"
+                className="text-gray-500 hover:text-gray-700"
               >
+                ✕
+              </button>
+            </div>
+
+            <div
+              ref={containerRef}
+              className="px-3 py-2 overflow-auto flex-1 space-y-3"
+            >
+              {messages.map((m) => (
                 <div
-                  className={`max-w-[78%] px-3 py-2 rounded-lg text-sm ${
-                    m.from === "user"
-                      ? "bg-[#FBBF24] text-black"
-                      : "bg-slate-700 text-white"
+                  key={m.id}
+                  className={`flex ${
+                    m.from === "user" ? "justify-end" : "justify-start"
                   }`}
                 >
-                  {m.text}
+                  <div
+                    className={`max-w-[78%] px-3 py-2 rounded-lg text-sm ${
+                      m.from === "user"
+                        ? "bg-[#FBBF24] text-black"
+                        : "bg-slate-700 text-white"
+                    }`}
+                  >
+                    {m.text}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="px-3 pb-3 pt-1 border-t border-slate-600">
-            <div className="flex gap-2 mb-2 flex-wrap">
-              {PRE_ANSWERED.map((opt) => (
-                <button
-                  key={opt.id}
-                  onClick={() => handleOptionClick(opt.label)}
-                  className="text-xs px-2 py-1 rounded-full bg-slate-700 text-white hover:bg-gray-200"
-                >
-                  {opt.label}
-                </button>
               ))}
             </div>
 
-            <div className="flex gap-2">
-              <input
-                ref={inputRef}
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") handleSend();
-                }}
-                placeholder="Type a message..."
-                className="flex-1 px-3 py-2 rounded-lg border border-slate-600 text-sm focus:outline-none"
-                aria-label="Message input"
-              />
-              <button
-                onClick={() => handleSend()}
-                className="px-3 py-2 bg-[#FBBF24] text-black rounded-lg text-sm"
-              >
-                Send
-              </button>
+            <div className="px-3 pb-3 pt-1 border-t border-slate-600">
+              <div className="flex gap-2 mb-2 flex-wrap">
+                {PRE_ANSWERED.map((opt) => (
+                  <button
+                    key={opt.id}
+                    onClick={() => handleOptionClick(opt.label)}
+                    className="text-xs px-2 py-1 rounded-full bg-slate-700 text-white hover:bg-slate-500"
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+
+              <div className="flex gap-2">
+                <input
+                  ref={inputRef}
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") handleSend();
+                  }}
+                  placeholder="Type a message..."
+                  className="flex-1 px-3 py-2 rounded-lg border border-slate-600 text-sm focus:outline-none"
+                  aria-label="Message input"
+                />
+                <button
+                  onClick={() => handleSend()}
+                  className="px-3 py-2 bg-[#FBBF24] text-black rounded-lg text-sm"
+                >
+                  Send
+                </button>
+              </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      {/* outside click: close and clear chat */}
+      {open && (
+        <OutsideClickHandler
+          panelRef={panelRef}
+          buttonRef={buttonRef}
+          onClose={closeChat}
+        />
       )}
     </div>
   );
 };
 
 export default Chatbox;
+
+// small helper to detect clicks outside the chat panel and floating button
+function OutsideClickHandler({
+  panelRef,
+  buttonRef,
+  onClose,
+}: {
+  panelRef: React.RefObject<HTMLDivElement | null>;
+  buttonRef: React.RefObject<HTMLButtonElement | null>;
+  onClose: () => void;
+}) {
+  React.useEffect(() => {
+    const handler = (e: PointerEvent) => {
+      const target = e.target as Node | null;
+      if (!target) return;
+      if (panelRef.current && panelRef.current.contains(target)) return;
+      if (buttonRef.current && buttonRef.current.contains(target)) return;
+      onClose();
+    };
+    document.addEventListener("pointerdown", handler);
+    return () => document.removeEventListener("pointerdown", handler);
+  }, [panelRef, buttonRef, onClose]);
+  return null;
+}

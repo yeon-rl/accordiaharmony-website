@@ -4,6 +4,32 @@ import Text from "./Text";
 
 const WhyTrustUs = () => {
   const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null);
+  const [expandedIndex, setExpandedIndex] = React.useState<number | null>(null);
+  const [canHover, setCanHover] = React.useState<boolean>(false);
+
+  React.useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(hover: hover)");
+    const handler = (e: MediaQueryListEvent) => setCanHover(e.matches);
+    // initialize
+    setCanHover(mq.matches);
+    if (typeof mq.addEventListener === "function") {
+      mq.addEventListener("change", handler as EventListener);
+      return () => mq.removeEventListener("change", handler as EventListener);
+    }
+    // fallback for older browsers
+    if (typeof mq.addListener === "function") {
+      // addListener/removeListener expect a slightly different signature
+      mq.addListener(
+        handler as (this: MediaQueryList, ev: MediaQueryListEvent) => any
+      );
+      return () =>
+        mq.removeListener(
+          handler as (this: MediaQueryList, ev: MediaQueryListEvent) => any
+        );
+    }
+    return undefined;
+  }, []);
 
   const reasons = [
     {
@@ -48,12 +74,25 @@ const WhyTrustUs = () => {
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
       {reasons.map((reason, index) => (
         <div
-          className="flex items-center flex-col justify-center py-24 gradient-border cursor-pointer h-[200px]"
+          className="flex items-center flex-col justify-center py-24 gradient-border cursor-pointer h-[200px] relative"
           key={index}
-          onMouseEnter={() => setHoveredIndex(index)}
-          onMouseLeave={() => setHoveredIndex(null)}
+          onMouseEnter={canHover ? () => setHoveredIndex(index) : undefined}
+          onMouseLeave={canHover ? () => setHoveredIndex(null) : undefined}
+          onPointerUp={() => {
+            // Use pointer events to unify touch and mouse behavior and avoid double-fire
+            // Toggle expanded state for this card
+            setExpandedIndex((prev) => (prev === index ? null : index));
+          }}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              setExpandedIndex((prev) => (prev === index ? null : index));
+            }
+          }}
         >
-          {hoveredIndex === index ? (
+          {expandedIndex === index || (canHover && hoveredIndex === index) ? (
             <div
               className="absolute -inset-8 rounded-full pointer-events-none transition-opacity duration-300"
               style={{
@@ -63,8 +102,11 @@ const WhyTrustUs = () => {
               }}
             ></div>
           ) : null}
-          <div className="flex items-center flex-col justify-center transition-opacity duration-300 h-full w-full">
-            {hoveredIndex === index ? (
+          <div
+            className="flex items-center flex-col justify-center transition-opacity duration-300 h-full w-full"
+            aria-expanded={expandedIndex === index}
+          >
+            {expandedIndex === index || (canHover && hoveredIndex === index) ? (
               <Text type="body" className="text-center px-6">
                 {reason.longText}
               </Text>

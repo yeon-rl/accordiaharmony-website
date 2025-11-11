@@ -30,8 +30,8 @@ const faqs = [
 ];
 
 const FAQSection = () => {
-  // Initialize with the first FAQ (index 0) open by default
-  const [activeIndex, setActiveIndex] = useState<number | null>(0);
+  // Initialize with all FAQs closed by default
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const router = useRouter();
 
   const toggleFAQ = (index: number) => {
@@ -46,10 +46,22 @@ const FAQSection = () => {
           return (
             <div
               key={index}
-              onClick={() => toggleFAQ(index)}
-              className={`bg-[#FFFFFF1A] rounded-2xl px-6 py-5 cursor-pointer transition-all duration-300 border border-transparent hover:border-[#1C1C1C]/80 relative`}
+              className={`bg-[#FFFFFF1A] rounded-2xl px-6 py-5 transition-all duration-300 border border-transparent hover:border-[#1C1C1C]/80 relative`}
             >
-              <div className="flex justify-between items-center ">
+              {/* Make only the header interactive — more reliable on mobile and avoids inner-content swallowing clicks */}
+              <div
+                className="flex justify-between items-center cursor-pointer"
+                role="button"
+                tabIndex={0}
+                aria-expanded={isActive}
+                onClick={() => toggleFAQ(index)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    toggleFAQ(index);
+                  }
+                }}
+              >
                 {isActive ? (
                   <div className="h-6 w-1 bg-[#646FC6] absolute left-0"></div>
                 ) : null}

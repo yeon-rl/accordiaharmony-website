@@ -1,6 +1,6 @@
 import React from "react";
 import Text from "./Text";
-import test from "node:test";
+import { Star } from "iconsax-reactjs";
 
 const Testimonial = () => {
   const testimonials = [
@@ -9,18 +9,21 @@ const Testimonial = () => {
       quote: `Accordia Harmony helped me find confidence and purpose, they truly support young people to grow and make an impact.`,
       name: "Pricilla Jane ",
       age: 19,
+      rating: 5,
     },
     {
       title: "Partners Review",
       quote: `Partnering with Accordia Harmony has been inspiring. Their commitment to empowering young people and creating real community impact is genuine, focused and deeply effective.`,
       name: "John F",
       age: 21,
+      rating: 4,
     },
     {
       title: "Product Oriented",
       quote: `Before joining Accordia Harmony, I struggled with budgeting and staying organised. Now I can manage my bills, cook for myself, and I actually feel confident about my future.`,
       name: "Lina M",
       age: 21,
+      rating: 5,
     },
   ];
 
@@ -40,7 +43,7 @@ const Testimonial = () => {
             </Text>
           </div>
           <div
-            className="rounded-[6px] p-5 flex flex-col space-y-20"
+            className="rounded-[6px] p-5 flex flex-col space-y-5"
             style={{
               border: "0.74px solid #FFFFFF1C",
               backdropFilter: "blur(5.162500381469727px)",
@@ -49,6 +52,23 @@ const Testimonial = () => {
             <Text className="text-center md:text-left">
               {testimonial.quote}
             </Text>
+
+            {/* Rating stars (Iconsax) */}
+            <div className="flex items-center justify-center md:justify-start gap-1">
+              {Array.from({ length: 5 }).map((_, i) => {
+                const score = testimonial.rating ?? 0;
+                const filled = i < score;
+                return (
+                  <Star
+                    key={i}
+                    size={16}
+                    color={filled ? "#F59E0B" : "#9CA3AF"}
+                    variant={filled ? "Bulk" : "Linear"}
+                    className="opacity-90"
+                  />
+                );
+              })}
+            </div>
 
             <div className="flex items-center justify-center md:justify-start gap-2">
               <Text className="font-bold!">{testimonial.name}</Text>
