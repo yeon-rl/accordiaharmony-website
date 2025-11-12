@@ -51,7 +51,7 @@ const Home = () => {
       >
         <Navbar />
       </motion.div>
-      <StaticBg height="h-[45vh]! md:h-fit! xl:h-[45vh]!">
+      <StaticBg height=" h-[55vh]! sm:h-[45vh]! md:h-fit! xl:h-[45vh]!">
         <div className="w-[90%] max-w-360 mx-auto relative z-50">
           <motion.div
             initial="initial"
@@ -93,7 +93,10 @@ const Home = () => {
               </Text>
             </motion.div>
 
-            <motion.div variants={fadeInUp} className="flex space-x-5">
+            <motion.div
+              variants={fadeInUp}
+              className="flex flex-col items-center justify-center sm:flex-row space-x-5 gap-y-4"
+            >
               <Button
                 title="Join our mission"
                 onClick={() => router.push("/partnership")}
@@ -139,7 +142,7 @@ const Home = () => {
       </StaticBg>
       {/* <Navbar /> */}
 
-      <section className="w-[90%] max-w-360 mx-auto relative z-50 -mt-16 md:mt-20 2xl:mt-5">
+      <section className="w-[90%] max-w-360 mx-auto relative z-50 mt-10 sm:mt-20 md:mt-20 2xl:mt-5">
         {/* why trust us */}
         <motion.div
           initial="initial"
