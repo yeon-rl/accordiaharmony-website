@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import StaticBg from "@/components/StaticBg";
 import Text from "@/components/Text";
@@ -10,6 +10,62 @@ import Footer from "@/components/Footer";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
+
+// Country data: name, dial code, flag emoji
+const COUNTRIES = [
+  { name: "United Kingdom", code: "GB", dial: "+44", flag: "🇬🇧" },
+  { name: "United States", code: "US", dial: "+1", flag: "🇺🇸" },
+  { name: "Canada", code: "CA", dial: "+1", flag: "🇨🇦" },
+  { name: "Australia", code: "AU", dial: "+61", flag: "🇦🇺" },
+  { name: "France", code: "FR", dial: "+33", flag: "🇫🇷" },
+  { name: "Germany", code: "DE", dial: "+49", flag: "🇩🇪" },
+  { name: "Spain", code: "ES", dial: "+34", flag: "🇪🇸" },
+  { name: "Italy", code: "IT", dial: "+39", flag: "🇮🇹" },
+  { name: "Netherlands", code: "NL", dial: "+31", flag: "🇳🇱" },
+  { name: "Belgium", code: "BE", dial: "+32", flag: "🇧🇪" },
+  { name: "Switzerland", code: "CH", dial: "+41", flag: "🇨🇭" },
+  { name: "Austria", code: "AT", dial: "+43", flag: "🇦🇹" },
+  { name: "Sweden", code: "SE", dial: "+46", flag: "🇸🇪" },
+  { name: "Norway", code: "NO", dial: "+47", flag: "🇳🇴" },
+  { name: "Denmark", code: "DK", dial: "+45", flag: "🇩🇰" },
+  { name: "Finland", code: "FI", dial: "+358", flag: "🇫🇮" },
+  { name: "Poland", code: "PL", dial: "+48", flag: "🇵🇱" },
+  { name: "Czech Republic", code: "CZ", dial: "+420", flag: "🇨🇿" },
+  { name: "Hungary", code: "HU", dial: "+36", flag: "🇭🇺" },
+  { name: "Romania", code: "RO", dial: "+40", flag: "🇷🇴" },
+  { name: "Greece", code: "GR", dial: "+30", flag: "🇬🇷" },
+  { name: "Portugal", code: "PT", dial: "+351", flag: "🇵🇹" },
+  { name: "Ireland", code: "IE", dial: "+353", flag: "🇮🇪" },
+  { name: "Mexico", code: "MX", dial: "+52", flag: "🇲🇽" },
+  { name: "Brazil", code: "BR", dial: "+55", flag: "🇧🇷" },
+  { name: "Argentina", code: "AR", dial: "+54", flag: "🇦🇷" },
+  { name: "Chile", code: "CL", dial: "+56", flag: "🇨🇱" },
+  { name: "Colombia", code: "CO", dial: "+57", flag: "🇨🇴" },
+  { name: "Peru", code: "PE", dial: "+51", flag: "🇵🇪" },
+  { name: "India", code: "IN", dial: "+91", flag: "🇮🇳" },
+  { name: "Pakistan", code: "PK", dial: "+92", flag: "🇵🇰" },
+  { name: "Bangladesh", code: "BD", dial: "+880", flag: "🇧🇩" },
+  { name: "Japan", code: "JP", dial: "+81", flag: "🇯🇵" },
+  { name: "China", code: "CN", dial: "+86", flag: "🇨🇳" },
+  { name: "South Korea", code: "KR", dial: "+82", flag: "🇰🇷" },
+  { name: "Singapore", code: "SG", dial: "+65", flag: "🇸🇬" },
+  { name: "Thailand", code: "TH", dial: "+66", flag: "🇹🇭" },
+  { name: "Malaysia", code: "MY", dial: "+60", flag: "🇲🇾" },
+  { name: "Indonesia", code: "ID", dial: "+62", flag: "🇮🇩" },
+  { name: "Philippines", code: "PH", dial: "+63", flag: "🇵🇭" },
+  { name: "Vietnam", code: "VN", dial: "+84", flag: "🇻🇳" },
+  { name: "Nigeria", code: "NG", dial: "+234", flag: "🇳🇬" },
+  { name: "Ghana", code: "GH", dial: "+233", flag: "🇬🇭" },
+  { name: "South Africa", code: "ZA", dial: "+27", flag: "🇿🇦" },
+  { name: "Kenya", code: "KE", dial: "+254", flag: "🇰🇪" },
+  { name: "Egypt", code: "EG", dial: "+20", flag: "🇪🇬" },
+  { name: "Saudi Arabia", code: "SA", dial: "+966", flag: "🇸🇦" },
+  { name: "United Arab Emirates", code: "AE", dial: "+971", flag: "🇦🇪" },
+  { name: "Israel", code: "IL", dial: "+972", flag: "🇮🇱" },
+  { name: "Turkey", code: "TR", dial: "+90", flag: "🇹🇷" },
+  { name: "Russia", code: "RU", dial: "+7", flag: "🇷🇺" },
+  { name: "New Zealand", code: "NZ", dial: "+64", flag: "🇳🇿" },
+];
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -29,29 +85,78 @@ const staggerChildren = {
 interface FormInputs {
   firstName: string;
   lastName: string;
+  countryCode: string;
   phone: string;
   email: string;
   message: string;
 }
 
 const Contact = () => {
+  const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false);
+  const [countrySearch, setCountrySearch] = useState("");
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<FormInputs>();
+    watch,
+    setValue,
+  } = useForm<FormInputs>({ defaultValues: { countryCode: "+44" } });
+
+  const countryCode = watch("countryCode");
+  const selectedCountry = COUNTRIES.find((c) => c.dial === countryCode);
+
+  // Filter countries based on search
+  const filteredCountries = COUNTRIES.filter(
+    (country) =>
+      country.name.toLowerCase().includes(countrySearch.toLowerCase()) ||
+      country.dial.includes(countrySearch) ||
+      country.code.toLowerCase().includes(countrySearch.toLowerCase())
+  );
+
+  // Close dropdown and clear search when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsCountryDropdownOpen(false);
+        setCountrySearch("");
+      }
+    };
+
+    if (isCountryDropdownOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isCountryDropdownOpen]);
 
   const onSubmit = async (data: FormInputs) => {
     try {
-      console.log("Submitting form data:", data);
+      // Combine country code and phone: clean phone number
+      const raw = (data.phone || "").replace(/\D/g, "");
+      const withoutLeadingZeros = raw.replace(/^0+/, "");
+      const fullPhone = `${data.countryCode}${withoutLeadingZeros}`;
+
+      const payload = {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        phone: fullPhone,
+        email: data.email,
+        message: data.message,
+        _subject: "New Contact Inquiry Request from Website",
+        type: "Contact Form",
+      };
+
+      console.log("Submitting form data:", payload);
       const response = await fetch("https://formspree.io/f/xqagrvdq", {
         method: "POST",
-        body: JSON.stringify({
-          ...data,
-          _subject: "New Contact Inquiry Request from Website",
-          type: "Contact Form",
-        }),
+        body: JSON.stringify(payload),
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
@@ -63,7 +168,7 @@ const Contact = () => {
 
       if (response.ok) {
         toast.success("Message sent successfully!");
-        reset(); // Reset form after successful submission
+        reset();
       } else {
         console.error("Formspree error:", responseData);
         throw new Error(responseData.error || "Failed to send message");
@@ -157,20 +262,94 @@ const Contact = () => {
 
                   <div className="mt-5">
                     <label className="block text-sm mb-2">Phone number</label>
-                    <input
-                      type="tel"
-                      placeholder="Ex.(225) 444-2586"
-                      {...register("phone", {
-                        required: "Phone number is required",
-                        pattern: {
-                          value: /^[\d\s()-]+$/,
-                          message: "Please enter a valid phone number",
-                        },
-                      })}
-                      className={`w-full bg-[#F4F4F41A] rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-white/20 ${
-                        errors.phone ? "border-red-500 border" : ""
-                      }`}
-                    />
+                    <div className="flex gap-2 items-start">
+                      {/* Country Dropdown */}
+                      <div className="relative min-w-fit" ref={dropdownRef}>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setIsCountryDropdownOpen(!isCountryDropdownOpen)
+                          }
+                          className="bg-[#F4F4F41A] rounded-lg px-3 py-2 cursor-pointer text-sm focus:outline-none focus:border-white/20 border border-transparent hover:border-white/10 transition flex items-center gap-2 min-w-[120px]"
+                        >
+                          <span className="text-lg">
+                            {selectedCountry?.flag || "🌍"}
+                          </span>
+                          <span className="text-xs truncate">
+                            {selectedCountry?.dial || "+44"}
+                          </span>
+                        </button>
+
+                        {isCountryDropdownOpen && (
+                          <div className="absolute top-full left-0 mt-1 bg-[#1a1a1a] border border-white/10 rounded-lg shadow-lg z-50 max-h-64 overflow-hidden w-56 flex flex-col">
+                            {/* Search Input */}
+                            <div className="sticky top-0 p-2 bg-[#1a1a1a] border-b border-white/10">
+                              <input
+                                type="text"
+                                placeholder="Search country..."
+                                value={countrySearch}
+                                onChange={(e) =>
+                                  setCountrySearch(e.target.value)
+                                }
+                                className="w-full bg-[#F4F4F41A] rounded-lg px-3 py-2 text-sm text-white placeholder-white/50 focus:outline-none focus:border-white/20 border border-transparent hover:border-white/10 transition"
+                              />
+                            </div>
+
+                            {/* Country List */}
+                            <div className="overflow-y-auto">
+                              {filteredCountries.length > 0 ? (
+                                filteredCountries.map((country) => (
+                                  <button
+                                    key={country.code}
+                                    type="button"
+                                    onClick={() => {
+                                      setValue("countryCode", country.dial);
+                                      setIsCountryDropdownOpen(false);
+                                      setCountrySearch("");
+                                    }}
+                                    className={`w-full px-3 py-2 text-left text-sm hover:bg-white/5 transition ${
+                                      countryCode === country.dial
+                                        ? "bg-white/10 border-l-2 border-white"
+                                        : ""
+                                    }`}
+                                  >
+                                    <span className="mr-2">{country.flag}</span>
+                                    <span className="inline-block w-1/3">
+                                      {country.name}
+                                    </span>
+                                    <span className="text-xs text-white/60">
+                                      {country.dial}
+                                    </span>
+                                  </button>
+                                ))
+                              ) : (
+                                <div className="px-3 py-4 text-sm text-white/50 text-center">
+                                  No countries found
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Phone Input */}
+                      <input
+                        type="tel"
+                        placeholder="Ex. 7123 456789"
+                        {...register("phone", {
+                          required: "Phone number is required",
+                          pattern: {
+                            value: /^[\d\s()+-]+$/,
+                            message: "Please enter a valid phone number",
+                          },
+                        })}
+                        className={`flex-1 bg-[#F4F4F41A] rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-white/20 border transition ${
+                          errors.phone
+                            ? "border-red-500"
+                            : "border-transparent hover:border-white/10"
+                        }`}
+                      />
+                    </div>
                     {errors.phone && (
                       <p className="text-red-500 text-xs mt-1">
                         {errors.phone.message}
