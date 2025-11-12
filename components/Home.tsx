@@ -139,7 +139,7 @@ const Home = () => {
       </StaticBg>
       {/* <Navbar /> */}
 
-      <section className="w-[90%] max-w-360 mx-auto relative z-50 -mt-10 md:mt-20 2xl:mt-5">
+      <section className="w-[90%] max-w-360 mx-auto relative z-50 -mt-16 md:mt-20 2xl:mt-5">
         {/* why trust us */}
         <motion.div
           initial="initial"
