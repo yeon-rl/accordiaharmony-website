@@ -21,11 +21,11 @@ const WhyTrustUs = () => {
     if (typeof mq.addListener === "function") {
       // addListener/removeListener expect a slightly different signature
       mq.addListener(
-        handler as (this: MediaQueryList, ev: MediaQueryListEvent) => any
+        handler as (this: MediaQueryList, ev: MediaQueryListEvent) => void
       );
       return () =>
         mq.removeListener(
-          handler as (this: MediaQueryList, ev: MediaQueryListEvent) => any
+          handler as (this: MediaQueryList, ev: MediaQueryListEvent) => void
         );
     }
     return undefined;
