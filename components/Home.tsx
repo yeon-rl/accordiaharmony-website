@@ -77,7 +77,7 @@ const Home = () => {
             <motion.div variants={fadeInUp}>
               <Text
                 type="heading"
-                className="text-center mt-10 md:mt-20 font-semibold!"
+                className="text-center mt-5 md:mt-20 font-semibold! text-2xl! md:text-[48px]!"
               >
                 Welcome to{" "}
                 <span className="text-[#FBBF24]">Accordia Harmony C.I.C.</span>

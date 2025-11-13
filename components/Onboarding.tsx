@@ -15,7 +15,7 @@ const waveKeyframes = `
   }
 }`;
 
-const sentences = ["Empowering Young People!", "Empowering The Future "];
+const sentences = ["Empowering Young People", "Empowering The Future "];
 
 export default function Onboarding({ onFinish }: { onFinish: () => void }) {
   const [step, setStep] = useState(0);

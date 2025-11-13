@@ -1,0 +1,22 @@
+# Accordia Harmony robots.txt
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /.next/
+Disallow: /__*
+Disallow: /_*
+
+# Specific bot rules
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Crawl delay
+Crawl-delay: 1
+
+# Sitemap reference
+Sitemap: https://accordiaharmony.org/sitemap.xml

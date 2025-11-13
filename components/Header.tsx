@@ -16,9 +16,9 @@ const Header: React.FC<{ number: number; title: string }> = ({
       <span
         className="flex w-5 h-4 items-center justify-center rounded-full bg-[#BA9A32] text-sm font-semibold text-white"
         style={{
-          border: "0.5px solid #4285F4",
+          border: "0.5px solid #BA9A32",
           boxShadow:
-            "0px 4px 6px 2px #9AC0FF inset, 0px -2px 6px 2px #0060FF inset",
+            "0px 4px 6px 2px #E5AB00 inset, 0px -2px 6px 2px #FFCC37 inset",
         }}
       >
         {/* 0{number} */}
