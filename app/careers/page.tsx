@@ -92,12 +92,12 @@ const Careers = () => {
       },
     },
     {
-      name: "Janet Miller",
-      position: "CEO Accordia Harmony",
-      imageSrc: "/images/teamImage1.png",
+      name: "Rita London",
+      position: "Fullstack Developer",
+      imageSrc: "/images/team-rita.png",
       socials: {
         linkedin: "#",
-        email: "#",
+        email: "rita.london@accordiaharmony.org",
         Instagram: "#",
         x: "#",
       },
@@ -271,11 +271,11 @@ const Careers = () => {
 
             <motion.div
               variants={fadeInUp}
-              className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5 gap-y-10 mt-14"
+              className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5 gap-y-10 mt-14 w-full"
             >
               {teamMembers.map((member, index) => (
                 <div
-                  className="w-fit group cursor-pointer"
+                  className="group cursor-pointer w-full"
                   key={index}
                   onClick={() =>
                     router.push(
@@ -283,13 +283,13 @@ const Careers = () => {
                     )
                   }
                 >
-                  <div className="bg-[#E1EBED] rounded-xl w-full flex flex-col justify-end">
+                  <div className="bg-[#E1EBED] rounded-xl w-full h-64 md:h-80 overflow-hidden">
                     <Image
                       src={member.imageSrc}
                       alt={member.name}
                       width={1000}
                       height={1000}
-                      className="w-full md:grayscale transition-all duration-300 group-hover:grayscale-0"
+                      className="w-full h-full object-cover md:grayscale transition-all duration-300 group-hover:grayscale-0"
                     />
                   </div>
                   <div className="flex justify-between items-end mt-4">

@@ -6,7 +6,7 @@ export const organizationSchema = {
   url: "https://accordiaharmony.org",
   logo: "https://accordiaharmony.org/logo.png",
   description:
-    "Accordia Harmony empowers young people aged 17-21 with essential life skills, digital literacy, and confidence for independent living.",
+    "Accordia Harmony empowers young people with essential life skills, digital literacy, and confidence for independent living.",
   sameAs: [
     "https://www.linkedin.com/company/accordia-harmony",
     "https://twitter.com/AccordiaHarmony",

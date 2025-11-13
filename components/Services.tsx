@@ -345,7 +345,7 @@ const Services = () => {
 
           {/* mobile controls: prev/next buttons and dots */}
           {activeIndex > 0 && (
-            <div className="md:hidden absolute left-[36%] flex items-center z-50 pointer-events-auto">
+            <div className="md:hidden absolute left-[37%] flex items-center z-50 pointer-events-auto">
               <button
                 aria-label="Previous"
                 onClick={() => scrollToIndex(activeIndex - 1)}
@@ -356,7 +356,7 @@ const Services = () => {
             </div>
           )}
           {activeIndex < services.length - 1 && (
-            <div className="md:hidden right-[36%] absolute flex items-center z-100 pointer-events-auto">
+            <div className="md:hidden right-[37%] absolute flex items-center z-100 pointer-events-auto">
               <button
                 aria-label="Next"
                 onClick={() => scrollToIndex(activeIndex + 1)}

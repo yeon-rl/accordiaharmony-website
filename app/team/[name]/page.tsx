@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 import Navbar from "@/components/Navbar";
 import StaticBg from "@/components/StaticBg";
 import Text from "@/components/Text";
@@ -8,28 +8,152 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { Facebook, Instagram, Xrp } from "iconsax-reactjs";
-import { useRouter } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
 
 const Page = () => {
   const router = useRouter();
+  const params = useParams();
+  const nameParam = params?.name as string;
 
-  const moreTeam = [
-    {
-      name: "Priya Shah",
-      role: "Head of Product",
-      image: "/images/teamImage1.png",
-    },
-    {
-      name: "John Doe",
-      role: "Lead Developer",
-      image: "/images/teamImage1.png",
-    },
-    {
-      name: "Emily Chen",
-      role: "Marketing Manager",
-      image: "/images/teamImage1.png",
-    },
-  ];
+  // Comprehensive team members database
+  const allTeamMembers = useMemo(
+    () => [
+      {
+        name: "Alex Carter",
+        position: "Co-founder & CEO",
+        image: "/images/teamImage1.png",
+        description:
+          "With a passion for health, technology, and innovation, Alex Carter co-founded the fitness app to bridge the gap between everyday users and expert-level wellness guidance. Drawing from over a decade of experience in fitness tech and entrepreneurship, Alex leads the vision and growth of the company. His mission is to empower people to take control of their health with smart tools, intuitive design, and science-backed strategies. When he's not building better user experiences, you'll find him hiking trails or testing new training routines.",
+        socials: {
+          linkedin: "#",
+          email: "#",
+          Instagram: "#",
+          x: "#",
+        },
+      },
+      {
+        name: "Anna Miller",
+        position: "CEO Accordia Harmony",
+        image: "/images/teamImage1.png",
+        description:
+          "Anna brings strategic vision and leadership to Accordia Harmony. With extensive experience in youth development and community engagement, Anna is dedicated to creating meaningful impact through innovative education programs.",
+        socials: {
+          linkedin: "#",
+          email: "#",
+          Instagram: "#",
+          x: "#",
+        },
+      },
+      {
+        name: "Anthony Miller",
+        position: "CEO Accordia Harmony",
+        image: "/images/teamImage1.png",
+        description:
+          "Anthony focuses on operational excellence and organizational growth. His leadership ensures that Accordia Harmony's programmes reach and support young people effectively.",
+        socials: {
+          linkedin: "#",
+          email: "#",
+          Instagram: "#",
+          x: "#",
+        },
+      },
+      {
+        name: "Williams Miller",
+        position: "CEO Accordia Harmony",
+        image: "/images/teamImage1.png",
+        description:
+          "Williams drives innovation and strategic partnerships at Accordia Harmony. He is committed to expanding the organization's reach and impact across diverse communities.",
+        socials: {
+          linkedin: "#",
+          email: "#",
+          Instagram: "#",
+          x: "#",
+        },
+      },
+      {
+        name: "Janet Miller",
+        position: "CEO Accordia Harmony",
+        image: "/images/teamImage1.png",
+        description:
+          "Janet plays a key role in stakeholder relations and programme development. Her dedication to youth empowerment drives Accordia Harmony's mission forward.",
+        socials: {
+          linkedin: "#",
+          email: "#",
+          Instagram: "#",
+          x: "#",
+        },
+      },
+      {
+        name: "Rita London",
+        position: "Fullstack Developer",
+        image: "/images/team-rita.png",
+        description:
+          "Rita is a talented full-stack developer who brings technical excellence to Accordia Harmony's digital platforms. With expertise in modern web technologies and a passion for creating user-friendly solutions, Rita builds the tools that power our programmes.",
+        socials: {
+          linkedin: "#",
+          email: "rita.london@accordiaharmony.org",
+          Instagram: "#",
+          x: "#",
+        },
+      },
+      {
+        name: "Priya Shah",
+        position: "Head of Product",
+        image: "/images/teamImage1.png",
+        description:
+          "Priya leads product strategy and user experience at Accordia Harmony. Her focus on understanding young people's needs shapes the development of innovative and impactful solutions.",
+        socials: {
+          linkedin: "#",
+          email: "#",
+          Instagram: "#",
+          x: "#",
+        },
+      },
+      {
+        name: "John Doe",
+        position: "Lead Developer",
+        image: "/images/teamImage1.png",
+        description:
+          "John heads the technical team at Accordia Harmony, overseeing the development of scalable and robust digital solutions. His expertise in software architecture ensures our platforms are built for growth.",
+        socials: {
+          linkedin: "#",
+          email: "#",
+          Instagram: "#",
+          x: "#",
+        },
+      },
+      {
+        name: "Emily Chen",
+        position: "Marketing Manager",
+        image: "/images/teamImage1.png",
+        description:
+          "Emily leads marketing efforts at Accordia Harmony, ensuring our message reaches and resonates with young people, educators, and partners. Her strategic approach amplifies our mission.",
+        socials: {
+          linkedin: "#",
+          email: "#",
+          Instagram: "#",
+          x: "#",
+        },
+      },
+    ],
+    []
+  );
+
+  // Find the current team member based on URL parameter
+  const currentMember = useMemo(() => {
+    if (!nameParam) return null;
+    const decodedName = decodeURIComponent(nameParam as string)
+      .replace(/-/g, " ")
+      .toLowerCase();
+    return allTeamMembers.find(
+      (member) => member.name.toLowerCase() === decodedName
+    );
+  }, [nameParam, allTeamMembers]);
+
+  // Get other team members for the "Meet our more team" section (limit to 3)
+  const moreTeam = allTeamMembers
+    .filter((member) => member.name !== currentMember?.name)
+    .slice(0, 3);
 
   return (
     <div className="text-white">
@@ -49,24 +173,26 @@ const Page = () => {
                 height={1000}
                 className="w-20 h-20 absolute top-0 right-0"
               />
-              <div className="bg-[url('/images/teamPersonBg.png')] bg-no-repeat bg-cover relative rounded-lg overflow-hidden flex md:w-[40%]">
+              <div className="bg-[url('/images/teamPersonBg.png')] bg-no-repeat bg-cover relative rounded-lg overflow-hidden flex md:w-[40%] h-64 md:h-96">
                 <Image
-                  src="/images/teamImage1.png"
-                  alt="Team Member"
+                  src={currentMember?.image || "/images/teamImage1.png"}
+                  alt={currentMember?.name || "Team Member"}
                   width={1000}
                   height={1000}
-                  className="w-full h-auto"
+                  className="w-full h-full object-contain"
                   priority={true}
                 />
               </div>
               <div className="md:w-[50%]">
                 <Text className="text-[#171719] font-semibold! text-[36px]!">
-                  Alex Carter
+                  {currentMember?.name || "Team Member"}
                 </Text>
-                <Text className="text-[#545A65]">Co-founder & CEO</Text>
+                <Text className="text-[#545A65]">
+                  {currentMember?.position || ""}
+                </Text>
 
                 <div className=" flex items-center gap-4 my-5 md:my-8">
-                  <Link href="#">
+                  <Link href={currentMember?.socials?.Instagram || "#"}>
                     <div className="bg-[#4285F4] rounded-full w-fit p-2">
                       <Instagram
                         size="32"
@@ -77,7 +203,7 @@ const Page = () => {
                     </div>
                   </Link>
 
-                  <Link href="#">
+                  <Link href={currentMember?.socials?.x || "#"}>
                     <div className="bg-[#4285F4] rounded-full w-fit p-2">
                       <Xrp
                         size="32"
@@ -87,7 +213,7 @@ const Page = () => {
                       />
                     </div>
                   </Link>
-                  <Link href="#">
+                  <Link href={currentMember?.socials?.linkedin || "#"}>
                     <div className="bg-[#4285F4] rounded-full w-fit p-2">
                       <svg
                         width="24"
@@ -104,7 +230,13 @@ const Page = () => {
                       </svg>
                     </div>
                   </Link>
-                  <Link href="#">
+                  <Link
+                    href={
+                      currentMember?.socials?.email
+                        ? `mailto:${currentMember.socials.email}`
+                        : "#"
+                    }
+                  >
                     <div className="bg-[#4285F4] rounded-full w-fit p-2">
                       <Facebook
                         size="32"
@@ -118,19 +250,10 @@ const Page = () => {
 
                 <div>
                   <Text className="text-[#171719] font-semibold!">
-                    About Alex Carter
+                    About {currentMember?.name || "Team Member"}
                   </Text>
                   <Text className="text-[#545A65] mt-5">
-                    With a passion for health, technology, and innovation, Alex
-                    Carter co-founded the fitness app to bridge the gap between
-                    everyday users and expert-level wellness guidance. Drawing
-                    from over a decade of experience in fitness tech and
-                    entrepreneurship, Alex leads the vision and growth of the
-                    company. His mission is to empower people to take control of
-                    their health with smart tools, intuitive design, and
-                    science-backed strategies. When he&apos;s not building
-                    better user experiences, you’ll find him hiking trails or
-                    testing new training routines.
+                    {currentMember?.description || ""}
                   </Text>
                 </div>
               </div>
@@ -175,15 +298,15 @@ const Page = () => {
               </div>
               <div className="p-3 md:p-5">
                 <Text className="text-[#171719] font-semibold!">
-                  Priya Shah
+                  {member.name}
                 </Text>
-                <Text className="text-[#545A65]">Head of Product</Text>
+                <Text className="text-[#545A65]">{member.position}</Text>
               </div>
 
               <div className="bg-[url('/images/teamPersonBg.png')] bg-no-repeat bg-cover relative rounded-lg overflow-hidden flex md:grayscale md:h-[350px] transition-all duration-300 group-hover:grayscale-0">
                 <Image
-                  src="/images/teamImage1.png"
-                  alt="Team Member"
+                  src={member.image}
+                  alt={member.name}
                   width={1000}
                   height={1000}
                   className="w-full h-fit"
