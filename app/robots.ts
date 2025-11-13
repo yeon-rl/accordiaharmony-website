@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/admin", "/api", "/*.json$"],
+        disallow: ["/admin", "/api", "/*.json"],
         crawlDelay: 1,
       },
       {
@@ -20,6 +20,6 @@ export default function robots(): MetadataRoute.Robots {
         crawlDelay: 1,
       },
     ],
-    sitemap: "https://accordiaharmony.org/sitemap.xml",
+    sitemap: "https://www.accordiaharmony.org/sitemap.xml",
   };
 }
