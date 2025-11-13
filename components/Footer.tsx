@@ -124,7 +124,7 @@ const Footer = () => {
                 alt="Footer Logo"
                 width={1000}
                 height={1000}
-                className="w-20 h-auto mt-5"
+                className="w-20 h-auto mt-5 rounded-full"
               />
             </div>
           </div>
