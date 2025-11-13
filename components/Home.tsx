@@ -88,8 +88,9 @@ const Home = () => {
                 Empowering young people to live with confidence, purpose, and
                 independence. We are a United Kingdom–based Community Interest
                 Company dedicated to helping young people develop the essential
-                life skills and confidence they need to thrive in today&apos;s
-                world.
+                life skills and confidence they need{" "}
+                <a href="https://www.accordiaharmony.org/">to</a> thrive in
+                today&apos;s world.
               </Text>
             </motion.div>
 
@@ -167,8 +168,8 @@ const Home = () => {
               A proven, practical approach to gaining skills that matter
             </Text>
             <Text className="text-center my-3 mb-8">
-              We keep things lean, clear, and collaborative — from idea to
-              launch.
+              We keep things lean, clear, and collaborative — from idea{" "}
+              <a href="https://www.accordiaharmony.org/">to</a> launch.
             </Text>
             <div className="max-w-6xl mx-auto">
               <WhyTrustUs />
@@ -212,8 +213,9 @@ const Home = () => {
             </Text>
             <Text className="text-center md:text-left mt-2 md:mt-0">
               From digital platforms like LifeSkills Connect to community-led
-              initiatives, Accordia builds tools that equip young people to
-              learn, grow, and thrive.
+              initiatives, Accordia builds tools that equip young people{" "}
+              <a href="https://www.accordiaharmony.org/">to</a> learn, grow, and
+              thrive.
             </Text>
           </motion.div>
         </motion.div>
@@ -316,7 +318,10 @@ const Home = () => {
             >
               Got questions ? We&apos;ve got answers
             </Text>
-            <Text>Bringing Clarity to the Conversation</Text>
+            <Text>
+              Bringing Clarity <a href="https://www.accordiaharmony.org/">to</a>{" "}
+              the Conversation
+            </Text>
           </motion.div>
           <motion.div
             initial={{ opacity: 0 }}

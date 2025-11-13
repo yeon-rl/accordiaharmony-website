@@ -366,11 +366,12 @@ const Careers = () => {
                 Joining Accordia Harmony means being part of a purpose-driven
                 culture where ideas are valued, voices are heard, and
                 contributions make a real difference. Whether your expertise
-                lies in education, technology, design, or social innovation,
-                you’ll find a space to grow, lead, and make lasting change. If
-                you share our passion for empowering the next generation,
-                explore opportunities to join our team and help shape the future
-                of youth empowerment.
+                lies in education, technology, design,{" "}
+                <a href="https://www.accordiaharmony.org/careers">or</a> social
+                innovation, you’ll find a space to grow, lead, and make lasting
+                change. If you share our passion for empowering the next
+                generation, explore opportunities to join our team and help
+                shape the future of youth empowerment.
               </Text>
 
               <div className="flex justify-center md:justify-start">
@@ -393,9 +394,10 @@ const Careers = () => {
           </Text>
           <div className="max-w-3xl">
             <Text className="text-center">
-              Although there are no current vacancies at Accordia Harmony
-              C.I.C., we are continually expanding our projects, partnerships,
-              and platforms.
+              Although there are{" "}
+              <a href="https://www.accordiaharmony.org/careers">no</a> current
+              vacancies at Accordia Harmony C.I.C., we are continually expanding
+              our projects, partnerships, and platforms.
             </Text>
           </div>
 
@@ -439,8 +441,8 @@ const Careers = () => {
           </motion.div>
           <motion.div variants={fadeInUp}>
             <Image
-              src="/images/image.png"
-              alt=""
+              src="/images/Image.png"
+              alt="Career opportunities illustration"
               width={1000}
               height={1000}
               className="w-full h-auto"
@@ -458,9 +460,10 @@ const Careers = () => {
               your CV and a short statement about your interests and expertise
               to careers@accordiaharmony.org. <br /> We regularly review
               expressions of interest and contact suitable candidates as
-              opportunities become available. You can also follow us on
-              LinkedIn, Instagram, and X (Twitter) to stay updated on new
-              projects, roles, and announcements.
+              opportunities become available. You can also follow us{" "}
+              <a href="https://www.accordiaharmony.org/careers">on</a> LinkedIn,
+              Instagram, and X (Twitter) to stay updated on new projects, roles,
+              and announcements.
             </Text>
           </motion.div>
           <div>
@@ -474,7 +477,9 @@ const Careers = () => {
               diversity and inclusion in all forms, and we believe that everyone
               deserves a seat at the table. Whether you are a recent graduate,
               an experienced professional, or an innovator exploring new ideas,
-              there is a place for you in our vision of positive change.
+              there is a place for you{" "}
+              <a href="https://www.accordiaharmony.org/careers">in</a> our
+              vision of positive change.
             </Text>
           </div>
           <motion.div variants={fadeInUp}>
@@ -490,8 +495,8 @@ const Careers = () => {
                 Be the First to Know
               </Text>{" "}
               Subscribe to our updates or follow our social channels to be the
-              first to hear about new roles, collaborations, and initiatives.{" "}
-              <br />
+              first <a href="https://www.accordiaharmony.org/careers">to</a>{" "}
+              hear about new roles, collaborations, and initiatives. <br />
               <div className="flex items-center gap-2">
                 <svg
                   width="20"

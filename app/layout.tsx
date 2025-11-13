@@ -66,14 +66,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: "https://accordiaharmony.org",
+    url: "https://www.accordiaharmony.org",
     siteName: "Accordia Harmony",
     title: "Accordia Harmony | Youth Empowerment & Life Skills Training",
     description:
       "Accordia Harmony empowers young people with essential life skills, digital literacy, and confidence for independent living and career success.",
     images: [
       {
-        url: "https://accordiaharmony.org/images/og-image.png",
+        url: "https://www.accordiaharmony.org/images/og-image.png",
         width: 1200,
         height: 630,
         alt: "Accordia Harmony - Youth Empowerment",
@@ -88,10 +88,10 @@ export const metadata: Metadata = {
     title: "Accordia Harmony | Youth Empowerment & Life Skills Training",
     description:
       "Accordia Harmony empowers young people with essential life skills, digital literacy, and confidence for independent living and career success.",
-    images: ["https://accordiaharmony.org/images/og-image.png"],
+    images: ["https://www.accordiaharmony.org/images/og-image.png"],
   },
   alternates: {
-    canonical: "https://accordiaharmony.org",
+    canonical: "https://www.accordiaharmony.org",
   },
 };
 

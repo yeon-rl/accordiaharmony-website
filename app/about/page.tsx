@@ -162,14 +162,15 @@ const About = () => {
                   Who We Are
                 </Text>
                 <Text className="my-3 text-base">
-                  Accordia Harmony C.I.C. is a United Kingdom–based Community
-                  Interest Company dedicated to empowering young people with
-                  confidence, life skills, and knowledge they need to thrive.{" "}
-                  <br /> <br /> We create solutions that make learning
-                  practical, engaging, and relevant. Our focus is on bridging
-                  the gap between classroom education and the realities of
-                  everyday life, preparing young people for independence,
-                  employment, and personal growth.
+                  Accordia Harmony C.I.C. is{" "}
+                  <a href="https://www.accordiaharmony.org/about">a</a> United
+                  Kingdom–based Community Interest Company dedicated to
+                  empowering young people with confidence, life skills, and
+                  knowledge they need to thrive. <br /> <br /> We create
+                  solutions that make learning practical, engaging, and
+                  relevant. Our focus is on bridging the gap between classroom
+                  education and the realities of everyday life, preparing young
+                  people for independence, employment, and personal growth.
                 </Text>
                 <Text className="my-5 text-base">
                   Our approach combines innovation, technology, and social
@@ -244,10 +245,11 @@ const About = () => {
                 navigate adulthood successfully. <br /> Through our platforms,
                 we create spaces where young people can learn about finance,
                 wellbeing, careers, relationships, and digital safety in a way
-                that feels relatable and empowering. <br /> <br /> Our goal is
-                not just to teach skills, but to help young people discover who
-                they are, what they can achieve, and how they can contribute
-                positively to the world around them
+                that feels relatable and empowering. <br /> <br /> Our goal{" "}
+                <a href="https://www.accordiaharmony.org/about">is</a> not just
+                to teach skills, but to help young people discover who they are,
+                what they can achieve, and how they can contribute positively to
+                the world around them
               </Text>
             </div>
           </motion.div>
@@ -503,9 +505,10 @@ const About = () => {
                 Empowering Futures Through Purpose-Driven Products
               </Text>
               <Text className="my-3 text-base! md:text-3xl! text-center md:text-left">
-                From digital platforms like LifeSkills Connect to community-led
-                initiatives, Accordia builds tools that equip young people to
-                learn, grow, and thrive.
+                From digital platforms like LifeSkills Connect{" "}
+                <a href="https://www.accordiaharmony.org/about">to</a>{" "}
+                community-led initiatives, Accordia builds tools that equip
+                young people to learn, grow, and thrive.
               </Text>
 
               <div className="flex items-center justify-center md:justify-start gap-3 mt-10">
@@ -784,8 +787,9 @@ const About = () => {
               </Text>
               <Text className=" my-5 md:my-5 md:text-3xl!">
                 a modern learning environment where young people gain hands-on
-                technical, creative, and vocational skills that align with
-                future job markets.{" "}
+                technical, creative, and{" "}
+                <a href="https://www.accordiaharmony.org/about">vocational</a>{" "}
+                skills that align with future job markets.{" "}
               </Text>
             </div>
             <div>
@@ -824,10 +828,11 @@ const About = () => {
                 As a registered Community Interest Company (C.I.C.), Accordia
                 Harmony reinvests its profits back into the community and the
                 development of youth-focused initiatives. Our commitment is not
-                only to innovate but also to measure social impact. Every
-                project we deliver is designed to improve the lives of young
-                people, strengthen communities, and build pathways to long-term
-                opportunity.
+                only to innovate but also to measure{" "}
+                <a href="https://www.accordiaharmony.org/about">Social</a>
+                impact. Every project we deliver is designed to improve the
+                lives of young people, strengthen communities, and build
+                pathways to long-term opportunity.
               </Text>
             </div>
           </div>
@@ -882,7 +887,11 @@ const About = () => {
             >
               Got questions ? We’ve got answers
             </Text>
-            <Text>Bringing Clarity to the Conversation</Text>
+            <Text>
+              Bringing Clarity to{" "}
+              <a href="https://www.accordiaharmony.org/about">the</a>{" "}
+              Conversation
+            </Text>
           </div>
           <FAQSection />
         </div>

@@ -16,6 +16,7 @@ type Message = {
   id: string;
   from: "user" | "bot";
   text: string;
+  links?: Array<{ label: string; href: string }>;
 };
 
 const PRE_ANSWERED = [
@@ -69,26 +70,63 @@ const Chatbox: React.FC = () => {
   }
 
   // A small rule-based bot. Replace with a real API call if desired.
-  async function generateBotReply(userText: string) {
+  async function generateBotReply(
+    userText: string
+  ): Promise<{ text: string; links?: Array<{ label: string; href: string }> }> {
     const t = userText.toLowerCase();
     // quick heuristics
     if (t.includes("service")) {
-      return "We offer therapy, community programmes, and wellbeing partnerships tailored to local organisations. See our Services page for details.";
+      return {
+        text: "We offer therapy, community programmes, and wellbeing partnerships tailored to local organisations.",
+        links: [{ label: "View Services", href: "/services" }],
+      };
     }
     if (t.includes("partner") || t.includes("partnership")) {
-      return "To partner with us, please visit our Partnership page or contact our partnerships team via the Contact page. We welcome collaborations that align with our mission.";
+      return {
+        text: "To partner with us, please reach out to our partnerships team.",
+        links: [{ label: "Partnership Page", href: "/partnership" }],
+      };
     }
     if (t.includes("hire") || t.includes("career") || t.includes("job")) {
-      return "We post vacancies on the Careers page. If you'd like to join the team, check there and reach out with your CV and a short cover note.";
+      return {
+        text: "We post vacancies on the Careers page. If you'd like to join the team, check there and reach out with your CV.",
+        links: [{ label: "View Careers", href: "/careers" }],
+      };
     }
     if (t.includes("privacy") || t.includes("data")) {
-      return "We take privacy seriously. Visit our Privacy Policy page for full details on how we handle data.";
+      return {
+        text: "We take privacy seriously. Here's our Privacy Policy for full details on how we handle data.",
+        links: [{ label: "Privacy Policy", href: "/privacy-policy" }],
+      };
+    }
+    if (t.includes("contact") || t.includes("reach")) {
+      return {
+        text: "You can contact us through our Contact page. We'd love to hear from you!",
+        links: [{ label: "Contact Us", href: "/contact" }],
+      };
     }
     // fallback: canned helpful answers
     const canned = [
-      "Could you say a bit more? I can help with services, partnerships, careers, or privacy.",
-      "If you need immediate human help, please contact our support via the contact page.",
-      "You can explore our website pages (Services, Partnerships, Careers) for detailed info — what would you like to know specifically?",
+      {
+        text: "Could you say a bit more? I can help with services, partnerships, careers, or privacy. Visit our main pages for more info.",
+        links: [
+          { label: "Services", href: "/services" },
+          { label: "Careers", href: "/careers" },
+          { label: "Contact", href: "/contact" },
+        ],
+      },
+      {
+        text: "If you need immediate human help, please reach out to us.",
+        links: [{ label: "Contact Support", href: "/contact" }],
+      },
+      {
+        text: "You can explore our website pages for detailed info — what would you like to know specifically?",
+        links: [
+          { label: "Services", href: "/services" },
+          { label: "About Us", href: "/about" },
+          { label: "Partnerships", href: "/partnership" },
+        ],
+      },
     ];
     return canned[Math.floor(Math.random() * canned.length)];
   }
@@ -112,9 +150,18 @@ const Chatbox: React.FC = () => {
       // find last bot typing placeholder
       const idx = newMsgs.map((m) => m.text).lastIndexOf("...thinking...");
       if (idx >= 0) {
-        newMsgs[idx] = { ...newMsgs[idx], text: reply };
+        newMsgs[idx] = {
+          ...newMsgs[idx],
+          text: reply.text,
+          links: reply.links,
+        };
       } else {
-        newMsgs.push({ id: `${Date.now()}-r`, from: "bot", text: reply });
+        newMsgs.push({
+          id: `${Date.now()}-r`,
+          from: "bot",
+          text: reply.text,
+          links: reply.links,
+        });
       }
       return newMsgs;
     });
@@ -184,7 +231,25 @@ const Chatbox: React.FC = () => {
             className="fixed z-50 bottom-36 right-5 md:bottom-44 md:right-8 w-80 max-h-[70vh] border border-slate-500 bg-[#060610] shadow-2xl rounded-lg flex flex-col overflow-hidden"
           >
             <div className="px-4 py-3 border-b border-slate-700 flex items-center justify-between">
-              <div className="text-sm font-semibold">Accordia Assistant</div>
+              <div className="flex items-center gap-2">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="text-[#FBBF24]"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"
+                    fill="currentColor"
+                  />
+                </svg>
+                <span className="text-sm font-semibold">
+                  Accordia Assistant
+                </span>
+              </div>
               <button
                 onClick={() => closeChat()}
                 aria-label="Close chat panel"
@@ -213,6 +278,19 @@ const Chatbox: React.FC = () => {
                     }`}
                   >
                     {m.text}
+                    {m.links && m.links.length > 0 && (
+                      <div className="mt-2 flex flex-col gap-1">
+                        {m.links.map((link) => (
+                          <a
+                            key={link.href}
+                            href={link.href}
+                            className="block px-2 py-1 bg-[#FBBF24] text-black rounded text-xs font-semibold hover:bg-yellow-300 transition"
+                          >
+                            {link.label}
+                          </a>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}

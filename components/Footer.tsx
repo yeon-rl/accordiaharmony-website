@@ -42,13 +42,15 @@ const Footer = () => {
           <div className="flex-1">
             {/* Logo */}
             <motion.div className="mb-12" variants={fadeInUp}>
-              <Image
-                src="/images/logowhite.png"
-                alt="Footer Logo"
-                width={1000}
-                height={1000}
-                className="w-[98px] h-[35px]"
-              />
+              <Link href="/">
+                <Image
+                  src="/images/logowhite.png"
+                  alt="Footer Logo"
+                  width={1000}
+                  height={1000}
+                  className="w-[98px] h-[35px]"
+                />
+              </Link>
             </motion.div>
 
             {/* Address */}
@@ -115,6 +117,16 @@ const Footer = () => {
                 </svg>
               </Link>
             </motion.div>
+
+            <div>
+              <Image
+                src="/images/ico.png"
+                alt="Footer Logo"
+                width={1000}
+                height={1000}
+                className="w-20 h-auto mt-5"
+              />
+            </div>
           </div>
 
           {/* Right Section - Navigation Links */}
@@ -227,9 +239,12 @@ const Footer = () => {
         </motion.div>
 
         {/* Bottom Section */}
+        <p className="text-center text-sm text-[#82888C] mt-8">
+          Accordia Harmony C.I.C. | Registered in England & Wales No. 16569285
+        </p>
         <motion.div
           variants={fadeInUp}
-          className="relative mt-8 border-t border-gray-800/50 pt-6 flex flex-col md:flex-row items-center justify-between mx-auto text-xs text-[#82888C]"
+          className="relative mt-3 border-t border-gray-800/50 pt-6 flex flex-col md:flex-row items-center justify-between mx-auto text-xs text-[#82888C]"
         >
           <p>© 2025 Accordia Harmony. All rights reserved.</p>
           <div className="flex items-center space-x-8 mt-4 md:mt-0">

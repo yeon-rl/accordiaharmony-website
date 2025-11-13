@@ -69,9 +69,10 @@ const Products = () => {
               <Text className="text-center md:text-xl! my-3 max-w-7xl mx-auto">
                 Our flagship platform is designed to equip young people with the
                 skills they need for life and work. Courses cover financial
-                literacy, career preparation, online safety, and personal
-                development, all delivered through interactive, engaging
-                experiences.
+                literacy, career preparation, online safety,{" "}
+                <a href="https://www.accordiaharmony.org/services">and</a>{" "}
+                personal development, all delivered through interactive,
+                engaging experiences.
               </Text>
             </motion.div>
 
@@ -101,11 +102,15 @@ const Products = () => {
                 <div className="md:col-span-4 bg-white rounded-xl text-[#545A65] flex flex-col justify-between overflow-hidden">
                   <motion.div className="p-5 md:p-10" variants={fadeInUp}>
                     <Text className="text-[#545A65] font-bold! text-xl! mb-2">
-                      Integrated Ai
+                      Integrated AI
                     </Text>
                     <Text className="text-[#545A65]">
                       Empowering youth through AI guided life skills,
-                      interactive learning, personalized coaching, real results.
+                      interactive learning, personalized coaching
+                      <a href="https://www.accordiaharmony.org/services">
+                        ,
+                      </a>{" "}
+                      real results.
                     </Text>
                   </motion.div>
 
@@ -127,8 +132,9 @@ const Products = () => {
                       Safety tools
                     </Text>
                     <Text className="text-[#545A65]">
-                      Smart safety tools designed to keep you protected and
-                      aware.
+                      Smart safety tools designed{" "}
+                      <a href="https://www.accordiaharmony.org/services">to</a>{" "}
+                      keep you protected and aware.
                     </Text>
                   </motion.div>
 
@@ -148,7 +154,8 @@ const Products = () => {
                       Gammified learning
                     </Text>
                     <Text className="text-[#545A65]">
-                      Learn, grow and earn usable points and rewards that can be
+                      Learn, grow and earn usable points and rewards that can{" "}
+                      <a href="https://www.accordiaharmony.org/services">be</a>{" "}
                       used int the real world.
                     </Text>
                   </motion.div>
@@ -191,18 +198,21 @@ const Products = () => {
               <Text className="my-3 text-base! md:text-xl! text-center md:text-left">
                 LifeSkills Connect is our flagship digital platform created to
                 equip young people with the essential skills, confidence, and
-                knowledge they need for life and work. It bridges the gap
-                between school and adulthood by offering engaging, interactive,
-                and practical learning experiences that prepare users for
-                real-world challenges.
+                knowledge they need for life and work.{" "}
+                <a href="https://www.accordiaharmony.org/services">It</a>{" "}
+                bridges the gap between school and adulthood by offering
+                engaging, interactive, and practical learning experiences that
+                prepare users for real-world challenges.
                 <br /> <br />
                 The platform combines guided lessons, an AI-powered mentor, and
                 a supportive online community where learners can explore vital
                 topics such as financial literacy, career preparation, digital
                 safety, communication, personal development, and mental
                 well-being. Each course is designed to make learning flexible
-                and relatable, allowing users to study at their own pace, earn
-                badges, and track progress through personalised dashboards.
+                and relatable, allowing users to study{" "}
+                <a href="https://www.accordiaharmony.org/services">at</a> their
+                own pace, earn badges, and track progress through personalised
+                dashboards.
               </Text>
 
               {/* <div className="flex justify-center md:justify-start">
@@ -236,14 +246,18 @@ const Products = () => {
                 <br /> <br />
                 The platform focuses on building creative confidence and
                 practical ability through projects, guided workshops, and
-                collaboration with experienced mentors. Every experience is
+                collaboration with experienced mentors. Every experience{" "}
+                <a href="https://www.accordiaharmony.org/services">is</a>{" "}
                 designed to help individuals unlock their potential, think
                 critically, and create meaningful work that reflects their
                 talents and ambitions.
                 <br /> <br />
                 Skill Forge represents a new approach to learning, one that
                 values creativity, problem-solving, and purpose. It empowers
-                people to develop skills that shape their future, enhance their
+                people <a href="https://www.accordiaharmony.org/services">
+                  to
+                </a>{" "}
+                develop skills that shape their future, enhance their
                 confidence, and support lifelong growth.{" "}
               </Text>
 
@@ -298,8 +312,9 @@ const Products = () => {
                 The platform introduces tournaments and interactive sessions in
                 classic games such as chess, scrabble, and monopoly, encouraging
                 friendly competition that builds focus, patience, and critical
-                thinking. While PlayTogether celebrates fun and creativity, it
-                also reinforces important educational and life skills such as
+                thinking. While PlayTogether celebrates fun and creativity,{" "}
+                <a href="https://www.accordiaharmony.org/services">it</a> also
+                reinforces important educational and life skills such as
                 communication, resilience, and decision-making.
                 <br /> <br />
                 More than a gaming experience, PlayTogether serves as a bridge

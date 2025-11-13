@@ -5,7 +5,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
-import jsPDF from "jspdf";
 import Image from "next/image";
 import Text from "@/components/Text";
 import Link from "next/link";
@@ -157,18 +156,12 @@ export default function PartnershipsPage() {
   };
 
   const downloadPDF = () => {
-    const pdf = new jsPDF();
-    const content =
-      document.querySelector(".partnerships-content")?.textContent || "";
-
-    pdf.setFontSize(16);
-    pdf.text("Partnerships & Collaborations", 20, 20);
-
-    pdf.setFontSize(12);
-    const textLines = pdf.splitTextToSize(content, 170);
-    pdf.text(textLines, 20, 30);
-
-    pdf.save("partnerships-and-collaborations.pdf");
+    const link = document.createElement("a");
+    link.href = "/pdf/Partner.pdf";
+    link.download = "Partner.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
   return (
     <div className="text-white!">
@@ -206,9 +199,11 @@ export default function PartnershipsPage() {
                   <p className="text-white/90 leading-relaxed">
                     At Accordia Harmony C.I.C., we believe that lasting change
                     happens through collaboration. Partnerships are at the heart
-                    of everything we do because they allow us to reach more
-                    young people, strengthen communities, and deliver meaningful
-                    learning experiences that transform lives.
+                    of everything we do because they allow{" "}
+                    <a href="https://www.accordiaharmony.org/partnership">us</a>{" "}
+                    to reach more young people, strengthen communities, and
+                    deliver meaningful learning experiences that transform
+                    lives.
                   </p>
                   <p className="text-white/90 leading-relaxed mt-4">
                     We welcome partnerships with schools, youth organisations,
@@ -228,7 +223,9 @@ export default function PartnershipsPage() {
                   <p className="text-white/90 leading-relaxed">
                     Join a mission-driven organisation dedicated to equipping
                     young people with the skills, confidence, and mindset needed
-                    to thrive in life and work.
+                    to thrive{" "}
+                    <a href="https://www.accordiaharmony.org/partnership">in</a>{" "}
+                    life and work.
                   </p>
                   <h3 className="text-xl font-medium mt-6 text-white">
                     Measurable Social Impact
@@ -236,8 +233,9 @@ export default function PartnershipsPage() {
                   <p className="text-white/90 leading-relaxed">
                     As a registered Community Interest Company, we reinvest our
                     profits into youth development programmes. Every partnership
-                    directly contributes to tangible outcomes that improve
-                    lives.
+                    directly contributes{" "}
+                    <a href="https://www.accordiaharmony.org/partnership">to</a>{" "}
+                    tangible outcomes that improve lives.
                   </p>{" "}
                   <h3 className="text-xl font-medium mt-6 text-white">
                     Access to Innovation
@@ -254,8 +252,9 @@ export default function PartnershipsPage() {
                   <p className="text-gray-300 leading-relaxed">
                     Partnerships are recognised across our digital platforms,
                     communications, and events. Your organisation’s involvement
-                    demonstrates a genuine commitment to youth empowerment and
-                    social progress.
+                    demonstrates a genuine commitment{" "}
+                    <a href="https://www.accordiaharmony.org/partnership">to</a>{" "}
+                    youth empowerment and social progress.
                   </p>
                   <h3 className="text-xl font-medium mt-6">
                     Flexible Collaboration Models
@@ -289,7 +288,9 @@ export default function PartnershipsPage() {
                   <p className="text-gray-300 leading-relaxed">
                     Work with us to bridge the skills gap by creating workshops,
                     mentorship opportunities, and career pathways that help
-                    young people connect to real-world employment.
+                    young people connect{" "}
+                    <a href="https://www.accordiaharmony.org/partnership">to</a>{" "}
+                    real-world employment.
                   </p>
 
                   <h3 className="text-xl font-medium mt-6 text-white">
@@ -306,8 +307,10 @@ export default function PartnershipsPage() {
                   </h3>
                   <p className="text-gray-300 leading-relaxed">
                     Support sustainable impact by funding modules, research, or
-                    digital expansion. Your contribution helps us reach more
-                    young people and deliver long-term community benefit.
+                    digital expansion. Your contribution helps{" "}
+                    <a href="https://www.accordiaharmony.org/partnership">us</a>{" "}
+                    reach more young people and deliver long-term community
+                    benefit.
                   </p>
                 </section>
 
@@ -345,8 +348,11 @@ export default function PartnershipsPage() {
                 </Link>{" "}
                 <br /> Office: London, United Kingdom <br />
                 You can also complete our Collaboration Form below, and a member
-                of our Partnerships Team will reach out within five working
-                days.
+                of our Partnerships Team will reach{" "}
+                <a href="https://www.accordiaharmony.org/partnership">
+                  out
+                </a>{" "}
+                within five working days.
               </Text>
             </div>
           </div>
@@ -579,8 +585,9 @@ export default function PartnershipsPage() {
         <div className="max-w-3xl mx-auto mb-20">
           <Text className="text-center">
             If your organisation would like to partner with us or be featured
-            here, please get in touch with our team to explore opportunities for
-            collaboration.
+            here, please get{" "}
+            <a href="https://www.accordiaharmony.org/partnership">in</a> touch
+            with our team to explore opportunities for collaboration.
           </Text>
         </div>
       </div>

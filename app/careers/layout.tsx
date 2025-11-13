@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Careers | Accordia Harmony",
     description: "Explore career opportunities with Accordia Harmony.",
-    url: "https://accordiaharmony.org/careers",
+    url: "https://www.accordiaharmony.org/careers",
     type: "website",
   },
   alternates: {
-    canonical: "https://accordiaharmony.org/careers",
+    canonical: "https://www.accordiaharmony.org/careers",
   },
 };
 

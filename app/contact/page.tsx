@@ -211,7 +211,8 @@ const Contact = () => {
             <motion.div variants={fadeInUp}>
               <Text className="text-center">
                 Have a question, idea, or partnership proposal? <br /> We would
-                love to hear from you.
+                love <a href="https://www.accordiaharmony.org/contact">to</a>
+                hear from you.
               </Text>
             </motion.div>
 
@@ -324,7 +325,10 @@ const Contact = () => {
                                 ))
                               ) : (
                                 <div className="px-3 py-4 text-sm text-white/50 text-center">
-                                  No countries found
+                                  No countries{" "}
+                                  <a href="https://www.accordiaharmony.org/contact">
+                                    found
+                                  </a>{" "}
                                 </div>
                               )}
                             </div>
@@ -651,7 +655,11 @@ const Contact = () => {
                     }
                   }}
                 >
-                  <Text>124 City Road, London, EC1V 2NX</Text>
+                  <Text>
+                    124 City Road, London,{" "}
+                    <a href="https://www.accordiaharmony.org/contact">EC1V</a>{" "}
+                    2NX
+                  </Text>
                 </div>
               </div>
             </div>
@@ -710,6 +718,7 @@ const Contact = () => {
             </button> */}
           </motion.div>
         </div>
+        <a href="https://www.accordiaharmony.org/contact"></a>
       </motion.div>
 
       <Footer />
