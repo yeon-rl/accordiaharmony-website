@@ -40,7 +40,9 @@ const Navbar = () => {
           backdropFilter: "blur(402.8999938964844px)",
         }}
       >
-        <Image src="/images/logo.png" alt="Logo" width={100} height={100} />
+        <Link href="/">
+          <Image src="/images/logo.png" alt="Logo" width={100} height={100} />
+        </Link>
 
         <ul className="flex items-center space-x-10">
           {navLinks.map((link) => (
@@ -123,7 +125,9 @@ const Navbar = () => {
       {/* Mobile Navbar */}
       <nav className="md:hidden relative z-100">
         <div className="flex items-center justify-between px-4 py-4 bg-[#1B365D66] backdrop-blur-md rounded-[23.54px]">
-          <Image src="/images/logo.png" alt="Logo" width={80} height={80} />
+          <Link href="/">
+            <Image src="/images/logo.png" alt="Logo" width={80} height={80} />
+          </Link>
 
           {/* Hamburger Button */}
           <motion.button
