@@ -95,11 +95,12 @@ const Home = () => {
 
             <motion.div
               variants={fadeInUp}
-              className="flex flex-col items-center justify-center sm:flex-row space-x-5 gap-y-4"
+              className="flex flex-col items-center justify-center sm:flex-row md:space-x-5 gap-y-4 text-center"
             >
               <Button
                 title="Join our mission"
                 onClick={() => router.push("/partnership")}
+                className="mx-auto!"
               />
               <Button
                 title="Learn more"
