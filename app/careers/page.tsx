@@ -251,7 +251,7 @@ const Careers = () => {
         <Navbar />
       </motion.div>
 
-      <StaticBg scroll={true}>
+      {/* <StaticBg scroll={true}>
         <div className="w-[90%] md:w-[80%] max-w-360 mx-auto relative z-50">
           <motion.div
             className="mt-14 "
@@ -336,7 +336,7 @@ const Careers = () => {
             </motion.div>
           </motion.div>
         </div>
-      </StaticBg>
+      </StaticBg> */}
 
       <motion.div
         initial="initial"
