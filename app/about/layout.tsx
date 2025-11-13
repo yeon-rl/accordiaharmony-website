@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "About Us | Accordia Harmony",
     description:
       "Discover our mission to empower young people through innovative learning programmes.",
-    url: "https://accordiaharmony.org/about",
+    url: "https://www.accordiaharmony.org/about",
     type: "website",
   },
   twitter: {
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     description: "Learn about Accordia Harmony's mission and values.",
   },
   alternates: {
-    canonical: "https://accordiaharmony.org/about",
+    canonical: "https://www.accordiaharmony.org/about",
   },
 };
 

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "Partnerships & Collaborations | Accordia Harmony",
     description:
       "Join us in creating lasting impact through strategic partnerships focused on youth empowerment.",
-    url: "https://accordiaharmony.org/partnership",
+    url: "https://www.accordiaharmony.org/partnership",
     type: "website",
   },
   twitter: {
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     description: "Explore partnership opportunities with Accordia Harmony.",
   },
   alternates: {
-    canonical: "https://accordiaharmony.org/partnership",
+    canonical: "https://www.accordiaharmony.org/partnership",
   },
 };
 

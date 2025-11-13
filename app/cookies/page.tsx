@@ -91,12 +91,12 @@ export default function CookiePolicy() {
             <div className="relative z-10">
               <div className="flex flex-col md:flex-row justify-between items-start mb-6">
                 <h1 className="text-3xl font-bold">Cookie Policy</h1>
-                <button
+                {/* <button
                   onClick={downloadPDF}
                   className="bg-white text-black text-sm px-4 py-2 mt-5 md:mt-0 rounded-full shadow hover:bg-gray-100 transition-colors duration-200 cursor-pointer"
                 >
                   Download PDF
-                </button>
+                </button> */}
               </div>
 
               <p className="text-sm text-gray-300 mb-8">

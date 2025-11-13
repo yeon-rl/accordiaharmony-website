@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Contact Us | Accordia Harmony",
     description:
       "Get in touch with Accordia Harmony. We're here to answer your questions about our youth empowerment programs.",
-    url: "https://accordiaharmony.org/contact",
+    url: "https://www.accordiaharmony.org/contact",
     type: "website",
   },
   twitter: {
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
       "Get in touch with Accordia Harmony for inquiries about our programs.",
   },
   alternates: {
-    canonical: "https://accordiaharmony.org/contact",
+    canonical: "https://www.accordiaharmony.org/contact",
   },
 };
 

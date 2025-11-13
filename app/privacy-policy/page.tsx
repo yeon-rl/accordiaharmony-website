@@ -87,12 +87,12 @@ export default function PrivacyPolicyPage() {
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
             <h1 className="text-3xl font-semibold">Privacy Policy</h1>
-            <button
+            {/* <button
               onClick={downloadPDF}
               className="px-5 py-2 mt-5 w-fit md:mt-0 rounded-full cursor-pointer bg-white text-black font-medium shadow hover:bg-gray-100 transition-colors duration-200"
             >
               Download PDF
-            </button>
+            </button> */}
           </div>
           <p className="text-sm text-white/70 mb-8">
             Last Updated: November 2025

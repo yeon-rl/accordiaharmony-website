@@ -100,7 +100,8 @@ const Footer = () => {
                 </svg>
               </Link>
               <Link
-                href="#"
+                href="https://www.linkedin.com/company/107981168/admin/dashboard/"
+                target="_blank"
                 className="w-8 h-8 flex items-center justify-center transition"
               >
                 <svg

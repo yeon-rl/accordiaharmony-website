@@ -86,12 +86,12 @@ export default function TermsOfUse() {
                 <h1 className="text-3xl md:text-4xl font-bold">
                   Terms of Use / Terms of Service
                 </h1>
-                <button
+                {/* <button
                   onClick={downloadPDF}
                   className="px-5 py-2 rounded-full w-fit mt-5 md:mt-0 cursor-pointer bg-white text-black font-medium shadow hover:bg-gray-100 transition-colors duration-200"
                 >
                   Download PDF
-                </button>
+                </button> */}
               </div>
 
               <p className="text-sm text-white/70">

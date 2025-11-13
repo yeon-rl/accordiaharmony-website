@@ -32,12 +32,12 @@ export default function GovernanceTransparency() {
               <h1 className="text-2xl md:text-3xl font-semibold">
                 Governance and Transparency
               </h1>
-              <button
+              {/* <button
                 onClick={downloadPDF}
                 className="px-5 py-2 mt-5 md:mt-0 bg-white text-black rounded-full shadow hover:bg-gray-200 transition cursor-pointer"
               >
                 Download PDF
-              </button>
+              </button> */}
             </div>
 
             <p className="text-sm text-gray-300 mb-3">

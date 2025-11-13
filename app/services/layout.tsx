@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "Our Services | Accordia Harmony",
     description:
       "Discover the comprehensive services we offer to empower young people.",
-    url: "https://accordiaharmony.org/services",
+    url: "https://www.accordiaharmony.org/services",
     type: "website",
   },
   twitter: {
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     description: "Explore our youth empowerment services and programs.",
   },
   alternates: {
-    canonical: "https://accordiaharmony.org/services",
+    canonical: "https://www.accordiaharmony.org/services",
   },
 };
 

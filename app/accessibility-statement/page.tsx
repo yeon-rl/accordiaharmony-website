@@ -104,12 +104,12 @@ export default function AccessibilityStatement() {
                 </p>
               </div>
 
-              <button
+              {/* <button
                 onClick={downloadPDF}
                 className="px-5 py-2 bg-white mt-5 md:mt-0 text-black rounded-full text-sm font-medium shadow-md hover:bg-gray-100 transition-colors duration-200 cursor-pointer"
               >
                 Download PDF
-              </button>
+              </button> */}
             </div>
 
             <hr className="border-white/20 my-8" />
