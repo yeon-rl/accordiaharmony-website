@@ -367,6 +367,7 @@ export const metadata: Metadata = {
     "A-Levels",
     "degree programs",
   ],
+
   authors: [{ name: "Accordia Harmony C.I.C." }],
   creator: "Accordia Harmony",
   publisher: "Accordia Harmony C.I.C.",
@@ -422,6 +423,11 @@ export const metadata: Metadata = {
     canonical: "https://www.accordiaharmony.org",
   },
   metadataBase: new URL("https://www.accordiaharmony.org"),
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
@@ -438,6 +444,7 @@ export default function RootLayout({
             __html: JSON.stringify(organizationSchema),
           }}
         />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#060610] text-white ${poppins.variable} overflow-x-hidden`}
