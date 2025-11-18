@@ -51,7 +51,7 @@ const Home = () => {
       >
         <Navbar />
       </motion.div>
-      <StaticBg height=" h-[55vh]! sm:h-[45vh]! md:h-fit! xl:h-[45vh]!">
+      <StaticBg height="h-full!">
         <div className="w-[90%] max-w-360 mx-auto relative z-50">
           <motion.div
             initial="initial"
@@ -140,13 +140,45 @@ const Home = () => {
               </div>
             </motion.div> */}
           </motion.div>
+
+          {/* why trust us */}
+          <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={staggerChildren}
+            className="flex flex-col items-center justify-center mt-20"
+          >
+            <motion.div variants={fadeInUp}>
+              <Header number={1} title="Why Trust Us?" />
+            </motion.div>
+
+            <motion.div
+              variants={fadeInUp}
+              className="flex flex-col items-center justify-center"
+            >
+              <Text
+                type="subheading"
+                className="text-center font-medium! max-w-5xl tracking-tight! leading-snug!"
+              >
+                A proven, practical approach to gaining skills that matter
+              </Text>
+              <Text className="text-center my-3 mb-8">
+                We keep things lean, clear, and collaborative — from idea{" "}
+                <a href="https://www.accordiaharmony.org/">to</a> launch.
+              </Text>
+              <div className="max-w-6xl mx-auto">
+                <WhyTrustUs />
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </StaticBg>
       {/* <Navbar /> */}
 
       <section className="w-[90%] max-w-360 mx-auto relative z-50 mt-10 sm:mt-20 md:mt-20 2xl:mt-5">
         {/* why trust us */}
-        <motion.div
+        {/* <motion.div
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
@@ -175,7 +207,7 @@ const Home = () => {
               <WhyTrustUs />
             </div>
           </motion.div>
-        </motion.div>
+        </motion.div> */}
 
         {/* Products */}
         <motion.div

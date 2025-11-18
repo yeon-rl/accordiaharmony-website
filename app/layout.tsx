@@ -2,12 +2,11 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import GoToTop from "@/components/GoToTop";
 import Chatbox from "@/components/Chatbox";
 import { Toaster } from "sonner";
 import { organizationSchema } from "@/lib/schema";
+import localFont from "next/font/local";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,6 +23,8 @@ const poppins = Poppins({
   weight: ["400", "700"],
   subsets: ["latin"],
 });
+
+const satoshi = localFont({ src: "../public/fonts/Satoshi-Variable.ttf" });
 
 export const metadata: Metadata = {
   title: "Accordia Harmony | Youth Empowerment & Life Skills Training",
@@ -450,6 +451,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#060610] text-white ${poppins.variable} overflow-x-hidden`}
       >
         {/* Google Analytics */}
+
+        {/* <h1 className={`text-5xl ${satoshi.className}`}>
+          intentionally put an h1
+        </h1> */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-BKD0J3D1TC"
           strategy="afterInteractive"
