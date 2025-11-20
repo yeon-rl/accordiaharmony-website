@@ -163,10 +163,10 @@ const Home = () => {
               >
                 A proven, practical approach to gaining skills that matter
               </Text>
-              <Text className="text-center my-3 mb-8">
+              {/* <Text className="text-center my-3 mb-8">
                 We keep things lean, clear, and collaborative — from idea{" "}
                 <a href="https://www.accordiaharmony.org/">to</a> launch.
-              </Text>
+              </Text> */}
               <div className="max-w-6xl mx-auto">
                 <WhyTrustUs />
               </div>
