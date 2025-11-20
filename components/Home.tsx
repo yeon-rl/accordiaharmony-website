@@ -159,7 +159,7 @@ const Home = () => {
             >
               <Text
                 type="subheading"
-                className="text-center font-medium! max-w-5xl tracking-tight! leading-snug!"
+                className="text-center font-medium! max-w-5xl tracking-tight! leading-snug! mb-8"
               >
                 A proven, practical approach to gaining skills that matter
               </Text>
