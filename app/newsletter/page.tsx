@@ -20,68 +20,13 @@ const articles = [
   {
     id: 1,
     category: "Event",
-    title: "Lorem ipsum dolor sit amet consectetur. Sed suspendisse lectus consectetu",
-    description: "Lorem ipsum dolor sit amet consectetur. Sed suspendisse lectus consecteturLorem ipsum dolor sit amet consectetur.",
-    date: "24th Dec 2025",
+    title: "Build Skills, Build Power, Build Your Future",
+    description: "Practical vocational training supporting young people to develop confidence, independence and life-ready skills",
+    date: "31 Dec 2025",
     comments: 6,
     image: "/images/news.png",
     color: "text-blue-500",
     link: "/newsletter/skill-forge"
-  },
-  {
-    id: 2,
-    category: "Meeting",
-    title: "Quisque aliquet nisl nec tristique porttitor. Valiquam, nunc at interdum blandit.",
-    description: "Quisque aliquet nisl nec tristique porttitor. Valiquam, aliquam, nunc at interdum blandit. Aenean tincidunt",
-    date: "15th Jan 2026",
-    comments: 7,
-    image: "/images/news.png",
-    color: "text-blue-400",
-    link: "#"
-  },
-  {
-    id: 3,
-    category: "Conference",
-    title: "Mauris vitae sapien tincidunt, posuere erat id, hendrerit libero. Praesent vitae quam.",
-    description: "Mauris vitae sapien tincidunt, posuere, len tincidunt, posuere erat id, hendrerit libero. Praesent vitae quam. In hac habitasse",
-    date: "11th Feb 2026",
-    comments: 8,
-    image: "/images/news.png",
-    color: "text-blue-600",
-    link: "#"
-  },
-  {
-    id: 4,
-    category: "Event",
-    title: "Lorem ipsum dolor sit amet consectetur. Sed suspendisse lectus consectetu",
-    description: "Lorem ipsum dolor sit amet consectetur. Sed suspendisse lectus consecteturLorem ipsum dolor sit amet consectetur.",
-    date: "24th Dec 2025",
-    comments: 6,
-    image: "/images/news.png",
-    color: "text-blue-500",
-    link: "#"
-  },
-  {
-    id: 5,
-    category: "Meeting",
-    title: "Quisque aliquet nisl nec tristique porttitor. Valiquam, nunc at interdum blandit.",
-    description: "Quisque aliquet nisl nec tristique porttitor. Valiquam, aliquam, nunc at interdum blandit. Aenean tincidunt",
-    date: "15th Jan 2026",
-    comments: 7,
-    image: "/images/news.png",
-    color: "text-blue-400",
-    link: "#"
-  },
-  {
-    id: 6,
-    category: "Conference",
-    title: "Mauris vitae sapien tincidunt, posuere erat id, hendrerit libero. Praesent vitae quam.",
-    description: "Mauris vitae sapien tincidunt, posuere, len tincidunt, posuere erat id, hendrerit libero. Praesent vitae quam. In hac habitasse",
-    date: "11th Feb 2026",
-    comments: 8,
-    image: "/images/news.png",
-    color: "text-blue-600",
-    link: "#"
   },
 ];
 
@@ -132,7 +77,7 @@ const Newsletter = () => {
                   Build Skills, Build Power, Build Your Future
                 </Text>
                 <Text className="text-lg text-muted-foreground leading-relaxed">
-                  Practical vocational training supporting young people to develop confidence, independence and life-ready skills. <Link href="/newsletter/skill-forge" className="text-[#4285F4] hover:underline font-medium">See more</Link>
+                  Practical vocational training supporting young people to develop confidence, independence and life-ready skills. 
                 </Text>
                 <Link href="/newsletter/skill-forge">
                   <button className="bg-[#4285F4] text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-600 transition-colors w-fit">
@@ -175,14 +120,10 @@ const Newsletter = () => {
                         {article.title}
                       </Text>
                       <Text className="text-muted-foreground mb-6 line-clamp-3 leading-relaxed">
-                        {article.description} <span className="text-[#4285F4] hover:underline font-medium">See more</span>
+                        {article.description} 
                       </Text>
                       <div className="mt-auto flex items-center justify-between text-sm text-gray-500 font-medium border-t border-gray-100 dark:border-white/10 pt-4">
                         <span>{article.date}</span>
-                        <div className="flex items-center gap-1.5">
-                          <MessageCircle size={16} />
-                          <span>Comment {article.comments}</span>
-                        </div>
                       </div>
                     </div>
                   </motion.div>
