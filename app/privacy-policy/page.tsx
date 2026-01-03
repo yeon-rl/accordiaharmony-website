@@ -78,12 +78,12 @@ export default function PrivacyPolicyPage() {
     }
   };
   return (
-    <div className="text-white">
+    <div className="text-foreground">
       <div className="w-[90%] max-w-360 mx-auto py-10">
         <Navbar />
       </div>
-      <div className="min-h-screen w-full text-white flex justify-center md:py-20 px-4 mb-10">
-        <div className="max-w-5xl w-full bg-[#FFFFFF0D] p-3 py-5 md:p-10 rounded-2xl shadow-xl border-none border-white/10 policy-content">
+      <div className="min-h-screen w-full text-foreground flex justify-center md:py-20 px-4 mb-10">
+        <div className="max-w-5xl w-full bg-[#0000000D] dark:bg-[#FFFFFF0D] p-3 py-5 md:p-10 rounded-2xl shadow-xl border border-border policy-content">
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
             <h1 className="text-3xl font-semibold">Privacy Policy</h1>
@@ -94,16 +94,16 @@ export default function PrivacyPolicyPage() {
               Download PDF
             </button> */}
           </div>
-          <p className="text-sm text-white/70 mb-8">
+          <p className="text-sm text-muted-foreground mb-8">
             Last Updated: November 2025
           </p>
 
-          <div className="h-px w-full bg-white/10 my-6" />
+          <div className="h-px w-full bg-border my-6" />
 
           {/* Introduction */}
           <section className="space-y-4 mb-10">
             <h2 className="text-xl font-semibold">Introduction</h2>
-            <p className="text-white/70 leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed">
               Accorda Harmony C.I.C. (&quot;we&quot;, &quot;our&quot;, or
               &quot;us&quot;) is committed to protecting and respecting your
               privacy. This Privacy Policy explains how we collect, use, and
@@ -112,7 +112,7 @@ export default function PrivacyPolicyPage() {
               Playground (collectively referred to as &quot;our
               platforms&quot;).
             </p>
-            <p className="text-white/70 leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed">
               We comply with the UK General Data Protection Regulation (UK GDPR)
               and the Data Protection Act 2018.
             </p>
@@ -121,10 +121,10 @@ export default function PrivacyPolicyPage() {
           {/* Information We Collect */}
           <section className="space-y-4 mb-10">
             <h2 className="text-xl font-semibold">Information We Collect</h2>
-            <p className="text-white/70">
+            <p className="text-muted-foreground">
               We may collect and process the following types of personal data:
             </p>
-            <ul className="list-disc list-inside text-white/70 space-y-1">
+            <ul className="list-disc list-inside text-muted-foreground space-y-1">
               <li>Name, email address, and contact information</li>
               <li>Account login details (if you create an account)</li>
               <li>Date of birth or age range (for eligibility purposes)</li>
@@ -139,7 +139,7 @@ export default function PrivacyPolicyPage() {
                 activities
               </li>
             </ul>
-            <p className="text-white/70">
+            <p className="text-muted-foreground">
               We do not collect or store sensitive personal information unless
               it is strictly necessary and you have given explicit consent.
             </p>
@@ -150,8 +150,8 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-xl font-semibold">
               How We Use Your Information
             </h2>
-            <p className="text-white/70">We use your personal data to:</p>
-            <ul className="list-disc list-inside text-white/70 space-y-1">
+            <p className="text-muted-foreground">We use your personal data to:</p>
+            <ul className="list-disc list-inside text-muted-foreground space-y-1">
               <li>Provide and manage access to our platforms and services</li>
               <li>Personalise your learning experience</li>
               <li>
@@ -164,7 +164,7 @@ export default function PrivacyPolicyPage() {
               </li>
               <li>Comply with our legal and community interest obligations</li>
             </ul>
-            <p className="text-white/70">
+            <p className="text-muted-foreground">
               We do not sell or rent your personal information to any third
               parties.
             </p>
@@ -175,11 +175,11 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-xl font-semibold">
               Legal Basis for Processing
             </h2>
-            <p className="text-white/70">
+            <p className="text-muted-foreground">
               We process your data based on one or more of the following
               grounds:
             </p>
-            <ul className="list-disc list-inside text-white/70 space-y-1">
+            <ul className="list-disc list-inside text-muted-foreground space-y-1">
               <li>Your consent</li>
               <li>Performance of a contract or agreement with you</li>
               <li>Compliance with legal obligations</li>
@@ -193,13 +193,13 @@ export default function PrivacyPolicyPage() {
           {/* Data Storage */}
           <section className="space-y-4 mb-10">
             <h2 className="text-xl font-semibold">Data Storage and Security</h2>
-            <p className="text-white/70 leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed">
               Your data is stored securely using encrypted servers and access
               controls. We take appropriate technical and organisational
               measures to prevent unauthorised access, alteration, or
               disclosure.
             </p>
-            <p className="text-white/70 leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed">
               We retain your personal data only for as long as necessary to
               fulfil the purposes outlined in this policy.
             </p>
@@ -208,8 +208,8 @@ export default function PrivacyPolicyPage() {
           {/* Your Rights */}
           <section className="space-y-4 mb-10">
             <h2 className="text-xl font-semibold">Your Rights</h2>
-            <p className="text-white/70">You have the right to:</p>
-            <ul className="list-disc list-inside text-white/70 space-y-1">
+            <p className="text-muted-foreground">You have the right to:</p>
+            <ul className="list-disc list-inside text-muted-foreground space-y-1">
               <li>Access and obtain a copy of your data</li>
               <li>Request correction or deletion of your data</li>
               <li>Withdraw consent at any time</li>
@@ -218,7 +218,7 @@ export default function PrivacyPolicyPage() {
                 Office (ICO)
               </li>
             </ul>
-            <p className="text-white/70">
+            <p className="text-muted-foreground">
               To exercise any of these rights, please contact us at
               privacy@accordiaharmony.org.
             </p>
@@ -227,7 +227,7 @@ export default function PrivacyPolicyPage() {
           {/* Changes */}
           <section className="space-y-4 mb-10">
             <h2 className="text-xl font-semibold">Changes to This Policy</h2>
-            <p className="text-white/70 leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed">
               We may update this policy occasionally. Any changes will be
               published on this page with a revised &quot;Last Updated&quot;
               date.
@@ -237,12 +237,12 @@ export default function PrivacyPolicyPage() {
           {/* Contact Us */}
           <section className="space-y-4 mb-4">
             <h2 className="text-xl font-semibold">Contact Us</h2>
-            <p className="text-white/70 leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed">
               If you have any questions about this Privacy Policy, please
               contact:
             </p>
-            <p className="text-white/70">Email: privacy@accordiaharmony.org</p>
-            <p className="text-white/70">
+            <p className="text-muted-foreground">Email: privacy@accordiaharmony.org</p>
+            <p className="text-muted-foreground">
               Address: Accorda Harmony C.I.C., London, United Kingdom
             </p>
           </section>

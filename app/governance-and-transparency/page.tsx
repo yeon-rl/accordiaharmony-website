@@ -20,14 +20,14 @@ export default function GovernanceTransparency() {
     pdf.save("governance-and-transparency.pdf");
   };
   return (
-    <div className="text-white!">
+    <div className="text-foreground!">
       <div className="w-[90%] max-w-360 mx-auto pt-8 md:pt-10">
         <Navbar />
       </div>
 
       <div className="w-[90%] max-w-360 mx-auto py-10 md:py-10">
-        <div className="min-h-screen w-full  text-white flex justify-center">
-          <div className="w-full bg-white/5 backdrop-blur-sm p-3 py-5 md:p-10 rounded-2xl shadow-xl border-none border-white/10 governance-content">
+        <div className="min-h-screen w-full  text-foreground flex justify-center">
+          <div className="w-full bg-[#0000000D] dark:bg-[#FFFFFF0D] backdrop-blur-sm p-3 py-5 md:p-10 rounded-2xl shadow-xl border border-border governance-content">
             <div className="flex flex-col md:flex-row justify-between items-start mb-6">
               <h1 className="text-2xl md:text-3xl font-semibold">
                 Governance and Transparency
@@ -40,11 +40,11 @@ export default function GovernanceTransparency() {
               </button> */}
             </div>
 
-            <p className="text-sm text-gray-300 mb-3">
+            <p className="text-sm text-muted-foreground mb-3">
               Last Updated: November 2025
             </p>
 
-            <hr className="w-full border-b border-b-white/10 mb-5" />
+            <hr className="w-full border-b border-border mb-5" />
 
             <section className="space-y-6 mb-12">
               <h2 className="text-xl font-semibold">

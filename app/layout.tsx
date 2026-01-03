@@ -7,6 +7,7 @@ import Chatbox from "@/components/Chatbox";
 import { Toaster } from "sonner";
 import { organizationSchema } from "@/lib/schema";
 import localFont from "next/font/local";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -448,8 +449,14 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#060610] text-white ${poppins.variable} overflow-x-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground ${poppins.variable} overflow-x-hidden`}
       >
+        <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
         {/* Google Analytics */}
 
         {/* <h1 className={`text-5xl ${satoshi.className}`}>
@@ -477,6 +484,7 @@ export default function RootLayout({
         <GoToTop />
         <Chatbox />
         {/* <Footer /> */}
+        </ThemeProvider>
       </body>
     </html>
   );

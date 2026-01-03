@@ -7,6 +7,8 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "./Button";
 import { useRouter } from "next/navigation";
+import { ThemeToggle } from "./ThemeToggle";
+import { useTheme } from "next-themes";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -29,19 +31,22 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const router = useRouter();
+  const { resolvedTheme } = useTheme();
+
+  const logoSrc = resolvedTheme === "light" ? "/images/logoLight.png" : "/images/logo.png";
 
   return (
     <>
       {/* desktop Navbar */}
       <nav
-        className="relative z-100 items-center justify-between bg-[#1B365D66] px-4 py-4 backdrop-blur-md rounded-[23.54px] hidden md:flex"
+        className="relative z-100 items-center justify-between bg-[#F2F2F2] dark:bg-[#1B365D66] border border-gray-200 dark:border-white/10 px-4 py-4 backdrop-blur-md rounded-[23.54px] hidden md:flex"
         style={{
           boxShadow: "0px 13.91px 23.97px 0px #00000033",
           backdropFilter: "blur(402.8999938964844px)",
         }}
       >
         <Link href="/">
-          <Image src="/images/logo.png" alt="Logo" width={100} height={100} />
+          <Image src={logoSrc} alt="Logo" width={100} height={100} />
         </Link>
 
         <ul className="flex items-center space-x-10">
@@ -52,7 +57,7 @@ const Navbar = () => {
                   <button
                     className={`flex items-center space-x-1 ${
                       pathname === link.href ? "font-bold" : "font-normal"
-                    } text-base`}
+                    } text-base text-gray-900 dark:text-white`}
                     onClick={() => setDropdownOpen(!dropdownOpen)}
                   >
                     <span>{link.label}</span>
@@ -72,7 +77,7 @@ const Navbar = () => {
                   </button>
 
                   {dropdownOpen && (
-                    <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-[#1B365D] ring-1 ring-black ring-opacity-5">
+                    <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-[#1B365D] ring-1 ring-black ring-opacity-5">
                       <div
                         className="py-1"
                         role="menu"
@@ -84,8 +89,8 @@ const Navbar = () => {
                             href={item.href}
                             className={`block px-4 py-2 text-sm ${
                               pathname === item.href
-                                ? "bg-[#2C4B7C] text-white"
-                                : "text-gray-100 hover:bg-[#2C4B7C]"
+                                ? "bg-gray-100 dark:bg-[#2C4B7C] text-gray-900 dark:text-white"
+                                : "text-gray-700 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-[#2C4B7C]"
                             }`}
                             role="menuitem"
                             onClick={() => setDropdownOpen(false)}
@@ -100,11 +105,11 @@ const Navbar = () => {
               ) : (
                 <Link
                   href={link.href}
-                  className={
+                  className={`${
                     pathname === link.href
                       ? "font-bold text-base"
                       : "font-normal text-base"
-                  }
+                  } text-gray-900 dark:text-white`}
                 >
                   {link.label}
                 </Link>
@@ -113,52 +118,59 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <div>
-          <Button
-            title="Join our mission"
-            nav
-            onClick={() => router.push("/partnership")}
-          />
-        </div>
-      </nav>
+          {/* Desktop Navbar Toggle */}
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
+            <Button
+              title="Join our mission"
+              nav
+              onClick={() => router.push("/partnership")}
+            />
+          </div>
+        </nav>
 
-      {/* Mobile Navbar */}
-      <nav className="md:hidden relative z-100">
-        <div className="flex items-center justify-between px-4 py-4 bg-[#1B365D66] backdrop-blur-md rounded-[23.54px]">
-          <Link href="/">
-            <Image src="/images/logo.png" alt="Logo" width={80} height={80} />
-          </Link>
+        {/* Mobile Navbar */}
+        <nav className="md:hidden relative z-100">
+          <div className="flex items-center justify-between px-4 py-4 bg-[#F2F2F2] dark:bg-[#1B365D66] border border-gray-200 dark:border-white/10 backdrop-blur-md rounded-[23.54px]">
+            <Link href="/">
+              <Image src={logoSrc} alt="Logo" width={80} height={80} />
+            </Link>
 
-          {/* Hamburger Button */}
-          <motion.button
-            className="flex flex-col justify-center items-center w-8 h-8"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            <motion.span
-              animate={{
-                rotate: isOpen ? 45 : 0,
-                y: isOpen ? 8 : 0,
-              }}
-              className="w-6 h-0.5 bg-white mb-1.5 block"
-              transition={{ duration: 0.3 }}
-            />
-            <motion.span
-              animate={{
-                opacity: isOpen ? 0 : 1,
-              }}
-              className="w-6 h-0.5 bg-white mb-1.5 block"
-              transition={{ duration: 0.3 }}
-            />
-            <motion.span
-              animate={{
-                rotate: isOpen ? -45 : 0,
-                y: isOpen ? -8 : 0,
-              }}
-              className="w-6 h-0.5 bg-white block"
-              transition={{ duration: 0.3 }}
-            />
-          </motion.button>
-        </div>
+            <div className="flex items-center gap-4">
+               {/* Mobile Header Toggle */}
+              <ThemeToggle />
+              
+              {/* Hamburger Button */}
+              <motion.button
+                className="flex flex-col justify-center items-center w-8 h-8"
+                onClick={() => setIsOpen(!isOpen)}
+              >
+                <motion.span
+                  animate={{
+                    rotate: isOpen ? 45 : 0,
+                    y: isOpen ? 8 : 0,
+                  }}
+                  className="w-6 h-0.5 bg-gray-900 dark:bg-white mb-1.5 block"
+                  transition={{ duration: 0.3 }}
+                />
+                <motion.span
+                  animate={{
+                    opacity: isOpen ? 0 : 1,
+                  }}
+                  className="w-6 h-0.5 bg-gray-900 dark:bg-white mb-1.5 block"
+                  transition={{ duration: 0.3 }}
+                />
+                <motion.span
+                  animate={{
+                    rotate: isOpen ? -45 : 0,
+                    y: isOpen ? -8 : 0,
+                  }}
+                  className="w-6 h-0.5 bg-gray-900 dark:bg-white block"
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.button>
+            </div>
+          </div>
 
         {/* Mobile Menu Overlay */}
         <AnimatePresence>
@@ -184,7 +196,7 @@ const Navbar = () => {
                   stiffness: 300,
                   bounce: 0,
                 }}
-                className="fixed top-0 right-0 h-dvh w-full bg-[#060610]/98 backdrop-blur-md overflow-y-auto"
+                className="fixed top-0 right-0 h-dvh w-full bg-[#ffffff]/98 dark:bg-[#060610]/98 backdrop-blur-md overflow-y-auto"
                 style={{ zIndex: 50 }}
               >
                 <div className="min-h-dvh flex flex-col p-6 relative">
@@ -196,7 +208,7 @@ const Navbar = () => {
                   >
                     <motion.button
                       onClick={() => setIsOpen(false)}
-                      className="bg-white/10 hover:bg-white/20 rounded-full p-3 transition-colors"
+                      className="bg-black/10 dark:bg-white/10 hover:bg-black/20 dark:hover:bg-white/20 rounded-full p-3 transition-colors"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -209,7 +221,7 @@ const Navbar = () => {
                       >
                         <path
                           d="M18 6L6 18M6 6L18 18"
-                          stroke="white"
+                          className="stroke-gray-900 dark:stroke-white"
                           strokeWidth="2"
                           strokeLinecap="round"
                           strokeLinejoin="round"
@@ -225,7 +237,7 @@ const Navbar = () => {
                       transition={{ delay: 0.3 }}
                     >
                       <Image
-                        src="/images/logo.png"
+                        src={logoSrc}
                         alt="Logo"
                         width={120}
                         height={120}
@@ -270,23 +282,23 @@ const Navbar = () => {
                             <button
                               className={`text-xl w-full py-3 px-6 ${
                                 pathname === link.href
-                                  ? "font-bold bg-white/10 rounded-lg"
-                                  : "font-normal hover:bg-white/5 rounded-lg transition-colors"
+                                  ? "font-bold bg-black/10 dark:bg-white/10 rounded-lg text-gray-900 dark:text-white"
+                                  : "font-normal hover:bg-black/5 dark:hover:bg-white/5 rounded-lg transition-colors text-gray-700 dark:text-gray-200"
                               } text-center`}
                               onClick={() => setDropdownOpen(!dropdownOpen)}
                             >
                               {link.label}
                             </button>
                             {dropdownOpen && (
-                              <div className="mt-2 rounded-lg bg-white/5">
+                              <div className="mt-2 rounded-lg bg-black/5 dark:bg-white/5">
                                 {link.dropdownItems.map((item) => (
                                   <Link
                                     key={item.href}
                                     href={item.href}
                                     className={`text-lg block py-2 px-6 ${
                                       pathname === item.href
-                                        ? "font-bold bg-white/10"
-                                        : "font-normal hover:bg-white/10 transition-colors"
+                                        ? "font-bold bg-black/10 dark:bg-white/10 text-gray-900 dark:text-white"
+                                        : "font-normal hover:bg-black/10 dark:hover:bg-white/10 transition-colors text-gray-700 dark:text-gray-200"
                                     } text-center`}
                                     onClick={() => {
                                       setIsOpen(false);
@@ -304,8 +316,8 @@ const Navbar = () => {
                             href={link.href}
                             className={`text-xl block py-3 px-6 ${
                               pathname === link.href
-                                ? "font-bold bg-white/10 rounded-lg"
-                                : "font-normal hover:bg-white/5 rounded-lg transition-colors"
+                                ? "font-bold bg-black/10 dark:bg-white/10 rounded-lg text-gray-900 dark:text-white"
+                                : "font-normal hover:bg-black/5 dark:hover:bg-white/5 rounded-lg transition-colors text-gray-700 dark:text-gray-200"
                             } text-center w-64`}
                             onClick={() => setIsOpen(false)}
                           >

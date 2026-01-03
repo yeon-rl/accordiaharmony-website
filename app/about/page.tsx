@@ -129,7 +129,7 @@ const About = () => {
   const router = useRouter();
 
   return (
-    <div className="text-white ">
+    <div className="text-foreground">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -299,7 +299,7 @@ const About = () => {
           transition={{ duration: 0.8 }}
           className="mt-16 md:mt-32"
         >
-          <div className="bg-[url('/images/ctabanner.png')] bg-cover bg-no-repeat bg-center rounded-2xl p-8 md:p-20 relative">
+          <div className="bg-[url('/images/ctabannerLight.png')] dark:bg-[url('/images/ctabanner.png')] bg-cover bg-no-repeat bg-center rounded-2xl p-8 md:p-20 relative">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -345,7 +345,7 @@ const About = () => {
             <div className="text-center mb-10">
               <Text
                 type="subheading"
-                className="font-bold tracking-tight text-3xl!"
+                className="font-bold tracking-tight text-3xl! text-[#4285F4]! dark:text-white!"
               >
                 Our Core Values
               </Text>
@@ -362,16 +362,16 @@ const About = () => {
                     transition={{ delay: index * 0.1, duration: 0.4 }}
                     viewport={{ once: true }}
                   >
-                    <Card className="bg-[#FFFFFF12] border-none text-left w-full rounded-2xl p-8 hover:scale-[1.01] transition-transform duration-300 shadow-none h-[260px] flex flex-col">
+                    <Card className="bg-[#4285F438] dark:bg-[#FFFFFF12] border-none text-left w-full rounded-2xl p-8 hover:scale-[1.01] transition-transform duration-300 shadow-none h-[260px] flex flex-col">
                       <CardContent className="p-0 flex-1 flex flex-col">
                         <div className="flex flex-col gap-4 h-full">
                           <div className="bg-[#F4F4F4] w-14 h-14 rounded-full flex items-center justify-center shrink-0">
                             {value.icon}
                           </div>
-                          <Text className="text-xl font-bold! text-white shrink-0">
+                          <Text className="text-xl font-bold! shrink-0 text-[#4285F4]! dark:text-white!">
                             {value.title}
                           </Text>
-                          <Text className="text-white text-sm leading-relaxed">
+                          <Text className="text-sm leading-relaxed">
                             {value.text}
                           </Text>
                         </div>
@@ -391,16 +391,16 @@ const About = () => {
                     transition={{ delay: (index + 3) * 0.1, duration: 0.4 }}
                     viewport={{ once: true }}
                   >
-                    <Card className="bg-[#FFFFFF12] border-none text-left w-full rounded-2xl p-8 hover:scale-[1.01] transition-transform duration-300 shadow-none h-[260px] flex flex-col">
+                    <Card className="bg-[#4285F438] dark:bg-[#FFFFFF12] border-none text-left w-full rounded-2xl p-8 hover:scale-[1.01] transition-transform duration-300 shadow-none h-[260px] flex flex-col">
                       <CardContent className="p-0 flex-1 flex flex-col">
                         <div className="flex flex-col gap-4 h-full">
                           <div className="bg-[#F4F4F4] w-14 h-14 rounded-full flex items-center justify-center shrink-0">
                             {value.icon}
                           </div>
-                          <Text className="text-xl font-bold! text-white shrink-0">
+                          <Text className="text-xl font-bold! shrink-0 text-[#4285F4]! dark:text-white!">
                             {value.title}
                           </Text>
-                          <Text className="text-white text-sm leading-relaxed">
+                          <Text className="text-sm leading-relaxed">
                             {value.text}
                           </Text>
                         </div>
@@ -444,7 +444,7 @@ const About = () => {
           >
             {/* <Header number={2} title="Our Purpose" /> */}
             <div>
-              <Text type="subheading" className=" text-3xl! md:text-[41px]!">
+              <Text type="subheading" className=" text-3xl! md:text-[41px]! text-[#4285F4]! dark:text-white!">
                 Our story
               </Text>
               <Text className="my-3 text-base! md:text-xl!">
@@ -781,7 +781,7 @@ const About = () => {
           </Text> */}
 
           <div className="grid grid-cols-2 gap-5 md:gap-10 my-5 md:my-20">
-            <div>
+            <div className="bg-[#90BAFF1A] dark:bg-[#000000] p-4 rounded-2xl">
               <Text className="border p-2 rounded-full w-fit px-3 md:text-3xl!">
                 Skill Forge:
               </Text>
@@ -792,7 +792,7 @@ const About = () => {
                 skills that align with future job markets.{" "}
               </Text>
             </div>
-            <div>
+            <div className="bg-[#90BAFF1A] dark:bg-[#000000] p-4 rounded-2xl">
               <Text className="border p-2 rounded-full w-fit px-3 md:text-3xl!">
                 PlayTogether:
               </Text>
@@ -821,7 +821,7 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 mt-20 md:mt-32 relative z-50 ">
           <div className="">
             <div>
-              <Text type="subheading">
+              <Text type="subheading" className="text-[#4285F4]! dark:text-white!">
                 Our commitment as a Community Interest Company
               </Text>
               <Text className="my-3 text-base! md:text-xl!">
@@ -850,7 +850,7 @@ const About = () => {
         <div className="my-20 md:my-40">
           <div className="flex flex-col md:flex-row items-start justify-between">
             <div className="md:w-[50%]">
-              <Text type="heading" className="text-[34px]! font-semibold!">
+              <Text type="heading" className="text-[34px]! font-semibold! text-[#4285F4]! dark:text-white!">
                 Looking ahead
               </Text>
               <Text className="my-3 text-base! md:text-xl!">

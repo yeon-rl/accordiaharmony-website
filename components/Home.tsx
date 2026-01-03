@@ -41,7 +41,7 @@ const Home = () => {
   const router = useRouter();
 
   return (
-    <div className="text-white">
+    <div className="text-foreground">
       {/* <RateWebsite /> */}
       <motion.div
         initial={{ opacity: 0 }}

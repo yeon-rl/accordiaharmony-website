@@ -22,19 +22,19 @@ export default function ImpactAndCommunity() {
     pdf.save("impact-and-community.pdf");
   };
   return (
-    <div className="text-white!">
+    <div className="text-foreground">
       <div className="w-[90%] max-w-360 mx-auto pt-8 md:pt-10">
         <Navbar />
-        <div className="min-h-screen w-full  text-white my-10 md:py-16  flex justify-center">
+        <div className="min-h-screen w-full my-10 md:py-16  flex justify-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className=" w-full"
           >
-            <Card className="bg-[#FFFFFF0D] border-none rounded-2xl shadow-xl p-3 py-5 md:p-6">
+            <Card className="bg-[#0000000D] dark:bg-[#FFFFFF0D] border-none rounded-2xl shadow-xl p-3 py-5 md:p-6">
               <div className="flex flex-col md:flex-row justify-between items-start mb-6">
-                <h1 className="text-3xl font-bold text-white">
+                <h1 className="text-3xl font-bold">
                   Impact and Community
                 </h1>
                 {/* <Button
@@ -45,13 +45,13 @@ export default function ImpactAndCommunity() {
                 </Button> */}
               </div>
 
-              <p className="text-sm text-white/60">
+              <p className="text-sm text-muted-foreground">
                 Last Updated: November 2025
               </p>
 
-              <hr className="w-full border-b border-b-white/5 mb-5" />
+              <hr className="w-full border-b border-border mb-5" />
 
-              <CardContent className="space-y-10 text-white/90 leading-relaxed impact-content px-4! md:px-6">
+              <CardContent className="space-y-10 leading-relaxed impact-content px-4! md:px-6">
                 <section>
                   <h2 className="text-xl font-semibold mb-3">
                     Creating Change that Lasts

@@ -67,7 +67,7 @@ export default function Onboarding({ onFinish }: { onFinish: () => void }) {
               textShadow: "0 2px 8px rgba(0,0,0,0.12)",
               animation: "fadeInUpSmooth 0.5s cubic-bezier(.4,0,0.2,1)", // Faster animation
             }}
-            className="text-white"
+            className="text-black dark:text-white"
             key={step}
           >
             {sentences[step]}

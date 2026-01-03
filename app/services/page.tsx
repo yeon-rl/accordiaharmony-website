@@ -37,7 +37,7 @@ const Products = () => {
     undefined
   );
   return (
-    <div className="text-white ">
+    <div className="text-foreground ">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -60,7 +60,7 @@ const Products = () => {
             <motion.div variants={fadeInUp}>
               <Text
                 type="heading"
-                className=" text-center text-3xl! md:text-[48px] font-semibold!"
+                className=" text-center text-3xl! md:text-[48px] font-semibold! text-[#4285F4]! dark:text-white!"
               >
                 LifeSkills Connect
               </Text>
@@ -78,9 +78,9 @@ const Products = () => {
 
             <div className="flex flex-col gap-8 mt-8 md:mt-16">
               <div className="grid md:grid-cols-7 gap-4 md:gap-8">
-                <div className="md:col-span-3 bg-white rounded-xl text-[#545A65] flex flex-col justify-between overflow-hidden">
+                <div className="md:col-span-3 bg-[#4285F41A] dark:bg-white rounded-xl text-[#545A65] flex flex-col justify-between overflow-hidden">
                   <motion.div className="p-5 md:p-10" variants={fadeInUp}>
-                    <Text className="text-[#545A65] font-bold! text-xl! mb-2">
+                    <Text className="text-[#545A65] font-bold! text-xl! mb-2 text-[#4285F4]! dark:text-white!">
                       Learning life skills module
                     </Text>
                     <Text className="text-[#545A65]">
@@ -99,9 +99,9 @@ const Products = () => {
                     />
                   </motion.div>
                 </div>
-                <div className="md:col-span-4 bg-white rounded-xl text-[#545A65] flex flex-col justify-between overflow-hidden">
+                <div className="md:col-span-4 bg-[#4285F41A] dark:bg-white rounded-xl text-[#545A65] flex flex-col justify-between overflow-hidden">
                   <motion.div className="p-5 md:p-10" variants={fadeInUp}>
-                    <Text className="text-[#545A65] font-bold! text-xl! mb-2">
+                    <Text className="text-[#545A65] font-bold! text-xl! mb-2 text-[#4285F4]! dark:text-white!">
                       Integrated AI
                     </Text>
                     <Text className="text-[#545A65]">
@@ -126,9 +126,9 @@ const Products = () => {
                 </div>
               </div>
               <div className="grid md:grid-cols-7 gap-4 md:gap-8">
-                <div className="md:col-span-4 bg-white rounded-xl text-[#545A65] flex flex-col justify-between overflow-hidden">
+                <div className="md:col-span-4 bg-[#4285F41A] dark:bg-white rounded-xl text-[#545A65] flex flex-col justify-between overflow-hidden">
                   <motion.div className="p-5 md:p-10" variants={fadeInUp}>
-                    <Text className="text-[#545A65] font-bold! text-xl! mb-2">
+                    <Text className="text-[#545A65] font-bold! text-xl! mb-2 text-[#4285F4]! dark:text-white!">
                       Safety tools
                     </Text>
                     <Text className="text-[#545A65]">
@@ -148,9 +148,9 @@ const Products = () => {
                     />
                   </motion.div>
                 </div>
-                <div className="md:col-span-3 bg-white rounded-xl text-[#545A65] flex flex-col justify-between overflow-hidden">
+                <div className="md:col-span-3 bg-[#4285F41A] dark:bg-white rounded-xl text-[#545A65] flex flex-col justify-between overflow-hidden">
                   <motion.div className="p-5 md:p-10" variants={fadeInUp}>
-                    <Text className="text-[#545A65] font-bold! text-xl! mb-2">
+                    <Text className="text-[#545A65] font-bold! text-xl! mb-2 text-[#4285F4]! dark:text-white!">
                       Gammified learning
                     </Text>
                     <Text className="text-[#545A65]">
@@ -189,7 +189,7 @@ const Products = () => {
             <motion.div className="md:w-[30%] w-full" variants={fadeInUp}>
               <Text
                 type="subheading"
-                className="text-[28px]! font-bold! mt-1 text-center! md:text-left! w-full"
+                className="text-[28px]! font-bold! mt-1 text-center! md:text-left! w-full text-[#4285F4]! dark:text-white!"
               >
                 About Product
               </Text>
@@ -230,7 +230,7 @@ const Products = () => {
         </div>
 
         <div className="flex flex-col gap-5 md:gap-10">
-          <Text className="font-bold! text-center" type="heading">
+          <Text className="font-bold! text-center text-[#4285F4]! dark:text-white!" type="heading">
             Our Upcoming Services
           </Text>
           <div className="bg-white p-5 md:p-8 rounded-xl flex flex-col md:flex-row justify-between gap-5 md:gap-14">
@@ -266,7 +266,7 @@ const Products = () => {
                   setSelectedProduct("Skill Forge");
                   setShowRegister(true);
                 }}
-                className="bg-[#1b365d] py-3 px-10 cursor-pointer rounded-md mt-5 md:text-2xl"
+                className="bg-[#4285F4] dark:bg-[#1b365d] text-white dark:text-white py-3 px-10 cursor-pointer rounded-md mt-5 md:text-2xl"
               >
                 Register
               </button>
@@ -329,7 +329,7 @@ const Products = () => {
                   setSelectedProduct("Playtogether");
                   setShowRegister(true);
                 }}
-                className="bg-[#1b365d] py-3 px-10 cursor-pointer rounded-md mt-5 md:text-2xl"
+                className="bg-[#4285F4] dark:bg-[#1b365d] text-white dark:text-white py-3 px-10 cursor-pointer rounded-md mt-5 md:text-2xl"
               >
                 Register
               </button>

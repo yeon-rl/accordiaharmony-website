@@ -32,7 +32,7 @@ const Testimonial = () => {
       {testimonials.map((testimonial, index) => (
         <div className="flex flex-col space-y-5" key={index}>
           <div
-            className="rounded-[6px] p-3 flex items-center justify-center"
+            className="rounded-[6px] p-3 flex items-center justify-center bg-[#90BAFF] text-black dark:bg-transparent dark:text-foreground"
             style={{
               border: "0.74px solid #FFFFFF24",
               backdropFilter: "blur(58.85250473022461px)",
@@ -43,7 +43,7 @@ const Testimonial = () => {
             </Text>
           </div>
           <div
-            className="rounded-[6px] p-5 flex flex-col space-y-5"
+            className="rounded-[6px] p-5 flex flex-col space-y-5 bg-[#90BAFF] text-black dark:bg-transparent dark:text-foreground"
             style={{
               border: "0.74px solid #FFFFFF1C",
               backdropFilter: "blur(5.162500381469727px)",

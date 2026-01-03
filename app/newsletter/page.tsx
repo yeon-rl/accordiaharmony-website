@@ -7,6 +7,8 @@ import Text from "@/components/Text";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { MessageCircle } from "lucide-react";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -14,24 +16,78 @@ const fadeInUp = {
   transition: { duration: 0.6 },
 };
 
-const fadeIn = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  transition: { duration: 0.6 },
-};
-
-const staggerChildren = {
-  animate: {
-    transition: {
-      delayChildren: 0.4,
-      staggerChildren: 0.1,
-    },
+const articles = [
+  {
+    id: 1,
+    category: "Event",
+    title: "Lorem ipsum dolor sit amet consectetur. Sed suspendisse lectus consectetu",
+    description: "Lorem ipsum dolor sit amet consectetur. Sed suspendisse lectus consecteturLorem ipsum dolor sit amet consectetur.",
+    date: "24th Dec 2025",
+    comments: 6,
+    image: "/images/news.png",
+    color: "text-blue-500",
+    link: "/newsletter/skill-forge"
   },
-};
+  {
+    id: 2,
+    category: "Meeting",
+    title: "Quisque aliquet nisl nec tristique porttitor. Valiquam, nunc at interdum blandit.",
+    description: "Quisque aliquet nisl nec tristique porttitor. Valiquam, aliquam, nunc at interdum blandit. Aenean tincidunt",
+    date: "15th Jan 2026",
+    comments: 7,
+    image: "/images/news.png",
+    color: "text-blue-400",
+    link: "#"
+  },
+  {
+    id: 3,
+    category: "Conference",
+    title: "Mauris vitae sapien tincidunt, posuere erat id, hendrerit libero. Praesent vitae quam.",
+    description: "Mauris vitae sapien tincidunt, posuere, len tincidunt, posuere erat id, hendrerit libero. Praesent vitae quam. In hac habitasse",
+    date: "11th Feb 2026",
+    comments: 8,
+    image: "/images/news.png",
+    color: "text-blue-600",
+    link: "#"
+  },
+  {
+    id: 4,
+    category: "Event",
+    title: "Lorem ipsum dolor sit amet consectetur. Sed suspendisse lectus consectetu",
+    description: "Lorem ipsum dolor sit amet consectetur. Sed suspendisse lectus consecteturLorem ipsum dolor sit amet consectetur.",
+    date: "24th Dec 2025",
+    comments: 6,
+    image: "/images/news.png",
+    color: "text-blue-500",
+    link: "#"
+  },
+  {
+    id: 5,
+    category: "Meeting",
+    title: "Quisque aliquet nisl nec tristique porttitor. Valiquam, nunc at interdum blandit.",
+    description: "Quisque aliquet nisl nec tristique porttitor. Valiquam, aliquam, nunc at interdum blandit. Aenean tincidunt",
+    date: "15th Jan 2026",
+    comments: 7,
+    image: "/images/news.png",
+    color: "text-blue-400",
+    link: "#"
+  },
+  {
+    id: 6,
+    category: "Conference",
+    title: "Mauris vitae sapien tincidunt, posuere erat id, hendrerit libero. Praesent vitae quam.",
+    description: "Mauris vitae sapien tincidunt, posuere, len tincidunt, posuere erat id, hendrerit libero. Praesent vitae quam. In hac habitasse",
+    date: "11th Feb 2026",
+    comments: 8,
+    image: "/images/news.png",
+    color: "text-blue-600",
+    link: "#"
+  },
+];
 
 const Newsletter = () => {
   return (
-    <div className="text-white ">
+    <div className="text-foreground min-h-screen bg-background">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -41,152 +97,99 @@ const Newsletter = () => {
         <Navbar />
       </motion.div>
 
-      {/* Who we are */}
       <StaticBg scroll={true}>
-        <div className="w-[90%] max-w-360 mx-auto relative z-50">
-          <motion.div className="mt-14 mb-6" variants={fadeInUp}>
-            <Text
-              type="heading"
-              className=" text-center text-3xl! md:text-[48px] font-semibold!"
+        <div className="w-[90%] max-w-7xl mx-auto py-16 relative z-[50]">
+          {/* Recent Post Section */}
+          <div className="mb-20">
+            <div className="flex items-center gap-3 mb-10">
+              <div className="w-1.5 h-8 bg-[#4285F4] rounded-full"></div>
+              <Text type="heading" className="text-2xl font-semibold">
+                Recent Post
+              </Text>
+            </div>
+
+            <motion.div 
+              variants={fadeInUp}
+              initial="initial"
+              animate="animate"
+              className="grid md:grid-cols-2 gap-10 items-center overflow-hidden"
             >
-              News & Insights
-            </Text>
-            <Text className="text-center md:text-xl! my-3 max-w-7xl mx-auto">
-              Welcome to the Accordia Harmony C.I.C. News and Insights Hub, a
-              space where ideas meet impact.
-            </Text>
-
-            <hr className="w-10 border border-slate-400 mx-auto" />
-
-            <motion.div variants={fadeInUp}>
-              <Image
-                src="/images/newsletterImage.png"
-                alt="Newsletter "
-                width={1000}
-                height={1000}
-                className="w-full h-auto mt-10 rounded-xl shadow-lg"
-              />
-
-              <motion.div
-                variants={fadeInUp}
-                className="px-5 md:px-10 flex flex-col gap-5 md:gap-10 mt-5 md:mt-10"
-              >
-                <div>
-                  <div>
-                    <Text className="text-[23px]! font-semibold! mb-3">
-                      Sharing Ideas, Stories and Progress
-                    </Text>
-                    <Text>
-                      Here, we share the latest updates, thought pieces and
-                      inspiring stories from our journey to empower young people
-                      aged 17 to 21. This section reflects our growth, our
-                      values and the partnerships that continue to shape our
-                      work. It is where we celebrate progress, explore
-                      innovation and highlight the people and projects driving
-                      real change.
-                    </Text>
-                  </div>
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/images/news.png"
+                  alt="Skill Forge"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex flex-col gap-6">
+                <div className="flex items-center gap-4">
+                  <span className="text-[#4285F4] font-medium text-lg">Skill forge</span>
+                  <span className="text-muted-foreground">|</span>
+                  <span className="text-muted-foreground font-medium">31 Dec 2025</span>
                 </div>
-                <div>
-                  <Text className="text-[23px]! font-semibold! mb-3">
-                    Our Purpose
-                  </Text>
-                  <Text>
-                    The News and Insights section exists to keep our community
-                    informed, engaged and inspired. It captures the latest
-                    developments across our platforms including LifeSkills
-                    Connect, Skill Forge and Playground, while also exploring
-                    wider conversations around youth development, education,
-                    technology and social impact. <br /> We believe that sharing
-                    knowledge helps create stronger communities. Every article,
-                    announcement and interview is written to encourage learning,
-                    spark curiosity and invite collaboration from those who
-                    believe in a better future for young people.
-                  </Text>
-                </div>
-
-                <div>
-                  <Image
-                    src="/images/newsletterImage.png"
-                    alt="Newsletter "
-                    width={1000}
-                    height={1000}
-                    className="w-full h-auto mt-10 rounded-xl shadow-lg"
-                  />
-                </div>
-
-                <div>
-                  <div>
-                    <Text className="text-[23px]! font-semibold! mb-3">
-                      Project Updates
-                    </Text>
-                    <Text>
-                      Follow the progress of our flagship initiatives, upcoming
-                      platform launches and new feature releases. Learn how we
-                      continue to improve LifeSkills Connect, prepare for the
-                      introduction of Skill Forge and shape Playground into a
-                      thriving digital community.
-                    </Text>
-                  </div>
-                </div>
-
-                <div>
-                  <Image
-                    src="/images/newsletterImage.png"
-                    alt="Newsletter "
-                    width={1000}
-                    height={1000}
-                    className="w-full h-auto mt-10 rounded-xl shadow-lg"
-                  />
-                </div>
-
-                <div>
-                  <div>
-                    <Text className="text-[23px]! font-semibold! mb-3">
-                      How to Start a Digital Detox
-                    </Text>
-                    <ul className="list-disc pl-8 flex flex-col gap-3">
-                      <li>
-                        Schedule device-free time daily, especially in the
-                        morning and before bed
-                      </li>
-                      <li>Turn off non-essential notifications</li>
-                      <li>
-                        Replace scrolling with mindful activities like
-                        journaling, walking, or stretching
-                      </li>
-                      <li>
-                        Use “Do Not Disturb” mode or app blockers when focusing
-                      </li>
-                      <li>Try a screen-free day once a week</li>
-                    </ul>
-
-                    <Text className="mt-3">
-                      You don’t need to go off the grid. Even small breaks can
-                      lead to big benefits.
-                    </Text>
-                  </div>
-                </div>
-
-                <div className="bg-white h-20 w-full rounded-xl"></div>
-
-                <div>
-                  <Text className="text-[23px]! font-semibold! mb-3">
-                    Impact on user experience
-                  </Text>
-                  <Text>
-                    A digital detox positively impacts user experience by
-                    reducing mental fatigue, improving focus, and enhancing
-                    emotional well-being. By encouraging screen-free moments,
-                    the app promotes healthier habits, better sleep, and deeper
-                    mindfulness. Users feel more present, energized, and
-                    productive—leading to greater satisfaction and long-term
-                    engagement with their wellness journey.
-                  </Text>
-                </div>
-              </motion.div>
+                <Text type="heading" className="text-4xl md:text-5xl font-bold leading-tight">
+                  Build Skills, Build Power, Build Your Future
+                </Text>
+                <Text className="text-lg text-muted-foreground leading-relaxed">
+                  Practical vocational training supporting young people to develop confidence, independence and life-ready skills. <Link href="/newsletter/skill-forge" className="text-[#4285F4] hover:underline font-medium">See more</Link>
+                </Text>
+                <Link href="/newsletter/skill-forge">
+                  <button className="bg-[#4285F4] text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-600 transition-colors w-fit">
+                    Read now
+                  </button>
+                </Link>
+              </div>
             </motion.div>
-          </motion.div>
+          </div>
+
+          {/* Must Read Section */}
+          <div>
+            <div className="flex items-center gap-3 mb-10">
+              <div className="w-1.5 h-8 bg-[#4285F4] rounded-full"></div>
+              <Text type="heading" className="text-2xl font-semibold">
+                Must Read
+              </Text>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+              {articles.map((article) => (
+                <Link key={article.id} href={article.link}>
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="initial"
+                    animate="animate"
+                    className="flex flex-col group cursor-pointer"
+                  >
+                    <div className="relative aspect-[16/10] rounded-xl overflow-hidden mb-6 shadow-md transition-transform duration-300 group-hover:scale-[1.02]">
+                      <Image
+                        src={article.image}
+                        alt={article.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex flex-col flex-1">
+                      <span className={`${article.color} font-semibold text-sm mb-3`}>{article.category}</span>
+                      <Text className="text-xl font-bold! mb-4 line-clamp-2 leading-snug group-hover:text-[#4285F4] transition-colors" >
+                        {article.title}
+                      </Text>
+                      <Text className="text-muted-foreground mb-6 line-clamp-3 leading-relaxed">
+                        {article.description} <span className="text-[#4285F4] hover:underline font-medium">See more</span>
+                      </Text>
+                      <div className="mt-auto flex items-center justify-between text-sm text-gray-500 font-medium border-t border-gray-100 dark:border-white/10 pt-4">
+                        <span>{article.date}</span>
+                        <div className="flex items-center gap-1.5">
+                          <MessageCircle size={16} />
+                          <span>Comment {article.comments}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </StaticBg>
 
@@ -196,3 +199,4 @@ const Newsletter = () => {
 };
 
 export default Newsletter;
+

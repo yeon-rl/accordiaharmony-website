@@ -76,16 +76,16 @@ export default function CookiePolicy() {
     }
   };
   return (
-    <div className="text-white!">
+    <div className="text-foreground!">
       <div className="w-[90%] max-w-360 mx-auto pt-8 md:pt-10">
         <Navbar />
-        <div className="min-h-screen w-full text-white py-10 md:py-20 flex justify-center">
-          <div className="max-w-5xl w-full bg-[#FFFFFF0D] p-3 py-5 md:p-10 rounded-2xl shadow-xl relative overflow-hidden">
+        <div className="min-h-screen w-full text-foreground py-10 md:py-20 flex justify-center">
+          <div className="max-w-5xl w-full bg-[#0000000D] dark:bg-[#FFFFFF0D] p-3 py-5 md:p-10 rounded-2xl shadow-xl relative overflow-hidden">
             {/* Decorative background circles */}
             <div className="absolute inset-0 opacity-20 pointer-events-none">
-              <div className="w-[900px] h-[900px] rounded-full border border-white/10 absolute -top-40 -left-40"></div>
-              <div className="w-[700px] h-[700px] rounded-full border border-white/10 absolute top-40 left-20"></div>
-              <div className="w-[500px] h-[500px] rounded-full border border-white/10 absolute top-60 right-10"></div>
+              <div className="w-[900px] h-[900px] rounded-full border border-border/50 absolute -top-40 -left-40"></div>
+              <div className="w-[700px] h-[700px] rounded-full border border-border/30 absolute top-40 left-20"></div>
+              <div className="w-[500px] h-[500px] rounded-full border border-border/20 absolute top-60 right-10"></div>
             </div>
 
             <div className="relative z-10">
@@ -99,12 +99,12 @@ export default function CookiePolicy() {
                 </button> */}
               </div>
 
-              <p className="text-sm text-gray-300 mb-8">
+              <p className="text-sm text-muted-foreground mb-8">
                 Last Updated: November 2025
               </p>
 
               {/* Sections */}
-              <div className="space-y-10 text-gray-200 cookie-content">
+              <div className="space-y-10 text-muted-foreground cookie-content">
                 <section>
                   <h2 className="text-xl font-semibold mb-3">
                     What Are Cookies?

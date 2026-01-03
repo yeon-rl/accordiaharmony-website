@@ -39,14 +39,14 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center text-white my-10 w-full">
+    <section className="flex flex-col items-center justify-center text-foreground my-10 w-full">
       <div className="w-full space-y-3">
         {faqs.map((faq, index) => {
           const isActive = activeIndex === index;
           return (
             <div
               key={index}
-              className={`bg-[#FFFFFF1A] rounded-2xl px-6 py-5 transition-all duration-300 border border-transparent hover:border-[#1C1C1C]/80 relative`}
+              className={`bg-[#0F1A2F] rounded-2xl px-6 py-5 transition-all duration-300 border border-transparent hover:border-[#1C1C1C]/80 relative`}
             >
               {/* Make only the header interactive — more reliable on mobile and avoids inner-content swallowing clicks */}
               <div
@@ -94,7 +94,7 @@ const FAQSection = () => {
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className="overflow-hidden"
                   >
-                    <p className="mt-3 text-gray-300 text-sm md:text-base leading-relaxed">
+                    <p className="mt-3 text-gray-100 text-sm md:text-base leading-relaxed">
                       {faq.answer}
                     </p>
                   </motion.div>

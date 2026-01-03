@@ -76,12 +76,12 @@ export default function TermsOfUse() {
     }
   };
   return (
-    <div className="text-white!">
+    <div className="text-foreground!">
       <div className="w-[90%] max-w-360 mx-auto py-8 md:py-10">
         <Navbar />
-        <div className="min-h-screen w-full text-white py-10 md:py-16 flex justify-center">
-          <Card className="w-full  bg-[#FFFFFF0D] border-none border-white/10 rounded-2xl  py-5 md:p-12 shadow-xl">
-            <CardContent className="space-y-8 text-white terms-content">
+        <div className="min-h-screen w-full text-foreground py-10 md:py-16 flex justify-center">
+          <Card className="w-full  bg-card border border-border rounded-2xl  py-5 md:p-12 shadow-xl">
+            <CardContent className="space-y-8 text-foreground terms-content">
               <div className="flex flex-col md:flex-row md:items-center justify-between">
                 <h1 className="text-3xl md:text-4xl font-bold">
                   Terms of Use / Terms of Service
@@ -94,10 +94,10 @@ export default function TermsOfUse() {
                 </button> */}
               </div>
 
-              <p className="text-sm text-white/70">
+              <p className="text-sm text-muted-foreground">
                 Last Updated: November 2025
               </p>
-              <hr className="border-white/10" />
+              <hr className="border-border" />
 
               <section className="space-y-4">
                 <h2 className="text-xl font-semibold">Introduction</h2>

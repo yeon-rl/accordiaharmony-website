@@ -34,8 +34,8 @@ const Button: React.FC<{
       <button
         className={`font-semibold px-5 py-3 rounded-[13.01px] cursor-pointer text-base transition-colors duration-300 ${
           isTransparent
-            ? "bg-transparent border border-white text-white"
-            : "bg-white text-[#15313D]"
+            ? "bg-transparent border border-[#4285F4] text-[#4285F4] dark:border-white dark:text-white"
+            : "bg-[#4285F4] dark:bg-white text-white dark:text-[#15313D]"
         } ${nav ? "px-5" : "px-8"} ${
           showGradientBorder ? "gradient-border-btn" : ""
         } ${
