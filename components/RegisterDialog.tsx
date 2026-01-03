@@ -247,7 +247,7 @@ export default function RegisterDialog({ open, onClose, product }: Props) {
                   <div className="space-y-2">
                     <h3 className="text-3xl font-bold">Awesome!</h3>
                     <p className="text-muted-foreground text-lg">
-                      Your registration was successful. We've sent a confirmation to your email.
+                      Your registration was successful. We&apos;ve sent a confirmation to your email.
                     </p>
                   </div>
                   <button
@@ -273,7 +273,7 @@ export default function RegisterDialog({ open, onClose, product }: Props) {
                   <div className="space-y-2">
                     <h3 className="text-2xl font-bold">Already Registered</h3>
                     <p className="text-muted-foreground">
-                      It looks like you’ve already completed registration. You’re all set!
+                      It looks like you&apos;ve already completed registration. You&apos;re all set!
                     </p>
                   </div>
                   <button
