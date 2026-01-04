@@ -91,6 +91,7 @@ export default function RegisterDialog({ open, onClose, product }: Props) {
     phone: "",
     countryCode: "+44",
     attendanceType: "In person",
+    skillToLearn: "Barbering and grooming",
   });
   const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false);
   const [countrySearch, setCountrySearch] = useState("");
@@ -202,6 +203,7 @@ export default function RegisterDialog({ open, onClose, product }: Props) {
           phone: "",
           countryCode: "+44",
           attendanceType: "In person",
+          skillToLearn: "Barbering and grooming",
         });
         // We don't automatically close so they can see the success message
       }, 500);
@@ -397,7 +399,25 @@ export default function RegisterDialog({ open, onClose, product }: Props) {
                       className="w-full h-[48px] rounded-xl bg-white/50 dark:bg-white/5 px-4 py-2 focus:ring-2 focus:ring-[#4285F4] transition-all outline-none appearance-none cursor-pointer"
                     >
                       <option value="In person">In person</option>
-                      <option value="Online">Online</option>
+                    </select>
+                  </div>
+
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-sm font-medium text-muted-foreground ml-1">Skill to learn</label>
+                    <select 
+                      value={formData.skillToLearn}
+                      onChange={(e) => setFormData({ ...formData, skillToLearn: e.target.value })}
+                      className="w-full h-[48px] rounded-xl bg-white/50 dark:bg-white/5 px-4 py-2 focus:ring-2 focus:ring-[#4285F4] transition-all outline-none appearance-none cursor-pointer"
+                    >
+                      <option value="Barbering and grooming">Barbering and grooming</option>
+                      <option value="Fashion design and tailoring">Fashion design and tailoring</option>
+                      <option value="Professional cooking and catering">Professional cooking and catering</option>
+                      <option value="Plumbing and basic maintenance">Plumbing and basic maintenance</option>
+                      <option value="Baking and food preparation">Baking and food preparation</option>
+                      <option value="Makeup artistry and beauty skills">Makeup artistry and beauty skills</option>
+                      <option value="Hair styling and personal care">Hair styling and personal care</option>
+                      <option value="Photography and creative skills">Photography and creative skills</option>
+                      <option value="Additional practical trades and craft">Additional practical trades and craft</option>
                     </select>
                   </div>
 

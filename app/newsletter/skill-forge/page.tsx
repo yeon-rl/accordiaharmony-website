@@ -87,7 +87,7 @@ const SkillForgePage = () => {
       <StaticBg scroll={true}>
         <div className="w-[90%] max-w-5xl mx-auto pt-10 md:pt-16 relative z-[50]">
           <motion.div variants={fadeInUp} initial="initial" animate="animate" className="text-center mb-8 md:mb-10">
-            <span className="text-[#4285F4] font-bold! uppercase tracking-wider text-sm mb-2 block">Skills Forge</span>
+            <span className="text-[#4285F4] font-bold! uppercase tracking-wider text-sm mb-2 block">Skill Forge</span>
             <Text type="heading" className="text-4xl md:text-5xl font-bold mb-3">
               Build Skills, Build Power, Build Your Future
             </Text>
