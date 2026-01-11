@@ -65,23 +65,18 @@ const COUNTRIES = [
   { name: "New Zealand", code: "NZ", dial: "+64", flag: "🇳🇿" },
 ];
 
-// Helper to get a cookie
-function getCookie(name: string) {
-  if (typeof document === "undefined") return null;
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return parts.pop()?.split(";").shift();
-  return null;
-}
-
-// Helper to set a cookie (expires in 365 days)
-function setCookie(name: string, value: string) {
-  if (typeof document === "undefined") return;
-  const d = new Date();
-  d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
-  const expires = "expires=" + d.toUTCString();
-  document.cookie = `${name}=${value};${expires};path=/;SameSite=Lax`;
-}
+// Skill options
+const SKILLS = [
+  "Barbering and grooming",
+  "Fashion design and tailoring",
+  "Professional cooking and catering",
+  "Plumbing and basic maintenance",
+  "Baking and food preparation",
+  "Makeup artistry and beauty skills",
+  "Hair styling and personal care",
+  "Photography and creative skills",
+  "Additional practical trades and craft",
+];
 
 export default function RegisterDialog({ open, onClose, product }: Props) {
   const [formData, setFormData] = useState({
@@ -91,13 +86,13 @@ export default function RegisterDialog({ open, onClose, product }: Props) {
     phone: "",
     countryCode: "+44",
     attendanceType: "In person",
-    skillToLearn: "Barbering and grooming",
+    dateOfBirth: "",
+    skillsToLearn: [] as string[],
   });
   const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false);
   const [countrySearch, setCountrySearch] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [isAlreadyRegistered, setIsAlreadyRegistered] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -125,28 +120,20 @@ export default function RegisterDialog({ open, onClose, product }: Props) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isCountryDropdownOpen]);
 
-  // Check for registration cookie on mount and when dialog opens
-  useEffect(() => {
-    if (open) {
-      const registered = getCookie("skill_forge_registered");
-      if (registered) {
-        setIsAlreadyRegistered(true);
-      }
-    }
-  }, [open]);
+  // No longer checking for registration cookie
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if (e.key === "Escape") onClose();
     }
     if (open) {
+      setSuccess(false);
+      setErrors({});
       document.addEventListener("keydown", onKey);
-      if (!isAlreadyRegistered) {
-        setTimeout(() => firstInput.current?.focus(), 100);
-      }
+      setTimeout(() => firstInput.current?.focus(), 100);
     }
     return () => document.removeEventListener("keydown", onKey);
-  }, [open, onClose, isAlreadyRegistered]);
+  }, [open, onClose]);
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
@@ -162,13 +149,18 @@ export default function RegisterDialog({ open, onClose, product }: Props) {
     } else if (!/^[\d\s()+-]{7,}$/.test(formData.phone)) {
       newErrors.phone = "Please enter a valid phone number";
     }
+    if (!formData.dateOfBirth) {
+      newErrors.dateOfBirth = "Date of birth is required";
+    }
+    if (formData.skillsToLearn.length < 2) {
+      newErrors.skillsToLearn = "Please select at least 2 skills";
+    }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (isAlreadyRegistered) return;
     if (!validate()) return;
 
     setSubmitting(true);
@@ -178,6 +170,7 @@ export default function RegisterDialog({ open, onClose, product }: Props) {
       const payload = {
         ...formData,
         phone: `${formData.countryCode} ${formData.phone}`,
+        skillsToLearn: formData.skillsToLearn.join(", "),
         _subject: "Skill Forge Registration",
       };
 
@@ -189,8 +182,6 @@ export default function RegisterDialog({ open, onClose, product }: Props) {
 
       if (!response.ok) throw new Error("Failed to submit form");
 
-      setCookie("skill_forge_registered", "true");
-      setIsAlreadyRegistered(true);
       setSuccess(true);
 
       // Keep success message visible for a bit longer
@@ -203,7 +194,8 @@ export default function RegisterDialog({ open, onClose, product }: Props) {
           phone: "",
           countryCode: "+44",
           attendanceType: "In person",
-          skillToLearn: "Barbering and grooming",
+          dateOfBirth: "",
+          skillsToLearn: [],
         });
         // We don't automatically close so they can see the success message
       }, 500);
@@ -249,7 +241,7 @@ export default function RegisterDialog({ open, onClose, product }: Props) {
                   <div className="space-y-2">
                     <h3 className="text-3xl font-bold">Awesome!</h3>
                     <p className="text-muted-foreground text-lg">
-                      Your registration was successful. We&apos;ve sent a confirmation to your email.
+                      Your registration was successful.
                     </p>
                   </div>
                   <button
@@ -259,23 +251,23 @@ export default function RegisterDialog({ open, onClose, product }: Props) {
                     Close
                   </button>
                 </motion.div>
-              ) : isAlreadyRegistered ? (
+              ) : product === "Playtogether" ? (
                 <motion.div 
-                  key="already-registered"
+                  key="coming-soon"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   className="flex flex-col items-center text-center gap-6 py-8 text-foreground"
                 >
-                  <div className="w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center text-blue-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <div className="w-20 h-20 bg-blue-500/10 rounded-full flex items-center justify-center text-blue-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                   <div className="space-y-2">
-                    <h3 className="text-2xl font-bold">Already Registered</h3>
-                    <p className="text-muted-foreground">
-                      It looks like you&apos;ve already completed registration. You&apos;re all set!
+                    <h3 className="text-3xl font-bold">Coming Soon!</h3>
+                    <p className="text-muted-foreground text-lg">
+                      {product} is currently under development. Stay tuned for updates!
                     </p>
                   </div>
                   <button
@@ -392,6 +384,18 @@ export default function RegisterDialog({ open, onClose, product }: Props) {
                   </div>
 
                   <div className="flex flex-col gap-1.5">
+                    <label className="text-sm font-medium text-muted-foreground ml-1">Date of Birth</label>
+                    <input
+                      type="date"
+                      value={formData.dateOfBirth}
+                      onChange={(e) => setFormData({ ...formData, dateOfBirth: e.target.value })}
+                      onClick={(e) => (e.target as any).showPicker?.()}
+                      className={`w-full rounded-xl bg-white/50 dark:bg-white/5 px-4 py-3 focus:ring-2 focus:ring-[#4285F4] transition-all outline-none border ${errors.dateOfBirth ? "border-red-500" : "border-transparent"}`}
+                    />
+                    {errors.dateOfBirth && <span className="text-[10px] text-red-500 ml-1">{errors.dateOfBirth}</span>}
+                  </div>
+
+                  <div className="flex flex-col gap-1.5">
                     <label className="text-sm font-medium text-muted-foreground ml-1">Attendance type</label>
                     <select 
                       value={formData.attendanceType}
@@ -403,22 +407,28 @@ export default function RegisterDialog({ open, onClose, product }: Props) {
                   </div>
 
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-sm font-medium text-muted-foreground ml-1">Skill to learn</label>
-                    <select 
-                      value={formData.skillToLearn}
-                      onChange={(e) => setFormData({ ...formData, skillToLearn: e.target.value })}
-                      className="w-full h-[48px] rounded-xl bg-white/50 dark:bg-white/5 px-4 py-2 focus:ring-2 focus:ring-[#4285F4] transition-all outline-none appearance-none cursor-pointer"
-                    >
-                      <option value="Barbering and grooming">Barbering and grooming</option>
-                      <option value="Fashion design and tailoring">Fashion design and tailoring</option>
-                      <option value="Professional cooking and catering">Professional cooking and catering</option>
-                      <option value="Plumbing and basic maintenance">Plumbing and basic maintenance</option>
-                      <option value="Baking and food preparation">Baking and food preparation</option>
-                      <option value="Makeup artistry and beauty skills">Makeup artistry and beauty skills</option>
-                      <option value="Hair styling and personal care">Hair styling and personal care</option>
-                      <option value="Photography and creative skills">Photography and creative skills</option>
-                      <option value="Additional practical trades and craft">Additional practical trades and craft</option>
-                    </select>
+                    <label className="text-sm font-medium text-muted-foreground ml-1">Skills to learn (Select at least 2)</label>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-48 overflow-y-auto p-2 rounded-xl bg-white/50 dark:bg-white/5 border border-transparent">
+                      {SKILLS.map((skill) => (
+                        <label key={skill} className="flex items-center gap-3 cursor-pointer group">
+                          <input
+                            type="checkbox"
+                            checked={formData.skillsToLearn.includes(skill)}
+                            onChange={(e) => {
+                              const newSkills = e.target.checked
+                                ? [...formData.skillsToLearn, skill]
+                                : formData.skillsToLearn.filter((s) => s !== skill);
+                              setFormData({ ...formData, skillsToLearn: newSkills });
+                            }}
+                            className="w-4 h-4 rounded border-gray-300 text-[#4285F4] focus:ring-[#4285F4]"
+                          />
+                          <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
+                            {skill}
+                          </span>
+                        </label>
+                      ))}
+                    </div>
+                    {errors.skillsToLearn && <span className="text-[10px] text-red-500 ml-1">{errors.skillsToLearn}</span>}
                   </div>
 
                   <button
