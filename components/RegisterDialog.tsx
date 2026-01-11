@@ -209,7 +209,7 @@ export default function RegisterDialog({ open, onClose, product }: Props) {
   return (
     <AnimatePresence>
       {open && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center md:p-4">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -222,8 +222,16 @@ export default function RegisterDialog({ open, onClose, product }: Props) {
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="relative z-10 w-full max-w-lg rounded-3xl bg-[#E8EEF1] dark:bg-[#060610] p-8 shadow-2xl overflow-hidden"
+            className="relative z-10 w-full md:max-w-lg h-svh md:h-auto md:max-h-[90vh] md:rounded-3xl bg-[#E8EEF1] dark:bg-[#060610] p-6 md:p-8 shadow-2xl overflow-y-auto flex flex-col"
           >
+            <button 
+              onClick={onClose}
+              className="absolute top-4 right-4 p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/5 transition-colors z-20 md:hidden"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
             <AnimatePresence mode="wait">
               {success ? (
                 <motion.div 
@@ -284,7 +292,7 @@ export default function RegisterDialog({ open, onClose, product }: Props) {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   onSubmit={submit} 
-                  className="flex flex-col gap-5"
+                  className="flex flex-col gap-5 pt-5"
                 >
                   <div className="grid grid-cols-2 gap-4">
                     <div className="flex flex-col gap-1.5">
