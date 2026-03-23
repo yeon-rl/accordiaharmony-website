@@ -110,35 +110,80 @@ const Home = () => {
               />
             </motion.div>
 
-            {/* <motion.div
+            <motion.div
               variants={fadeInUp}
-              className="flex items-center space-x-3"
+              className="w-full mt-10 md:mt-16 flex flex-col md:flex-row items-center md:space-x-8 overflow-hidden"
             >
-              <p className="text-sm mt-2">Partners</p>
-              <div className="flex items-center space-x-2">
-                <Image
-                  src="/images/3.png"
-                  alt="Partners"
-                  width={1000}
-                  height={1000}
-                  className="w-[62px] h-auto"
-                />
-                <Image
-                  src="/images/1.png"
-                  alt="Partners"
-                  width={1000}
-                  height={1000}
-                  className="w-[188px] h-auto"
-                />
-                <Image
-                  src="/images/2.png"
-                  alt="Partners"
-                  width={1000}
-                  height={1000}
-                  className="w-[136px] h-auto"
-                />
+              <p className="text-center md:text-left text-sm md:text-base font-medium text-gray-500 shrink-0 mb-4 md:mb-0">Our Partners</p>
+              <div className="relative flex overflow-hidden w-full [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+                <motion.div
+                  className="flex items-center space-x-8 md:space-x-12 shrink-0 min-w-max"
+                  animate={{ x: ["0%", "-50%"] }}
+                  transition={{ repeat: Infinity, ease: "linear", duration: 60 }}
+                >
+                  {[...Array(2)].map((_, i) => (
+                    <React.Fragment key={i}>
+                      <Image
+                        src="/images/partners1.png"
+                        alt="Partners"
+                        width={200}
+                        height={100}
+                        className="h-12 md:h-16 w-auto object-contain"
+                      />
+                      <Image
+                        src="/images/partners2.png"
+                        alt="Partners"
+                        width={200}
+                        height={100}
+                        className="h-12 md:h-16 w-auto object-contain"
+                      />
+                      <Image
+                        src="/images/partners3.png"
+                        alt="Partners"
+                        width={200}
+                        height={100}
+                        className="h-12 md:h-16 w-auto object-contain"
+                      />
+                      <Image
+                        src="/images/partners4.png"
+                        alt="Partners"
+                        width={200}
+                        height={100}
+                        className="h-12 md:h-16 w-auto object-contain"
+                      />
+                      <Image
+                        src="/images/partners5.png"
+                        alt="Partners"
+                        width={200}
+                        height={100}
+                        className="h-12 md:h-16 w-auto object-contain"
+                      />
+                      <Image
+                        src="/images/partners6.png"
+                        alt="Partners"
+                        width={200}
+                        height={100}
+                        className="h-12 md:h-16 w-auto object-contain"
+                      />
+                      <Image
+                        src="/images/partners7.png"
+                        alt="Partners"
+                        width={200}
+                        height={100}
+                        className="h-12 md:h-16 w-auto object-contain"
+                      />
+                      <Image
+                        src="/images/partners8.png"
+                        alt="Partners"
+                        width={200}
+                        height={100}
+                        className="h-12 md:h-16 w-auto object-contain"
+                      />
+                    </React.Fragment>
+                  ))}
+                </motion.div>
               </div>
-            </motion.div> */}
+            </motion.div>
           </motion.div>
 
           {/* why trust us */}
