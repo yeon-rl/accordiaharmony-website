@@ -123,62 +123,26 @@ const Home = () => {
                 >
                   {[...Array(2)].map((_, i) => (
                     <React.Fragment key={i}>
-                      <Image
-                        src="/images/partners1.png"
-                        alt="Partners"
-                        width={200}
-                        height={100}
-                        className="h-12 md:h-16 w-auto object-contain"
-                      />
-                      <Image
-                        src="/images/partners2.png"
-                        alt="Partners"
-                        width={200}
-                        height={100}
-                        className="h-12 md:h-16 w-auto object-contain"
-                      />
-                      <Image
-                        src="/images/partners3.png"
-                        alt="Partners"
-                        width={200}
-                        height={100}
-                        className="h-12 md:h-16 w-auto object-contain"
-                      />
-                      <Image
-                        src="/images/partners4.png"
-                        alt="Partners"
-                        width={200}
-                        height={100}
-                        className="h-12 md:h-16 w-auto object-contain"
-                      />
-                      <Image
-                        src="/images/partners5.png"
-                        alt="Partners"
-                        width={200}
-                        height={100}
-                        className="h-12 md:h-16 w-auto object-contain"
-                      />
-                      <Image
-                        src="/images/partners6.png"
-                        alt="Partners"
-                        width={200}
-                        height={100}
-                        className="h-12 md:h-16 w-auto object-contain"
-                      />
-                      <Image
-                        src="/images/partners7.png"
-                        alt="Partners"
-                        width={200}
-                        height={100}
-                        className="h-12 md:h-16 w-auto object-contain"
-                      />
-                      <Image
-                        src="/images/partners8.png"
-                        alt="Partners"
-                        width={200}
-                        height={100}
-                        className="h-12 md:h-16 w-auto object-contain"
-                      />
+                      {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+                        <React.Fragment key={num}>
+                          {/* Dark Mode Logo */}
+                          <Image
+                            src={`/images/partners${num}.png`}
+                            alt={`Partner ${num} Dark`}
+                            width={200}
+                            height={100}
+                            className="hidden dark:block h-12 md:h-16 w-auto object-contain"
+                          />
+                          {/* Light Mode Logo */}
+                          <Image
+                            src={`/images/partnerslight${num}.png`}
+                            alt={`Partner ${num} Light`}
+                            width={200}
+                            height={100}
+                            className="block dark:hidden h-12 md:h-16 w-auto object-contain"
+                          />
+                        </React.Fragment>
+                      ))}
                     </React.Fragment>
                   ))}
                 </motion.div>
