@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import Header from "./Header";
 import WhyTrustUs from "./WhyTrustUs";
@@ -15,6 +15,7 @@ import Text from "./Text";
 import Button from "./Button";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import ImpactReportModal from "./ImpactReportModal";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -39,9 +40,27 @@ const staggerChildren = {
 
 const Home = () => {
   const router = useRouter();
+  const [showImpactModal, setShowImpactModal] = useState(false);
+
+  // Open the Impact Report modal 7 seconds after the page loads — only if not already seen
+  useEffect(() => {
+    const alreadySeen = localStorage.getItem("impactModalSeen");
+    if (alreadySeen) return;
+    const timer = setTimeout(() => setShowImpactModal(true), 7000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleCloseImpactModal = () => {
+    localStorage.setItem("impactModalSeen", "true");
+    setShowImpactModal(false);
+  };
 
   return (
     <div className="text-foreground">
+      <ImpactReportModal
+        open={showImpactModal}
+        onClose={handleCloseImpactModal}
+      />
       {/* <RateWebsite /> */}
       <motion.div
         initial={{ opacity: 0 }}
